@@ -1400,6 +1400,22 @@
     .level-price { font-family: 'Poppins', sans-serif; font-weight: 700; color: var(--primary); font-size: 1rem; flex-shrink: 0; margin-left: 8px; }
     .chevron-icon { transition: transform 0.2s; color: var(--text-muted); flex-shrink: 0; }
     .chevron-icon.open { transform: rotate(180deg); }
+
+    /* ===== SELECTOR DE IDIOMA ===== */
+    .lang-switcher { display:flex; align-items:center; gap:4px; margin-left:10px; }
+    .lang-btn {
+      background: none; border: 2px solid transparent; border-radius: 6px;
+      cursor: pointer; padding: 2px 3px; font-size: 1.25rem; line-height:1;
+      transition: border-color 0.2s, transform 0.15s;
+      display:flex; align-items:center;
+    }
+    .lang-btn:hover { border-color: var(--accent); transform: scale(1.15); }
+    .lang-btn.active { border-color: var(--primary); }
+    .lang-btn img { width:22px; height:15px; object-fit:fill; border-radius:2px; display:block; }
+    @media (max-width:767px) {
+      .lang-btn { font-size:1rem; }
+      .lang-btn img { width:18px; height:12px; }
+    }
   </style>
 </head>
 <body>
@@ -1412,20 +1428,25 @@
     <a class="navbar-brand d-flex align-items-center gap-2" href="#">
       <img src="images/logo-camiclean-new.png" alt="Cami Clean Logo" style="height:90px;width:auto;object-fit:contain;" fetchpriority="high" />
     </a>
+    <div class="lang-switcher" id="langSwitcher">
+      <button class="lang-btn" onclick="setLang('es')" title="Español" id="btn-es">🇪🇸</button>
+      <button class="lang-btn" onclick="setLang('ca')" title="Català" id="btn-ca"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 5 9'%3E%3Crect width='5' height='9' fill='%23FCDD09'/%3E%3Crect y='1' width='5' height='1' fill='%23C40A30'/%3E%3Crect y='3' width='5' height='1' fill='%23C40A30'/%3E%3Crect y='5' width='5' height='1' fill='%23C40A30'/%3E%3Crect y='7' width='5' height='1' fill='%23C40A30'/%3E%3C/svg%3E" alt="Català" /></button>
+      <button class="lang-btn" onclick="setLang('en')" title="English" id="btn-en">🇬🇧</button>
+    </div>
     <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navMenu">
       <ul class="navbar-nav ms-auto align-items-center gap-1">
-        <li class="nav-item"><a class="nav-link" href="sofas.html">Sofás</a></li>
-        <li class="nav-item"><a class="nav-link" href="colchones.html">Colchones</a></li>
-        <li class="nav-item"><a class="nav-link" href="alfombras.html">Alfombras</a></li>
-        <li class="nav-item"><a class="nav-link" href="sillas.html">Sillas</a></li>
-        <li class="nav-item"><a class="nav-link" href="#precios">Precios</a></li>
-        <li class="nav-item"><a class="nav-link" href="#ubicacion">Ubicación</a></li>
+        <li class="nav-item"><a class="nav-link" href="sofas.html" data-i18n="nav-sofas">Sofás</a></li>
+        <li class="nav-item"><a class="nav-link" href="colchones.html" data-i18n="nav-colchones">Colchones</a></li>
+        <li class="nav-item"><a class="nav-link" href="alfombras.html" data-i18n="nav-alfombras">Alfombras</a></li>
+        <li class="nav-item"><a class="nav-link" href="sillas.html" data-i18n="nav-sillas">Sillas</a></li>
+        <li class="nav-item"><a class="nav-link" href="#precios" data-i18n="nav-precios">Precios</a></li>
+        <li class="nav-item"><a class="nav-link" href="#ubicacion" data-i18n="nav-ubicacion">Ubicación</a></li>
         <li class="nav-item ms-2">
           <a class="nav-link btn-nav-cta" href="https://wa.me/34631171537?text=Hola%2C%20me%20interesa%20el%20servicio%20de%20limpieza%20de%20tapicería" target="_blank">
-            <i class="bi bi-whatsapp me-1"></i> Reservar Ahora
+            <i class="bi bi-whatsapp me-1"></i> <span data-i18n="nav-cta">Reservar Ahora</span>
           </a>
         </li>
       </ul>
@@ -1446,14 +1467,14 @@
       <div class="col-lg-6">
         <div class="hero-badge">
           <i class="bi bi-award-fill"></i>
-          Tecnología Profesional de Inyección-Extracción
+          <span data-i18n="hero-badge">Tecnología Profesional de Inyección-Extracción</span>
         </div>
         <h1 class="hero-title">
           Sofás y Colchones sin Manchas,<br />
           Ácaros ni Olores <span class="highlight">en 24h</span>
         </h1>
         <p class="hero-subtitle">
-          Limpieza profesional de tapicerías en Barcelona con tecnología de inyección-extracción a 70°C. Resultados garantizados.
+          <span data-i18n="hero-sub">Limpieza profesional de tapicerías en Barcelona con tecnología de inyección-extracción a 70°C. Resultados garantizados.</span>
         </p>
 
         <!-- Imagen máquina + lista de servicios clicables -->
@@ -2554,8 +2575,8 @@
 <section id="ubicacion" style="padding:60px 0;background:#fff;">
   <div class="container">
     <div class="text-center mb-4 reveal">
-      <span class="section-label">Dónde estamos</span>
-      <h2 class="section-title">Nuestra Ubicación</h2>
+      <span class="section-label" data-i18n="sec-donde">Dónde estamos</span>
+      <h2 class="section-title" data-i18n="sec-ubicacion">Nuestra Ubicación</h2>
       <div class="section-divider"></div>
       <p class="section-subtitle">Carrer de les Muses, 41 · 08905 Barcelona</p>
     </div>
@@ -2618,7 +2639,7 @@
       <div class="col-md-2">
         <h6>Empresa</h6>
         <a href="#beneficios">Beneficios</a>
-        <a href="#proceso">Nuestro Proceso</a>
+        <a href="#proceso" data-i18n="sec-proceso">Nuestro Proceso</a>
         <a href="#galeria">Galería</a>
       </div>
       <div class="col-md-3">
@@ -2860,6 +2881,114 @@
       }, 1200);
     }
   })();
+</script>
+
+
+<script>
+// ===== SISTEMA DE TRADUCCIÓN CAMICLEAN =====
+const T = {
+  es: {
+    'nav-sofas':'Sofás','nav-colchones':'Colchones','nav-alfombras':'Alfombras',
+    'nav-sillas':'Sillas','nav-precios':'Precios','nav-ubicacion':'Ubicación',
+    'nav-inicio':'Inicio','nav-cta':'Reservar Ahora','nav-cta-s':'Reservar',
+    // Hero index
+    'hero-badge':'Tecnología Profesional de Inyección-Extracción',
+    'hero-h1':'Sofás y Colchones sin Manchas,<br/>Ácaros ni Olores <span class="highlight">en 24h</span>',
+    'hero-sub':'Limpieza profesional de tapicerías en Barcelona con tecnología de inyección-extracción a 70°C. Resultados garantizados.',
+    'hero-cta1':'Calcular Mi Precio','hero-cta2':'WhatsApp Directo',
+    // Hero sofas
+    'hero-sofas-h1':'Limpieza Profesional de <span class="highlight">Sofás</span> en Barcelona',
+    'hero-sofas-sub':'Eliminamos manchas, olores y ácaros de tu sofá en casa. Tecnología de inyección-extracción a 70°C. Secado en 12-24h.',
+    // Hero colchones
+    'hero-col-h1':'Limpieza Profesional de <span class="highlight">Colchones</span> en Barcelona',
+    'hero-col-sub':'Eliminamos ácaros, bacterias y manchas de tu colchón. Tecnología a 70°C para colchones de todas las medidas. Secado en 12-24h.',
+    // Hero alfombras
+    'hero-alf-h1':'Limpieza Profesional de <span class="highlight">Alfombras</span> en Barcelona',
+    'hero-alf-sub':'Restauramos alfombras de cualquier tipo y tamaño. Eliminamos manchas profundas, pelos de mascota y olores persistentes.',
+    // Hero sillas
+    'hero-sil-h1':'Limpieza de <span class="highlight">Sillas y Tapicerías</span> en Barcelona',
+    'hero-sil-sub':'Limpieza profesional de sillas de comedor, oficina y tapizados. Desde 12€ por silla. Resultados garantizados.',
+    // Sections comunes
+    'sec-galeria':'Galería de Resultados','sec-proceso':'Nuestro Proceso',
+    'sec-garantia':'Garantía Total','sec-eco':'Compromiso Ecológico',
+    'sec-ubicacion':'Nuestra Ubicación','sec-donde':'Dónde estamos',
+    'sec-testimonios':'Lo que dicen nuestros clientes',
+    'cta-reservar':'Reservar por WhatsApp','cta-llamar':'Llamar ahora',
+    'pill-secado':'Secado en 12-24h','pill-ninos':'Seguro para niños y mascotas',
+    'pill-precios':'Precios transparentes','pill-bcn':'Barcelona',
+  },
+  ca: {
+    'nav-sofas':'Sofàs','nav-colchones':'Matalassos','nav-alfombras':'Catifes',
+    'nav-sillas':'Cadires','nav-precios':'Preus','nav-ubicacion':'Ubicació',
+    'nav-inicio':'Inici','nav-cta':'Reservar Ara','nav-cta-s':'Reservar',
+    'hero-badge':'Tecnologia Professional d\'Injecció-Extracció',
+    'hero-h1':'Sofàs i Matalassos sense Taques,<br/>Àcars ni Olors <span class="highlight">en 24h</span>',
+    'hero-sub':'Neteja professional de tapisseries a Barcelona amb tecnologia d\'injecció-extracció a 70°C. Resultats garantits.',
+    'hero-cta1':'Calcular el Meu Preu','hero-cta2':'WhatsApp Directe',
+    'hero-sofas-h1':'Neteja Professional de <span class="highlight">Sofàs</span> a Barcelona',
+    'hero-sofas-sub':'Eliminem taques, olors i àcars del teu sofà a casa. Tecnologia d\'injecció-extracció a 70°C. Assecatge en 12-24h.',
+    'hero-col-h1':'Neteja Professional de <span class="highlight">Matalassos</span> a Barcelona',
+    'hero-col-sub':'Eliminem àcars, bacteris i taques del teu matalàs. Tecnologia a 70°C per a matalassos de totes les mides.',
+    'hero-alf-h1':'Neteja Professional de <span class="highlight">Catifes</span> a Barcelona',
+    'hero-alf-sub':'Restaurem catifes de qualsevol tipus i mida. Eliminem taques profundes, pèls de mascota i olors persistents.',
+    'hero-sil-h1':'Neteja de <span class="highlight">Cadires i Tapisseries</span> a Barcelona',
+    'hero-sil-sub':'Neteja professional de cadires de menjador, oficina i tapissats. Des de 12€ per cadira. Resultats garantits.',
+    'sec-galeria':'Galeria de Resultats','sec-proceso':'El Nostre Procés',
+    'sec-garantia':'Garantia Total','sec-eco':'Compromís Ecològic',
+    'sec-ubicacion':'La Nostra Ubicació','sec-donde':'On som',
+    'sec-testimonios':'El que diuen els nostres clients',
+    'cta-reservar':'Reservar per WhatsApp','cta-llamar':'Trucar ara',
+    'pill-secado':'Assecat en 12-24h','pill-ninos':'Segur per a nens i mascotes',
+    'pill-precios':'Preus transparents','pill-bcn':'Barcelona',
+  },
+  en: {
+    'nav-sofas':'Sofas','nav-colchones':'Mattresses','nav-alfombras':'Carpets',
+    'nav-sillas':'Chairs','nav-precios':'Prices','nav-ubicacion':'Location',
+    'nav-inicio':'Home','nav-cta':'Book Now','nav-cta-s':'Book',
+    'hero-badge':'Professional Injection-Extraction Technology',
+    'hero-h1':'Sofas & Mattresses Free of Stains,<br/>Mites & Odors <span class="highlight">in 24h</span>',
+    'hero-sub':'Professional upholstery cleaning in Barcelona using injection-extraction technology at 70°C. Results guaranteed.',
+    'hero-cta1':'Calculate My Price','hero-cta2':'WhatsApp Direct',
+    'hero-sofas-h1':'Professional <span class="highlight">Sofa</span> Cleaning in Barcelona',
+    'hero-sofas-sub':'We remove stains, odors and mites from your sofa at home. Injection-extraction technology at 70°C. Dry in 12-24h.',
+    'hero-col-h1':'Professional <span class="highlight">Mattress</span> Cleaning in Barcelona',
+    'hero-col-sub':'We eliminate mites, bacteria and stains from your mattress. Technology at 70°C for mattresses of all sizes.',
+    'hero-alf-h1':'Professional <span class="highlight">Carpet</span> Cleaning in Barcelona',
+    'hero-alf-sub':'We restore carpets of any type and size. We remove deep stains, pet hair and persistent odors.',
+    'hero-sil-h1':'<span class="highlight">Chair & Upholstery</span> Cleaning in Barcelona',
+    'hero-sil-sub':'Professional cleaning of dining, office chairs and upholstery. From €12 per chair. Results guaranteed.',
+    'sec-galeria':'Results Gallery','sec-proceso':'Our Process',
+    'sec-garantia':'Total Guarantee','sec-eco':'Eco-Friendly Commitment',
+    'sec-ubicacion':'Our Location','sec-donde':'Where we are',
+    'sec-testimonios':'What our clients say',
+    'cta-reservar':'Book via WhatsApp','cta-llamar':'Call now',
+    'pill-secado':'Dry in 12-24h','pill-ninos':'Safe for kids & pets',
+    'pill-precios':'Transparent prices','pill-bcn':'Barcelona',
+  }
+};
+
+function setLang(lang) {
+  localStorage.setItem('ccLang', lang);
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  const btn = document.getElementById('btn-' + lang);
+  if (btn) btn.classList.add('active');
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (T[lang] && T[lang][key]) {
+      if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+        el.placeholder = T[lang][key];
+      } else {
+        el.innerHTML = T[lang][key];
+      }
+    }
+  });
+}
+
+(function() {
+  const saved = localStorage.getItem('ccLang') || 'es';
+  // Aplicar al cargar
+  document.addEventListener('DOMContentLoaded', function() { setLang(saved); });
+})();
 </script>
 
 </body>
