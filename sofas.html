@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Cami Clean – Limpieza profesional de sofás en Barcelona. Elimina manchas, ácaros y olores en 24h. Tecnología de inyección-extracción. Desde 65€." />
+  <meta name="keywords" content="limpiar sofá Barcelona, limpieza sofá profesional Barcelona, eliminar manchas sofá, desinfectar sofá Barcelona" />
+  <title>Limpieza de Sofás en Barcelona – Cami Clean</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+  <style>
+    :root {
+      --primary:       #1a3a5c;
+      --primary-light: #2563a8;
+      --accent:        #0ea5e9;
+      --accent-dark:   #0284c7;
+      --success:       #16a34a;
+      --warning:       #f59e0b;
+      --light-bg:      #f0f7ff;
+      --dark-bg:       #0f1e2e;
+      --text-dark:     #1e293b;
+      --text-muted:    #64748b;
+      --border:        #e2e8f0;
+      --radius:        12px;
+      --shadow:        0 4px 24px rgba(26,58,92,0.10);
+      --shadow-lg:     0 8px 40px rgba(26,58,92,0.18);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: var(--text-dark); background: #fff; overflow-x: hidden; }
+    h1,h2,h3,h4,h5 { font-family: 'Poppins', sans-serif; font-weight: 700; }
+
+    /* NAVBAR */
+    .navbar { background: rgba(255,255,255,0.97); backdrop-filter: blur(10px); box-shadow: 0 2px 16px rgba(26,58,92,0.08); padding: 12px 0; position: sticky; top: 0; z-index: 1000; }
+    .nav-link { font-weight: 500; color: var(--text-dark) !important; padding: 6px 14px !important; border-radius: 8px; transition: background 0.2s, color 0.2s; }
+    .nav-link:hover { background: var(--light-bg); color: var(--primary) !important; }
+    .nav-link.active-page { background: var(--light-bg); color: var(--primary) !important; font-weight: 600; }
+    .btn-nav-cta { background: var(--primary); color: #fff !important; border-radius: 50px !important; padding: 8px 22px !important; font-weight: 600; transition: background 0.2s; }
+    .btn-nav-cta:hover { background: var(--primary-light); }
+
+    /* HERO */
+    #hero { position: relative; min-height: 80vh; display: flex; align-items: center; overflow: hidden; background: var(--dark-bg); }
+    #hero .hero-bg { position: absolute; inset: 0; background-image: url('images/sofa-rinconera-limpio.jpg'); background-size: cover; background-position: center; opacity: 0.28; z-index: 0; }
+    #hero .hero-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(26,58,92,0.92) 0%, rgba(14,165,233,0.35) 100%); z-index: 1; }
+    #hero .container { position: relative; z-index: 2; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(14,165,233,0.18); border: 1px solid rgba(14,165,233,0.4); color: var(--accent); font-size: 0.82rem; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; padding: 6px 16px; border-radius: 50px; margin-bottom: 20px; }
+    .hero-title { font-size: clamp(1.8rem, 4.5vw, 3rem); color: #fff; line-height: 1.15; margin-bottom: 20px; }
+    .hero-title .highlight { color: var(--accent); }
+    .hero-subtitle { font-size: 1.1rem; color: rgba(255,255,255,0.82); line-height: 1.7; margin-bottom: 32px; max-width: 540px; }
+    .hero-benefit-pill { display: inline-flex; align-items: center; gap: 7px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.2); color: #fff; font-size: 0.88rem; font-weight: 500; padding: 7px 16px; border-radius: 50px; }
+    .hero-benefit-pill i { color: var(--accent); }
+    .btn-hero-primary { background: var(--accent); color: #fff; font-weight: 700; font-size: 1rem; padding: 13px 30px; border-radius: 50px; border: none; box-shadow: 0 4px 20px rgba(14,165,233,0.4); transition: all 0.25s; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+    .btn-hero-primary:hover { background: var(--accent-dark); transform: translateY(-2px); color: #fff; }
+    .btn-hero-wa { background: #25d366; color: #fff; font-weight: 700; font-size: 1rem; padding: 13px 30px; border-radius: 50px; border: none; transition: all 0.25s; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+    .btn-hero-wa:hover { background: #1ebe5d; transform: translateY(-2px); color: #fff; }
+
+    /* CALC CARD */
+    .hero-calc-card { background: rgba(255,255,255,0.97); border-radius: 20px; padding: 30px 26px; box-shadow: var(--shadow-lg); border: 1px solid rgba(14,165,233,0.15); }
+    .hero-calc-card h4 { color: var(--primary); font-size: 1.1rem; margin-bottom: 6px; }
+    .hero-calc-card p { color: var(--text-muted); font-size: 0.87rem; margin-bottom: 18px; }
+    .calc-option { display: flex; align-items: center; justify-content: space-between; padding: 11px 14px; border: 2px solid var(--border); border-radius: 10px; margin-bottom: 9px; cursor: pointer; transition: all 0.2s; background: #fff; }
+    .calc-option:hover, .calc-option.selected { border-color: var(--accent); background: var(--light-bg); }
+    .calc-option input[type="checkbox"] { width: 17px; height: 17px; accent-color: var(--accent); cursor: pointer; }
+    .calc-option label { flex: 1; margin: 0 10px; font-weight: 500; font-size: 0.9rem; cursor: pointer; color: var(--text-dark); }
+    .calc-option .price-tag { font-weight: 700; color: var(--primary); font-size: 0.92rem; }
+    .calc-total-box { background: var(--primary); color: #fff; border-radius: 12px; padding: 14px 18px; display: flex; align-items: center; justify-content: space-between; margin-top: 14px; }
+    .calc-total-box .total-label { font-size: 0.88rem; opacity: 0.85; }
+    .calc-total-box .total-amount { font-family: 'Poppins', sans-serif; font-size: 1.7rem; font-weight: 800; }
+    .btn-calc-wa { width: 100%; background: #25d366; color: #fff; font-weight: 700; font-size: 0.97rem; padding: 13px; border-radius: 12px; border: none; margin-top: 12px; display: flex; align-items: center; justify-content: center; gap: 8px; transition: all 0.2s; text-decoration: none; }
+    .btn-calc-wa:hover { background: #1ebe5d; color: #fff; transform: translateY(-1px); }
+
+    /* TRUST BAR */
+    #trust-bar { background: var(--primary); padding: 16px 0; }
+    .trust-item { display: flex; align-items: center; gap: 10px; color: #fff; font-size: 0.88rem; font-weight: 500; }
+    .trust-item i { font-size: 1.2rem; color: var(--accent); }
+
+    /* SECTION HEADERS */
+    .section-label { display: inline-block; background: var(--light-bg); color: var(--primary-light); font-size: 0.78rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 5px 16px; border-radius: 50px; margin-bottom: 14px; }
+    .section-title { font-size: clamp(1.5rem, 3vw, 2.2rem); color: var(--primary); line-height: 1.2; margin-bottom: 14px; }
+    .section-subtitle { color: var(--text-muted); font-size: 1rem; line-height: 1.7; max-width: 620px; margin: 0 auto; }
+    .section-divider { width: 60px; height: 4px; background: linear-gradient(90deg, var(--accent) 0%, var(--primary-light) 100%); border-radius: 2px; margin: 0 auto 32px; }
+
+    /* GALLERY */
+    #galeria { padding: 80px 0; background: var(--dark-bg); }
+    #galeria .section-title { color: #fff; }
+    #galeria .section-subtitle { color: rgba(255,255,255,0.65); }
+    #galeria .section-label { background: rgba(14,165,233,0.15); color: var(--accent); }
+    .gallery-item { border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-lg); }
+    .gallery-item img { width: 100%; height: 300px; object-fit: cover; display: block; transition: transform 0.4s; }
+    .gallery-item:hover img { transform: scale(1.03); }
+    .gallery-caption { background: rgba(26,58,92,0.9); padding: 12px 16px; color: #fff; font-size: 0.88rem; font-weight: 500; }
+    .gallery-caption i { color: var(--accent); }
+
+    /* MAIN CALCULATOR */
+    #calculadora { padding: 80px 0; background: #fff; }
+    .calc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 13px; margin-bottom: 24px; }
+    .calc-service-card { border: 2px solid var(--border); border-radius: var(--radius); padding: 16px 18px; cursor: pointer; transition: all 0.2s; background: #fff; display: flex; align-items: center; gap: 13px; }
+    .calc-service-card:hover, .calc-service-card.selected { border-color: var(--accent); background: var(--light-bg); }
+    .calc-service-card.selected { box-shadow: 0 0 0 3px rgba(14,165,233,0.15); }
+    .calc-service-card input[type="checkbox"] { width: 20px; height: 20px; accent-color: var(--accent); cursor: pointer; flex-shrink: 0; }
+    .calc-service-info { flex: 1; }
+    .calc-service-info .name { font-weight: 600; font-size: 0.92rem; color: var(--text-dark); display: block; }
+    .calc-service-info .time { font-size: 0.78rem; color: var(--text-muted); }
+    .calc-service-price { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 1.05rem; color: var(--primary); }
+    .calc-summary { background: var(--primary); border-radius: 20px; padding: 30px; color: #fff; }
+    .calc-summary h4 { color: #fff; margin-bottom: 18px; }
+    .calc-summary-item { display: flex; justify-content: space-between; padding: 9px 0; border-bottom: 1px solid rgba(255,255,255,0.12); font-size: 0.9rem; }
+    .calc-summary-total { display: flex; justify-content: space-between; align-items: center; padding-top: 16px; }
+    .calc-summary-total .label { font-size: 1rem; font-weight: 600; opacity: 0.85; }
+    .calc-summary-total .amount { font-family: 'Poppins', sans-serif; font-size: 2.2rem; font-weight: 800; color: var(--accent); }
+    .btn-wa-full { width: 100%; background: #25d366; color: #fff; font-weight: 700; font-size: 1rem; padding: 15px; border-radius: 14px; border: none; margin-top: 18px; display: flex; align-items: center; justify-content: center; gap: 10px; transition: all 0.2s; text-decoration: none; }
+    .btn-wa-full:hover { background: #1ebe5d; color: #fff; transform: translateY(-2px); }
+    .pack-promo { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); border-radius: var(--radius); padding: 14px 18px; color: #fff; display: flex; align-items: center; gap: 12px; margin-top: 14px; }
+    .pack-promo i { font-size: 1.4rem; }
+    .pack-promo strong { display: block; font-size: 0.92rem; }
+    .pack-promo span { font-size: 0.8rem; opacity: 0.9; }
+
+    /* PROCESO */
+    #proceso { padding: 80px 0; background: var(--light-bg); }
+    .proceso-step { display: flex; gap: 18px; align-items: flex-start; padding: 22px; background: #fff; border-radius: var(--radius); box-shadow: var(--shadow); height: 100%; transition: transform 0.2s; }
+    .proceso-step:hover { transform: translateY(-3px); }
+    .step-number { flex-shrink: 0; width: 48px; height: 48px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); border-radius: 13px; display: flex; align-items: center; justify-content: center; font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 1.2rem; color: #fff; }
+    .step-content h5 { color: var(--primary); font-size: 0.97rem; margin-bottom: 5px; }
+    .step-content p { color: var(--text-muted); font-size: 0.86rem; line-height: 1.6; margin: 0; }
+
+    /* GARANTÍA */
+    #garantia { padding: 80px 0; background: #fff; }
+    .garantia-card { background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); border: 2px solid #86efac; border-radius: 24px; padding: 44px 36px; text-align: center; }
+    .garantia-icon { width: 90px; height: 90px; background: linear-gradient(135deg, var(--success) 0%, #15803d 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 22px; box-shadow: 0 8px 32px rgba(22,163,74,0.3); }
+    .garantia-icon i { font-size: 2.5rem; color: #fff; }
+    .garantia-card h3 { color: #15803d; font-size: 1.6rem; margin-bottom: 14px; }
+    .garantia-card p { color: #166534; font-size: 1rem; line-height: 1.7; max-width: 540px; margin: 0 auto; }
+    .garantia-point { display: inline-flex; align-items: center; gap: 8px; background: #fff; border: 1px solid #86efac; border-radius: 50px; padding: 7px 18px; font-size: 0.88rem; font-weight: 600; color: #15803d; }
+    .garantia-point i { color: var(--success); }
+
+    /* TESTIMONIOS */
+    #testimonios { padding: 80px 0; background: var(--dark-bg); }
+    #testimonios .section-title { color: #fff; }
+    #testimonios .section-label { background: rgba(14,165,233,0.15); color: var(--accent); }
+    .testimonio-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 26px 22px; height: 100%; transition: all 0.2s; }
+    .testimonio-card:hover { background: rgba(255,255,255,0.1); border-color: rgba(14,165,233,0.3); }
+    .testimonio-text { color: rgba(255,255,255,0.85); font-size: 0.92rem; line-height: 1.7; margin-bottom: 18px; font-style: italic; }
+    .author-avatar { width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.95rem; color: #fff; flex-shrink: 0; }
+    .author-name { font-weight: 600; color: #fff; font-size: 0.9rem; }
+    .author-location { font-size: 0.78rem; color: rgba(255,255,255,0.5); }
+
+    /* FAQ */
+    #faq { padding: 80px 0; background: var(--light-bg); }
+    .accordion-item { border: 1px solid var(--border) !important; border-radius: var(--radius) !important; margin-bottom: 9px; overflow: hidden; }
+    .accordion-button { font-weight: 600; font-size: 0.95rem; color: var(--primary) !important; background: #fff !important; padding: 17px 20px; }
+    .accordion-button:not(.collapsed) { color: var(--primary-light) !important; background: var(--light-bg) !important; box-shadow: none !important; }
+    .accordion-body { color: var(--text-muted); font-size: 0.9rem; line-height: 1.7; background: #fff; padding: 14px 20px 18px; }
+
+    /* CTA FINAL */
+    #cta-final { padding: 90px 0; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 50%, var(--accent-dark) 100%); position: relative; overflow: hidden; }
+    #cta-final::before { content: ''; position: absolute; top: -50%; right: -10%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(14,165,233,0.2) 0%, transparent 70%); pointer-events: none; }
+    #cta-final .container { position: relative; z-index: 1; }
+    #cta-final h2 { color: #fff; font-size: clamp(1.6rem, 3.5vw, 2.5rem); margin-bottom: 14px; }
+    #cta-final p { color: rgba(255,255,255,0.8); font-size: 1.05rem; margin-bottom: 32px; }
+
+    /* FOOTER */
+    footer { background: #0a1628; color: rgba(255,255,255,0.7); padding: 44px 0 22px; }
+    footer h6 { color: #fff; font-weight: 600; margin-bottom: 13px; font-size: 0.88rem; text-transform: uppercase; letter-spacing: 0.5px; }
+    footer a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.86rem; display: block; margin-bottom: 7px; transition: color 0.2s; }
+    footer a:hover { color: var(--accent); }
+    footer p { font-size: 0.86rem; line-height: 1.7; }
+    .footer-divider { border-color: rgba(255,255,255,0.1); margin: 28px 0 18px; }
+    .footer-bottom { font-size: 0.8rem; color: rgba(255,255,255,0.4); }
+
+    /* WHATSAPP FLOTANTE */
+    .whatsapp-float { position: fixed; bottom: 28px; right: 28px; z-index: 9999; width: 58px; height: 58px; background: #25d366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37,211,102,0.5); text-decoration: none; animation: wa-pulse 2.5s infinite; transition: transform 0.2s; }
+    .whatsapp-float:hover { transform: scale(1.1); animation: none; }
+    .whatsapp-float i { font-size: 1.8rem; color: #fff; }
+    @keyframes wa-pulse { 0% { box-shadow: 0 0 0 0 rgba(37,211,102,0.6); } 70% { box-shadow: 0 0 0 16px rgba(37,211,102,0); } 100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); } }
+
+    /* REVEAL */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 768px) {
+      #hero { min-height: auto; padding: 70px 0 50px; }
+      .hero-title { font-size: 1.7rem; }
+      .hero-calc-card { margin-top: 36px; }
+      .calc-grid { grid-template-columns: 1fr; }
+      .garantia-card { padding: 28px 18px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+      <img src="images/logo-real.png" alt="Cami Clean Logo" style="height:50px;width:auto;object-fit:contain;" />
+    </a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto align-items-center gap-1">
+        <li class="nav-item"><a class="nav-link active-page" href="sofas.html">Sofás</a></li>
+        <li class="nav-item"><a class="nav-link" href="colchones.html">Colchones</a></li>
+        <li class="nav-item"><a class="nav-link" href="alfombras.html">Alfombras</a></li>
+        <li class="nav-item"><a class="nav-link" href="sillas.html">Sillas</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+        <li class="nav-item ms-2">
+          <a class="nav-link btn-nav-cta" href="https://wa.me/34631171537?text=Hola%2C%20me%20interesa%20limpiar%20mi%20sof%C3%A1" target="_blank">
+            <i class="bi bi-whatsapp me-1"></i> Reservar
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="container py-5">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <div class="hero-badge"><i class="bi bi-award-fill"></i> Especialistas en sofás · Barcelona</div>
+        <h1 class="hero-title">Limpieza Profesional de <span class="highlight">Sofás</span> en Barcelona</h1>
+        <p class="hero-subtitle">Eliminamos manchas, ácaros y olores con tecnología de inyección-extracción a 70°C. Resultados garantizados o te devolvemos el dinero.</p>
+        <div class="d-flex flex-wrap gap-2 mb-4">
+          <span class="hero-benefit-pill"><i class="bi bi-check-circle-fill"></i> Seca en 3–4h</span>
+          <span class="hero-benefit-pill"><i class="bi bi-shield-check"></i> Garantía 100%</span>
+          <span class="hero-benefit-pill"><i class="bi bi-clock"></i> Cita en 24h</span>
+          <span class="hero-benefit-pill"><i class="bi bi-geo-alt-fill"></i> A domicilio</span>
+        </div>
+        <div class="d-flex flex-wrap gap-3">
+          <a href="#calculadora" class="btn-hero-primary"><i class="bi bi-calculator"></i> Calcular precio</a>
+          <a href="https://wa.me/34631171537?text=Hola%2C%20quiero%20limpiar%20mi%20sof%C3%A1" target="_blank" class="btn-hero-wa"><i class="bi bi-whatsapp"></i> WhatsApp</a>
+        </div>
+      </div>
+      <div class="col-lg-5 offset-lg-1">
+        <div class="hero-calc-card">
+          <h4><i class="bi bi-calculator me-2" style="color:var(--accent);"></i>Precio aproximado</h4>
+          <p>Selecciona tu sofá para ver el coste</p>
+          <div id="heroCalcOptions">
+            <div class="calc-option" onclick="toggleHeroCalc(this, 65)">
+              <input type="checkbox" id="hc1" value="65" />
+              <label for="hc1">Sofá 2 plazas</label>
+              <span class="price-tag">65€</span>
+            </div>
+            <div class="calc-option" onclick="toggleHeroCalc(this, 75)">
+              <input type="checkbox" id="hc2" value="75" />
+              <label for="hc2">Sofá 3 plazas</label>
+              <span class="price-tag">75€</span>
+            </div>
+            <div class="calc-option" onclick="toggleHeroCalc(this, 95)">
+              <input type="checkbox" id="hc3" value="95" />
+              <label for="hc3">Sofá rinconera</label>
+              <span class="price-tag">95€</span>
+            </div>
+            <div class="calc-option" onclick="toggleHeroCalc(this, 60)">
+              <input type="checkbox" id="hc4" value="60" />
+              <label for="hc4">Sillón individual</label>
+              <span class="price-tag">60€</span>
+            </div>
+            <!-- PROMO CRUZADA -->
+            <div class="calc-option" onclick="toggleHeroCalc(this, 50)" style="border-color:#f59e0b;background:#fffbf0;">
+              <input type="checkbox" id="hc5" value="50" />
+              <label for="hc5" style="color:#92400e;"><i class="bi bi-tag-fill me-1" style="color:#f59e0b;"></i>+ Colchón (promo)</label>
+              <span class="price-tag" style="color:#92400e;">50€</span>
+            </div>
+          </div>
+          <div class="calc-total-box">
+            <span class="total-label">Total estimado</span>
+            <span class="total-amount" id="heroTotal">0€</span>
+          </div>
+          <a href="#" id="heroWaBtn" class="btn-calc-wa" onclick="openHeroWA(event)">
+            <i class="bi bi-whatsapp"></i> Reservar por WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div id="trust-bar">
+  <div class="container">
+    <div class="row g-3 justify-content-center text-center">
+      <div class="col-6 col-md-3"><div class="trust-item justify-content-center"><i class="bi bi-star-fill"></i><span>+500 sofás limpiados</span></div></div>
+      <div class="col-6 col-md-3"><div class="trust-item justify-content-center"><i class="bi bi-shield-check"></i><span>Garantía total</span></div></div>
+      <div class="col-6 col-md-3"><div class="trust-item justify-content-center"><i class="bi bi-clock"></i><span>Cita en 24h</span></div></div>
+      <div class="col-6 col-md-3"><div class="trust-item justify-content-center"><i class="bi bi-geo-alt-fill"></i><span>Servicio a domicilio</span></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- GALERÍA -->
+<section id="galeria">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <span class="section-label">Antes y después</span>
+      <h2 class="section-title" style="color:#fff;">Resultados en Sofás</h2>
+      <div class="section-divider"></div>
+      <p class="section-subtitle">Fotografías reales de trabajos realizados en Barcelona</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="gallery-item">
+          <img src="images/sofa-rinconera-limpio.jpg" alt="Sofá rinconera limpio" />
+          <div class="gallery-caption"><i class="bi bi-check-circle-fill me-2"></i>Rinconera — Resultado final</div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="gallery-item">
+          <img src="images/sofa-rinconera-limpio2.jpg" alt="Sofá limpio resultado" />
+          <div class="gallery-caption"><i class="bi bi-check-circle-fill me-2"></i>Sofá 3 plazas — Sin manchas</div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="gallery-item">
+          <img src="images/sofa-detalle-limpio.jpg" alt="Detalle sofá limpio" />
+          <div class="gallery-caption"><i class="bi bi-check-circle-fill me-2"></i>Detalle de tejido restaurado</div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="gallery-item">
+          <img src="images/tecnico-limpiando-sofa1.jpg" alt="Técnico limpiando sofá" />
+          <div class="gallery-caption"><i class="bi bi-tools me-2"></i>Proceso de inyección-extracción</div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="gallery-item">
+          <img src="images/tecnico-limpiando-sofa2.jpg" alt="Limpieza profesional sofá" />
+          <div class="gallery-caption"><i class="bi bi-tools me-2"></i>Equipo profesional a domicilio</div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="gallery-item">
+          <img src="images/sofa-cama-sucio.jpg" alt="Antes de limpieza" />
+          <div class="gallery-caption"><i class="bi bi-arrow-right me-2"></i>Antes → Después</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CALCULADORA COMPLETA -->
+<section id="calculadora">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <span class="section-label">Presupuesto online</span>
+      <h2 class="section-title">Calcula tu Precio</h2>
+      <div class="section-divider"></div>
+      <p class="section-subtitle">Selecciona los servicios y obtén tu presupuesto al instante. Combina sofá con otros artículos y ahorra un 15%.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-lg-7">
+        <div class="calc-grid" id="mainCalcGrid">
+          <div class="calc-service-card" onclick="toggleMainCalc(this, 65, 'Sofá 2 plazas', '90 min')">
+            <input type="checkbox" id="mc1" />
+            <div class="calc-service-info"><span class="name">Sofá 2 plazas</span><span class="time"><i class="bi bi-clock me-1"></i>~90 min</span></div>
+            <span class="calc-service-price">65€</span>
+          </div>
+          <div class="calc-service-card" onclick="toggleMainCalc(this, 75, 'Sofá 3 plazas', '2h')">
+            <input type="checkbox" id="mc2" />
+            <div class="calc-service-info"><span class="name">Sofá 3 plazas</span><span class="time"><i class="bi bi-clock me-1"></i>~2h</span></div>
+            <span class="calc-service-price">75€</span>
+          </div>
+          <div class="calc-service-card" onclick="toggleMainCalc(this, 95, 'Sofá rinconera', '2.5h')">
+            <input type="checkbox" id="mc3" />
+            <div class="calc-service-info"><span class="name">Sofá rinconera / chaise longue</span><span class="time"><i class="bi bi-clock me-1"></i>~2.5h</span></div>
+            <span class="calc-service-price">95€</span>
+          </div>
+          <div class="calc-service-card" onclick="toggleMainCalc(this, 60, 'Sillón individual', '45 min')">
+            <input type="checkbox" id="mc4" />
+            <div class="calc-service-info"><span class="name">Sillón individual</span><span class="time"><i class="bi bi-clock me-1"></i>~45 min</span></div>
+            <span class="calc-service-price">60€</span>
+          </div>
+          <!-- ARTÍCULOS CRUZADOS -->
+          <div class="calc-service-card" onclick="toggleMainCalc(this, 55, 'Colchón 90cm', '1h')" style="border-color:#f59e0b;background:#fffbf0;">
+            <input type="checkbox" id="mc5" />
+            <div class="calc-service-info"><span class="name" style="color:#92400e;"><i class="bi bi-tag-fill me-1" style="color:#f59e0b;"></i>Colchón 90cm (promo)</span><span class="time">Combina y ahorra 15%</span></div>
+            <span class="calc-service-price" style="color:#92400e;">55€</span>
+          </div>
+          <div class="calc-service-card" onclick="toggleMainCalc(this, 65, 'Colchón 150cm', '1.5h')" style="border-color:#f59e0b;background:#fffbf0;">
+            <input type="checkbox" id="mc6" />
+            <div class="calc-service-info"><span class="name" style="color:#92400e;"><i class="bi bi-tag-fill me-1" style="color:#f59e0b;"></i>Colchón 150cm (promo)</span><span class="time">Combina y ahorra 15%</span></div>
+            <span class="calc-service-price" style="color:#92400e;">65€</span>
+          </div>
+          <div class="calc-service-card" onclick="toggleMainCalc(this, 50, 'Alfombra pequeña', '1h')" style="border-color:#f59e0b;background:#fffbf0;">
+            <input type="checkbox" id="mc7" />
+            <div class="calc-service-info"><span class="name" style="color:#92400e;"><i class="bi bi-tag-fill me-1" style="color:#f59e0b;"></i>Alfombra pequeña (promo)</span><span class="time">Combina y ahorra 15%</span></div>
+            <span class="calc-service-price" style="color:#92400e;">50€</span>
+          </div>
+          <div class="calc-service-card" onclick="toggleMainCalc(this, 12, 'Silla comedor (x1)', '20 min')">
+            <input type="checkbox" id="mc8" />
+            <div class="calc-service-info"><span class="name">Silla de comedor (x1)</span><span class="time"><i class="bi bi-clock me-1"></i>~20 min</span></div>
+            <span class="calc-service-price">12€</span>
+          </div>
+        </div>
+        <div class="pack-promo">
+          <i class="bi bi-lightning-charge-fill"></i>
+          <div>
+            <strong>Pack Ahorro — 15% de descuento</strong>
+            <span>Combina sofá + colchón o alfombra y ahorra automáticamente</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <div class="calc-summary">
+          <h4><i class="bi bi-receipt me-2"></i>Tu presupuesto</h4>
+          <div id="mainCalcItems">
+            <p style="opacity:0.6;font-size:0.88rem;text-align:center;padding:18px 0;">Selecciona servicios para ver el resumen</p>
+          </div>
+          <div class="calc-summary-total">
+            <span class="label">Total estimado</span>
+            <span class="amount" id="mainTotal">0€</span>
+          </div>
+          <p style="font-size:0.78rem;opacity:0.6;margin-top:10px;line-height:1.5;">*Precios orientativos. Confirmación definitiva tras inspección.</p>
+          <a href="#" id="mainWaBtn" class="btn-wa-full" onclick="openMainWA(event)">
+            <i class="bi bi-whatsapp"></i> Reservar por WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESO -->
+<section id="proceso">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <span class="section-label">Cómo trabajamos</span>
+      <h2 class="section-title">Proceso de Limpieza de Sofás</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3 reveal">
+        <div class="proceso-step">
+          <div class="step-number">1</div>
+          <div class="step-content"><h5>Inspección del tejido</h5><p>Analizamos el tipo de tela y el nivel de suciedad para elegir el tratamiento adecuado.</p></div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3 reveal">
+        <div class="proceso-step">
+          <div class="step-number">2</div>
+          <div class="step-content"><h5>Pre-tratamiento</h5><p>Aplicamos solución desengrasante específica sobre manchas y zonas de mayor contacto.</p></div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3 reveal">
+        <div class="proceso-step">
+          <div class="step-number">3</div>
+          <div class="step-content"><h5>Inyección-extracción</h5><p>Inyectamos agua caliente a 70°C y extraemos la suciedad al instante con máquina profesional.</p></div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3 reveal">
+        <div class="proceso-step">
+          <div class="step-number">4</div>
+          <div class="step-content"><h5>Secado rápido</h5><p>El sofá queda listo para usar en 3–4 horas. Dejamos protector antimancha de regalo.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GARANTÍA -->
+<section id="garantia">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-9 reveal">
+        <div class="garantia-card">
+          <div class="garantia-icon"><i class="bi bi-shield-check"></i></div>
+          <h3>Garantía Total en Sofás</h3>
+          <p>Si no quedas 100% satisfecho con la limpieza de tu sofá, volvemos sin coste adicional o te devolvemos el dinero. Sin letra pequeña.</p>
+          <div class="d-flex flex-wrap justify-content-center gap-3 mt-4">
+            <span class="garantia-point"><i class="bi bi-check-lg"></i>Sin manchas visibles</span>
+            <span class="garantia-point"><i class="bi bi-check-lg"></i>Sin olor residual</span>
+            <span class="garantia-point"><i class="bi bi-check-lg"></i>Tejido sin daños</span>
+            <span class="garantia-point"><i class="bi bi-check-lg"></i>Protector incluido</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIOS -->
+<section id="testimonios">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <span class="section-label">Lo que dicen nuestros clientes</span>
+      <h2 class="section-title">Opiniones sobre limpieza de sofás</h2>
+      <div class="section-divider" style="background:linear-gradient(90deg,var(--accent),rgba(14,165,233,0.3));"></div>
+      <div class="d-inline-flex align-items-center gap-3 mt-3 px-4 py-3 rounded-3" style="background:#fff;box-shadow:var(--shadow);border:1px solid var(--border);">
+        <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google" style="height:20px;width:auto;" />
+        <span style="font-size:1.2rem;font-weight:800;color:var(--text-dark);">5.0</span>
+        <span style="color:#fbbc04;font-size:1.1rem;">★★★★★</span>
+        <span style="color:var(--text-muted);font-size:0.85rem;">47 reseñas</span>
+      </div>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="testimonio-card" style="border:1px solid rgba(255,255,255,0.15);">
+          <div class="d-flex align-items-center justify-content-between mb-3">
+            <div class="d-flex align-items-center gap-2">
+              <div class="author-avatar" style="background:#ea4335;">MG</div>
+              <div><div class="author-name">María García</div><div class="author-location">Gràcia, Barcelona</div></div>
+            </div>
+            <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google" style="height:14px;opacity:0.7;" />
+          </div>
+          <div style="color:#fbbc04;font-size:0.95rem;margin-bottom:6px;">★★★★★</div>
+          <div style="font-size:0.73rem;color:rgba(255,255,255,0.4);margin-bottom:10px;">hace 2 semanas</div>
+          <p class="testimonio-text" style="margin:0;">"Manchas de café que pensaba que eran permanentes. El sofá quedó como nuevo. Técnico muy profesional y el secado rapidísimo."</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="testimonio-card" style="border:1px solid rgba(255,255,255,0.15);">
+          <div class="d-flex align-items-center justify-content-between mb-3">
+            <div class="d-flex align-items-center gap-2">
+              <div class="author-avatar" style="background:#34a853;">AP</div>
+              <div><div class="author-name">Ana Puig</div><div class="author-location">Sarrià, Barcelona</div></div>
+            </div>
+            <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google" style="height:14px;opacity:0.7;" />
+          </div>
+          <div style="color:#fbbc04;font-size:0.95rem;margin-bottom:6px;">★★★★★</div>
+          <div style="font-size:0.73rem;color:rgba(255,255,255,0.4);margin-bottom:10px;">hace 3 semanas</div>
+          <p class="testimonio-text" style="margin:0;">"Dos perros y el olor era insoportable. Después de la limpieza desapareció completamente. Ya hemos reservado para el colchón."</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="testimonio-card" style="border:1px solid rgba(255,255,255,0.15);">
+          <div class="d-flex align-items-center justify-content-between mb-3">
+            <div class="d-flex align-items-center gap-2">
+              <div class="author-avatar" style="background:#fbbc04;color:#333;">CS</div>
+              <div><div class="author-name">Carlos Sánchez</div><div class="author-location">Les Corts, Barcelona</div></div>
+            </div>
+            <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google" style="height:14px;opacity:0.7;" />
+          </div>
+          <div style="color:#fbbc04;font-size:0.95rem;margin-bottom:6px;">★★★★★</div>
+          <div style="font-size:0.73rem;color:rgba(255,255,255,0.4);margin-bottom:10px;">hace 2 meses</div>
+          <p class="testimonio-text" style="margin:0;">"Mi rinconera parecía nueva. Precio muy competitivo. Repetiré sin duda el año que viene."</p>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-4 reveal">
+      <a href="https://maps.app.goo.gl/bFzdxiphkrCC33h27" target="_blank" class="btn px-4 py-2 rounded-pill" style="background:var(--accent);color:#fff;font-weight:600;border:none;">
+        <i class="bi bi-google me-2"></i>Ver todas las reseñas
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <span class="section-label">Preguntas frecuentes</span>
+      <h2 class="section-title">Dudas sobre limpieza de sofás</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="accordion" id="faqAccordion">
+          <div class="accordion-item">
+            <h2 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">¿Cuánto tarda en secar el sofá?</button></h2>
+            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">El sofá queda seco en 3–4 horas. Puedes usarlo el mismo día. Recomendamos dejarlo ventilar con la ventana abierta para acelerar el proceso.</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">¿Se pueden limpiar todos los tipos de tela?</button></h2>
+            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">Trabajamos con microfibra, terciopelo, lino, algodón y la mayoría de tejidos sintéticos. Antes de empezar siempre hacemos una prueba en una zona oculta para garantizar la seguridad del tejido.</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">¿El servicio es a domicilio?</button></h2>
+            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">Sí, siempre. Nuestro equipo viene a tu casa con todo el material necesario. No tienes que mover el sofá ni llevar nada a ningún sitio.</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">¿Con qué frecuencia debo limpiar el sofá?</button></h2>
+            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">Recomendamos una limpieza profesional cada 12–18 meses para mantenerlo en óptimas condiciones. Si tienes mascotas o niños pequeños, cada 6–12 meses.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section id="cta-final">
+  <div class="container text-center">
+    <div class="reveal">
+      <h2>¿Listo para tener un sofá como nuevo?</h2>
+      <p>Reserva ahora por WhatsApp y te damos cita en menos de 24h en Barcelona.</p>
+      <div class="d-flex flex-wrap justify-content-center gap-3">
+        <a href="https://wa.me/34631171537?text=Hola%2C%20quiero%20reservar%20limpieza%20de%20sof%C3%A1" target="_blank" class="btn-hero-wa" style="font-size:1.05rem;padding:14px 32px;">
+          <i class="bi bi-whatsapp"></i> Reservar por WhatsApp
+        </a>
+        <a href="tel:+34631171537" class="btn-hero-primary" style="background:rgba(255,255,255,0.15);border:2px solid rgba(255,255,255,0.4);font-size:1.05rem;padding:14px 32px;">
+          <i class="bi bi-telephone"></i> +34 631 17 15 37
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-md-4">
+        <img src="images/logo-real.png" alt="Cami Clean" style="height:42px;width:auto;filter:brightness(0) invert(1);margin-bottom:12px;" />
+        <p>Limpieza profesional de sofás en Barcelona. A domicilio, resultados garantizados.</p>
+        <address style="font-style:normal;font-size:0.83rem;color:rgba(255,255,255,0.5);line-height:1.7;">
+          <i class="bi bi-geo-alt-fill me-1" style="color:var(--accent);"></i> Carrer de les Muses, 41 · 08905 Barcelona<br/>
+          <i class="bi bi-telephone-fill me-1" style="color:var(--accent);"></i> +34 631 17 15 37<br/>
+          <i class="bi bi-clock-fill me-1" style="color:var(--accent);"></i> Lun–Vie: 9:00–18:00 · Sáb: 9:00–12:00
+        </address>
+      </div>
+      <div class="col-md-2 offset-md-1">
+        <h6>Servicios</h6>
+        <a href="sofas.html">Limpieza de Sofás</a>
+        <a href="colchones.html">Limpieza de Colchones</a>
+        <a href="alfombras.html">Limpieza de Alfombras</a>
+        <a href="sillas.html">Sillas de Comedor</a>
+        <a href="index.html">Inicio</a>
+      </div>
+      <div class="col-md-2">
+        <h6>Empresa</h6>
+        <a href="#galeria">Galería</a>
+        <a href="#proceso">Nuestro Proceso</a>
+        <a href="#garantia">Garantía</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <div class="col-md-3">
+        <h6>Contacto</h6>
+        <a href="https://wa.me/34631171537" target="_blank"><i class="bi bi-whatsapp me-2"></i>WhatsApp</a>
+        <a href="mailto:hola@camiclean.es"><i class="bi bi-envelope me-2"></i>hola@camiclean.es</a>
+        <a href="https://maps.app.goo.gl/bFzdxiphkrCC33h27" target="_blank"><i class="bi bi-geo-alt me-2"></i>Barcelona</a>
+      </div>
+    </div>
+    <hr class="footer-divider" />
+    <div class="d-flex flex-wrap justify-content-between align-items-center gap-2">
+      <p class="footer-bottom mb-0">© 2025 Cami Clean. Todos los derechos reservados.</p>
+      <p class="footer-bottom mb-0">Limpieza de sofás en Barcelona</p>
+    </div>
+  </div>
+</footer>
+
+<!-- COOKIES -->
+<div id="cookieBanner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#0f1e2e;color:#fff;padding:16px 22px;box-shadow:0 -4px 24px rgba(0,0,0,0.25);">
+  <div style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;">
+    <p style="margin:0;font-size:0.88rem;line-height:1.6;flex:1;min-width:240px;">
+      <i class="bi bi-shield-lock-fill me-2" style="color:var(--accent);"></i>
+      Usamos cookies para mejorar tu experiencia.
+      <a href="#" style="color:var(--accent);text-decoration:underline;margin-left:4px;">Política de cookies</a>
+    </p>
+    <div style="display:flex;gap:10px;flex-shrink:0;">
+      <button onclick="setCookies('rejected')" style="background:transparent;border:1px solid rgba(255,255,255,0.3);color:#fff;padding:8px 18px;border-radius:50px;font-size:0.85rem;cursor:pointer;">Rechazar</button>
+      <button onclick="setCookies('accepted')" style="background:var(--accent);border:none;color:#fff;padding:8px 22px;border-radius:50px;font-weight:600;font-size:0.85rem;cursor:pointer;">Aceptar</button>
+    </div>
+  </div>
+</div>
+
+<!-- WHATSAPP FLOTANTE -->
+<a href="https://wa.me/34631171537?text=Hola%2C%20me%20interesa%20limpiar%20mi%20sof%C3%A1" target="_blank" class="whatsapp-float" title="Contactar por WhatsApp">
+  <i class="bi bi-whatsapp"></i>
+</a>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  let heroTotal = 0;
+  const heroSelections = {};
+
+  function toggleHeroCalc(el, price) {
+    const cb = el.querySelector('input[type="checkbox"]');
+    cb.checked = !cb.checked;
+    const id = cb.id;
+    if (cb.checked) { el.classList.add('selected'); heroSelections[id] = price; }
+    else { el.classList.remove('selected'); delete heroSelections[id]; }
+    heroTotal = Object.values(heroSelections).reduce((a,b) => a+b, 0);
+    document.getElementById('heroTotal').textContent = heroTotal + '€';
+  }
+
+  function openHeroWA(e) {
+    e.preventDefault();
+    if (Object.keys(heroSelections).length === 0) { alert('Selecciona al menos un servicio.'); return; }
+    const labels = Array.from(document.querySelectorAll('#heroCalcOptions .calc-option.selected label')).map(l => l.textContent.trim());
+    const msg = encodeURIComponent('Hola, me interesa la limpieza de sofá. Servicios: ' + labels.join(', ') + '. Total: ' + heroTotal + '€. ¿Podéis confirmar disponibilidad?');
+    window.open('https://wa.me/34631171537?text=' + msg, '_blank');
+  }
+
+  const mainSelections = {};
+
+  function toggleMainCalc(el, price, name, time) {
+    const cb = el.querySelector('input[type="checkbox"]');
+    cb.checked = !cb.checked;
+    const id = cb.id;
+    if (cb.checked) { el.classList.add('selected'); mainSelections[id] = { price, name, time }; }
+    else { el.classList.remove('selected'); delete mainSelections[id]; }
+    updateMainCalc();
+  }
+
+  function updateMainCalc() {
+    const items = Object.values(mainSelections);
+    let total = items.reduce((a,b) => a + b.price, 0);
+    const hasSofa = mainSelections['mc1'] || mainSelections['mc2'] || mainSelections['mc3'] || mainSelections['mc4'];
+    const hasExtra = mainSelections['mc5'] || mainSelections['mc6'] || mainSelections['mc7'];
+    let discount = 0;
+    if (hasSofa && hasExtra) { discount = Math.round(total * 0.15); total -= discount; }
+    const container = document.getElementById('mainCalcItems');
+    if (items.length === 0) {
+      container.innerHTML = '<p style="opacity:0.6;font-size:0.87rem;text-align:center;padding:16px 0;">Selecciona servicios para ver el resumen</p>';
+    } else {
+      let html = '';
+      items.forEach(i => { html += `<div class="calc-summary-item"><span>${i.name}</span><span>${i.price}€</span></div>`; });
+      if (discount > 0) html += `<div class="calc-summary-item" style="color:#4ade80;"><span>Pack Descuento (–15%)</span><span>–${discount}€</span></div>`;
+      container.innerHTML = html;
+    }
+    document.getElementById('mainTotal').textContent = total + '€';
+  }
+
+  function openMainWA(e) {
+    e.preventDefault();
+    const items = Object.values(mainSelections);
+    if (items.length === 0) { alert('Selecciona al menos un servicio.'); return; }
+    const names = items.map(i => i.name).join(', ');
+    const total = document.getElementById('mainTotal').textContent;
+    const msg = encodeURIComponent('Hola, quiero reservar: ' + names + '. Total: ' + total + '. ¿Podéis confirmar fecha?');
+    window.open('https://wa.me/34631171537?text=' + msg, '_blank');
+  }
+
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); revealObserver.unobserve(entry.target); } });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+  window.addEventListener('scroll', () => {
+    const navbar = document.querySelector('.navbar');
+    navbar.style.boxShadow = window.scrollY > 50 ? '0 4px 24px rgba(26,58,92,0.15)' : '0 2px 16px rgba(26,58,92,0.08)';
+  });
+
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) { e.preventDefault(); window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' }); }
+    });
+  });
+
+  function setCookies(choice) {
+    localStorage.setItem('cookieConsent', choice);
+    document.getElementById('cookieBanner').style.display = 'none';
+  }
+  (function() { if (!localStorage.getItem('cookieConsent')) setTimeout(() => document.getElementById('cookieBanner').style.display = 'block', 1200); })();
+</script>
+</body>
+</html>
