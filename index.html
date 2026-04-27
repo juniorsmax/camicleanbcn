@@ -899,78 +899,6 @@
     }
 
     /* =============================================
-       GARANTÍA
-    ============================================= */
-    #garantia {
-      padding: 80px 0;
-      background: #fff;
-    }
-
-    .garantia-card {
-      background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
-      border: 2px solid #86efac;
-      border-radius: 24px;
-      padding: 48px 40px;
-      text-align: center;
-    }
-
-    .garantia-icon {
-      width: 100px;
-      height: 100px;
-      background: linear-gradient(135deg, var(--success) 0%, #15803d 100%);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 24px;
-      box-shadow: 0 8px 32px rgba(22,163,74,0.3);
-    }
-
-    .garantia-icon i {
-      font-size: 2.8rem;
-      color: #fff;
-    }
-
-    .garantia-card h3 {
-      color: #15803d;
-      font-size: 1.8rem;
-      margin-bottom: 16px;
-    }
-
-    .garantia-card p {
-      color: #166534;
-      font-size: 1.05rem;
-      line-height: 1.7;
-      max-width: 560px;
-      margin: 0 auto;
-    }
-
-    .garantia-points {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 16px;
-      margin-top: 28px;
-    }
-
-    .garantia-point {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      background: #fff;
-      border: 1px solid #86efac;
-      border-radius: 50px;
-      padding: 8px 20px;
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: #15803d;
-    }
-
-    .garantia-point i {
-      color: var(--success);
-    }
-
-    /* =============================================
        TESTIMONIOS
     ============================================= */
     #testimonios {
@@ -1262,7 +1190,6 @@
       .hero-title { font-size: 1.9rem; }
       .hero-calc-card { margin-top: 40px; }
       .calc-grid { grid-template-columns: 1fr; }
-      .garantia-card { padding: 32px 20px; }
       .cta-benefits { flex-direction: column; align-items: center; }
     }
 
@@ -1436,7 +1363,7 @@
 <nav class="navbar navbar-expand-lg">
   <div class="container">
     <a class="navbar-brand d-flex align-items-center gap-2" href="#">
-      <img src="images/logo-real.png" alt="Cami Clean Logo" style="height:52px;width:auto;object-fit:contain;" />
+      <img src="images/logo-camiclean-new.png" alt="Cami Clean Logo" style="height:52px;width:auto;object-fit:contain;" loading="lazy" />
     </a>
     <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
       <span class="navbar-toggler-icon"></span>
@@ -1485,7 +1412,7 @@
           <div class="hero-benefit-pill"><i class="bi bi-droplet-fill"></i> Secado en 12-24h</div>
           <div class="hero-benefit-pill"><i class="bi bi-shield-check-fill"></i> Seguro para niños y mascotas</div>
           <div class="hero-benefit-pill"><i class="bi bi-currency-euro"></i> Precios transparentes</div>
-          <div class="hero-benefit-pill"><i class="bi bi-geo-alt-fill"></i> Sevilla</div>
+          <div class="hero-benefit-pill"><i class="bi bi-geo-alt-fill"></i> Barcelona</div>
         </div>
         <div class="d-flex flex-wrap gap-3">
           <a href="#calculadora" class="btn-hero-primary">
@@ -1504,30 +1431,30 @@
           <p>Selecciona los servicios y obtén el precio al instante</p>
 
           <div id="heroCalcOptions">
-            <div class="calc-option" onclick="toggleHeroCalc(this, 65)">
-              <input type="checkbox" id="hc1" value="65" />
+            <div class="calc-option" onclick="toggleHeroCalc(this, 55)">
+              <input type="checkbox" id="hc1" value="55" />
               <label for="hc1">Sofá 2 Plazas</label>
-              <span class="price-tag">65€</span>
+              <span class="price-tag">55€</span>
             </div>
-            <div class="calc-option" onclick="toggleHeroCalc(this, 75)">
-              <input type="checkbox" id="hc2" value="75" />
+            <div class="calc-option" onclick="toggleHeroCalc(this, 70)">
+              <input type="checkbox" id="hc2" value="70" />
               <label for="hc2">Sofá 3 Plazas</label>
-              <span class="price-tag">75€</span>
+              <span class="price-tag">70€</span>
             </div>
-            <div class="calc-option" onclick="toggleHeroCalc(this, 95)">
-              <input type="checkbox" id="hc3" value="95" />
+            <div class="calc-option" onclick="toggleHeroCalc(this, 90)">
+              <input type="checkbox" id="hc3" value="90" />
               <label for="hc3">Chaise Longue / Rinconera</label>
-              <span class="price-tag">95€</span>
-            </div>
-            <div class="calc-option" onclick="toggleHeroCalc(this, 60)">
-              <input type="checkbox" id="hc4" value="60" />
-              <label for="hc4">Colchón Matrimonio</label>
-              <span class="price-tag">60€</span>
+              <span class="price-tag">90€</span>
             </div>
             <div class="calc-option" onclick="toggleHeroCalc(this, 50)">
-              <input type="checkbox" id="hc5" value="50" />
-              <label for="hc5">Colchón Individual</label>
+              <input type="checkbox" id="hc4" value="50" />
+              <label for="hc4">Sillón individual</label>
               <span class="price-tag">50€</span>
+            </div>
+            <div class="calc-option" onclick="toggleHeroCalc(this, 60)">
+              <input type="checkbox" id="hc5" value="60" />
+              <label for="hc5">Colchón 150cm</label>
+              <span class="price-tag">60€</span>
             </div>
           </div>
 
@@ -1636,7 +1563,7 @@
       <span class="section-label">Ventajas de Cami Clean</span>
       <h2 class="section-title">¿Por Qué Elegirnos?</h2>
       <div class="section-divider"></div>
-      <p class="section-subtitle">No solo limpiamos. Restauramos la salud y el aspecto de tus tapicerías con tecnología que pocos tienen en Sevilla.</p>
+      <p class="section-subtitle">No solo limpiamos. Restauramos la salud y el aspecto de tus tapicerías con tecnología que pocos tienen en Barcelona.</p>
     </div>
     <div class="row g-4">
       <div class="col-sm-6 col-xl-3 reveal">
@@ -1686,10 +1613,10 @@
     </div>
     <div class="comparison-wrapper reveal" id="slider1">
       <div class="img-after">
-        <img src="images/sofa-rinconera-limpio.jpg" alt="Después de la limpieza" />
+        <img src="images/sofa-rinconera-limpio.jpg" alt="Después de la limpieza" loading="lazy" />
       </div>
       <div class="img-before">
-        <img src="images/sofa-cama-sucio.jpg" alt="Antes de la limpieza" />
+        <img src="images/sofa-cama-sucio.jpg" alt="Antes de la limpieza" loading="lazy" />
       </div>
       <div class="comparison-handle" id="handle1">
         <div class="comparison-btn"><i class="bi bi-chevron-left"></i><i class="bi bi-chevron-right"></i></div>
@@ -1709,7 +1636,7 @@
       <span class="section-label">Resultados Reales</span>
       <h2 class="section-title">Galería Antes y Después</h2>
       <div class="section-divider" style="background:linear-gradient(90deg,var(--accent),rgba(14,165,233,0.3));"></div>
-      <p class="section-subtitle">Fotos reales de trabajos realizados en Sevilla. Sin filtros, sin edición.</p>
+      <p class="section-subtitle">Fotos reales de trabajos realizados en Barcelona. Sin filtros, sin edición.</p>
     </div>
 
     <div class="gallery-tabs">
@@ -1722,37 +1649,37 @@
     <div id="gallery-sofas" class="row g-4">
       <div class="col-md-4 reveal">
         <div class="gallery-item">
-          <img src="images/antes-despues-ligera.png" alt="Limpieza ligera de sofá - Antes y Después" />
+          <img src="images/antes-despues-ligera.png" alt="Limpieza ligera de sofá - Antes y Después" loading="lazy" />
           <div class="gallery-caption"><i class="bi bi-arrow-left-right me-2"></i>Limpieza Ligera · Sofá Tela</div>
         </div>
       </div>
       <div class="col-md-4 reveal">
         <div class="gallery-item">
-          <img src="images/antes-despues-media.png" alt="Limpieza media de sofá - Antes y Después" />
+          <img src="images/antes-despues-media.png" alt="Limpieza media de sofá - Antes y Después" loading="lazy" />
           <div class="gallery-caption"><i class="bi bi-arrow-left-right me-2"></i>Limpieza Media · Sofá Gris</div>
         </div>
       </div>
       <div class="col-md-4 reveal">
         <div class="gallery-item">
-          <img src="images/antes-despues-profunda.png" alt="Limpieza profunda de sofá - Antes y Después" />
+          <img src="images/antes-despues-profunda.png" alt="Limpieza profunda de sofá - Antes y Después" loading="lazy" />
           <div class="gallery-caption"><i class="bi bi-arrow-left-right me-2"></i>Limpieza Profunda · Sofá Beige</div>
         </div>
       </div>
       <div class="col-md-4 reveal">
         <div class="gallery-item">
-          <img src="images/sofa-rinconera-limpio.jpg" alt="Sofá rinconera limpio" />
+          <img src="images/sofa-rinconera-limpio.jpg" alt="Sofá rinconera limpio" loading="lazy" />
           <div class="gallery-caption"><i class="bi bi-check-circle-fill me-2"></i>Resultado Final · Rinconera</div>
         </div>
       </div>
       <div class="col-md-4 reveal">
         <div class="gallery-item">
-          <img src="images/sofa-detalle-limpio.jpg" alt="Detalle sofá limpio" />
+          <img src="images/sofa-detalle-limpio.jpg" alt="Detalle sofá limpio" loading="lazy" />
           <div class="gallery-caption"><i class="bi bi-check-circle-fill me-2"></i>Detalle Tejido Restaurado</div>
         </div>
       </div>
       <div class="col-md-4 reveal">
         <div class="gallery-item">
-          <img src="images/tecnico-limpiando-sofa2.jpg" alt="Técnico limpiando sofá" />
+          <img src="images/tecnico-limpiando-sofa2.jpg" alt="Técnico limpiando sofá" loading="lazy" />
           <div class="gallery-caption"><i class="bi bi-tools me-2"></i>Proceso de Limpieza Profesional</div>
         </div>
       </div>
@@ -1762,37 +1689,37 @@
     <div id="gallery-colchones" class="row g-4" style="display:none!important;">
       <div class="col-md-4 reveal">
         <div class="gallery-item">
-          <img src="images/colchon-manchas1.jpg" alt="Colchón con manchas" />
+          <img src="images/colchon-manchas1.jpg" alt="Colchón con manchas" loading="lazy" />
           <div class="gallery-caption"><i class="bi bi-exclamation-triangle-fill me-2"></i>Antes · Manchas Profundas</div>
         </div>
       </div>
       <div class="col-md-4 reveal">
         <div class="gallery-item">
-          <img src="images/colchon-proceso.jpg" alt="Proceso limpieza colchón" />
+          <img src="images/colchon-proceso.jpg" alt="Proceso limpieza colchón" loading="lazy" />
           <div class="gallery-caption"><i class="bi bi-gear-fill me-2"></i>Durante · Proceso de Extracción</div>
         </div>
       </div>
       <div class="col-md-4 reveal">
         <div class="gallery-item">
-          <img src="images/colchon-limpio1.jpg" alt="Colchón limpio" />
+          <img src="images/colchon-limpio1.jpg" alt="Colchón limpio" loading="lazy" />
           <div class="gallery-caption"><i class="bi bi-check-circle-fill me-2"></i>Después · Colchón Restaurado</div>
         </div>
       </div>
       <div class="col-md-4 reveal">
         <div class="gallery-item">
-          <img src="images/colchon-manchas2.jpg" alt="Colchón manchas 2" />
+          <img src="images/colchon-manchas2.jpg" alt="Colchón manchas 2" loading="lazy" />
           <div class="gallery-caption"><i class="bi bi-exclamation-triangle-fill me-2"></i>Antes · Manchas de Humedad</div>
         </div>
       </div>
       <div class="col-md-4 reveal">
         <div class="gallery-item">
-          <img src="images/colchon-manchas3.jpg" alt="Colchón manchas 3" />
+          <img src="images/colchon-manchas3.jpg" alt="Colchón manchas 3" loading="lazy" />
           <div class="gallery-caption"><i class="bi bi-exclamation-triangle-fill me-2"></i>Antes · Manchas Antiguas</div>
         </div>
       </div>
       <div class="col-md-4 reveal">
         <div class="gallery-item">
-          <img src="images/equipos-profesionales.jpg" alt="Equipos profesionales" />
+          <img src="images/equipos-profesionales.jpg" alt="Equipos profesionales" loading="lazy" />
           <div class="gallery-caption"><i class="bi bi-tools me-2"></i>Equipos Profesionales Kärcher</div>
         </div>
       </div>
@@ -1802,13 +1729,13 @@
     <div id="gallery-alfombras" class="row g-4" style="display:none!important;">
       <div class="col-md-6 reveal">
         <div class="gallery-item">
-          <img src="images/alfombra-antes-despues.jpg" alt="Alfombra antes y después" style="height:400px;" />
+          <img src="images/alfombra-antes-despues.jpg" alt="Alfombra antes y después" style="height:400px;" loading="lazy" />
           <div class="gallery-caption"><i class="bi bi-arrow-left-right me-2"></i>Alfombra · Antes y Después</div>
         </div>
       </div>
       <div class="col-md-6 reveal">
         <div class="gallery-item">
-          <img src="images/sillas-comedor.jpg" alt="Limpieza sillas comedor" style="height:400px;" />
+          <img src="images/sillas-comedor.jpg" alt="Limpieza sillas comedor" style="height:400px;" loading="lazy" />
           <div class="gallery-caption"><i class="bi bi-check-circle-fill me-2"></i>Sillas de Comedor · Limpieza Profesional</div>
         </div>
       </div>
@@ -1891,10 +1818,10 @@
     <!-- Imagen del proceso -->
     <div class="row mt-5 g-4 align-items-center">
       <div class="col-md-6 reveal">
-        <img src="images/tecnico-limpiando-sofa1.jpg" alt="Técnico de Cami Clean trabajando" class="img-fluid rounded-4 shadow" style="object-fit:cover;height:340px;width:100%;" />
+        <img src="images/tecnico-limpiando-sofa1.jpg" alt="Técnico de Cami Clean trabajando" class="img-fluid rounded-4 shadow" style="object-fit:cover;height:340px;width:100%;" loading="lazy" />
       </div>
       <div class="col-md-6 reveal">
-        <img src="images/tecnico-limpiando-sofa2.jpg" alt="Proceso de limpieza profesional" class="img-fluid rounded-4 shadow" style="object-fit:cover;height:340px;width:100%;" />
+        <img src="images/tecnico-limpiando-sofa2.jpg" alt="Proceso de limpieza profesional" class="img-fluid rounded-4 shadow" style="object-fit:cover;height:340px;width:100%;" loading="lazy" />
       </div>
     </div>
   </div>
@@ -1909,7 +1836,7 @@
       <span class="section-label">Sin sorpresas</span>
       <h2 class="section-title">Calcula Tu Presupuesto al Instante</h2>
       <div class="section-divider"></div>
-      <p class="section-subtitle">Selecciona los servicios que necesitas y obtén el precio total de forma inmediata. 0 de 15 competidores en Sevilla ofrecen esto.</p>
+      <p class="section-subtitle">Selecciona los servicios que necesitas y obtén el precio total de forma inmediata. 0 de 15 competidores en Barcelona ofrecen esto.</p>
     </div>
 
     <div class="row g-5 align-items-start">
@@ -1933,13 +1860,13 @@
                 <span><span class="level-badge badge-1">1</span>Limpieza ligera <span class="level-desc">Polvo, suciedad superficial y uso habitual</span></span>
                 <span class="level-price">55€</span>
               </div>
-              <div class="level-btn" onclick="selectLevel('mc1', 65, 'Sofá 2 plazas – Nivel 2', '90 min', this)">
+              <div class="level-btn" onclick="selectLevel('mc1', 70, 'Sofá 2 plazas – Nivel 2', '90 min', this)">
                 <span><span class="level-badge badge-2">2</span>Limpieza estándar <span class="level-desc">Manchas recientes, pelos de mascota, olores leves</span></span>
-                <span class="level-price">65€</span>
+                <span class="level-price">70€</span>
               </div>
-              <div class="level-btn" onclick="selectLevel('mc1', 85, 'Sofá 2 plazas – Nivel 3', '2h', this)">
+              <div class="level-btn" onclick="selectLevel('mc1', 90, 'Sofá 2 plazas – Nivel 3', '2h', this)">
                 <span><span class="level-badge badge-3">3</span>Limpieza profunda <span class="level-desc">Manchas antiguas, olores intensos, suciedad acumulada</span></span>
-                <span class="level-price">85€</span>
+                <span class="level-price">90€</span>
               </div>
             </div>
           </div>
@@ -1952,13 +1879,13 @@
                 <span class="name">Sofá 3 plazas</span>
                 <span class="time"><i class="bi bi-clock me-1"></i>~2h · Elige nivel</span>
               </div>
-              <span class="calc-service-price" id="price-mc2">desde 65€</span>
+              <span class="calc-service-price" id="price-mc2">desde 70€</span>
               <i class="bi bi-chevron-down chevron-icon" id="chev-mc2"></i>
             </div>
             <div class="card-levels" id="levels-mc2">
-              <div class="level-btn" onclick="selectLevel('mc2', 65, 'Sofá 3 plazas – Nivel 1', '2h', this)"><span><span class="level-badge badge-1">1</span>Limpieza ligera <span class="level-desc">Polvo, suciedad superficial</span></span><span class="level-price">65€</span></div>
-              <div class="level-btn" onclick="selectLevel('mc2', 80, 'Sofá 3 plazas – Nivel 2', '2h', this)"><span><span class="level-badge badge-2">2</span>Limpieza estándar <span class="level-desc">Manchas recientes, pelos de mascota</span></span><span class="level-price">80€</span></div>
-              <div class="level-btn" onclick="selectLevel('mc2', 100, 'Sofá 3 plazas – Nivel 3', '2.5h', this)"><span><span class="level-badge badge-3">3</span>Limpieza profunda <span class="level-desc">Manchas antiguas, olores intensos</span></span><span class="level-price">100€</span></div>
+              <div class="level-btn" onclick="selectLevel('mc2', 70, 'Sofá 3 plazas – Nivel 1', '2h', this)"><span><span class="level-badge badge-1">1</span>Limpieza ligera <span class="level-desc">Polvo, suciedad superficial</span></span><span class="level-price">70€</span></div>
+              <div class="level-btn" onclick="selectLevel('mc2', 85, 'Sofá 3 plazas – Nivel 2', '2h', this)"><span><span class="level-badge badge-2">2</span>Limpieza estándar <span class="level-desc">Manchas recientes, pelos de mascota</span></span><span class="level-price">85€</span></div>
+              <div class="level-btn" onclick="selectLevel('mc2', 110, 'Sofá 3 plazas – Nivel 3', '2.5h', this)"><span><span class="level-badge badge-3">3</span>Limpieza profunda <span class="level-desc">Manchas antiguas, olores intensos</span></span><span class="level-price">110€</span></div>
             </div>
           </div>
 
@@ -1970,13 +1897,13 @@
                 <span class="name">Sofá rinconera / chaise longue</span>
                 <span class="time"><i class="bi bi-clock me-1"></i>~2.5h · Elige nivel</span>
               </div>
-              <span class="calc-service-price" id="price-mc3">desde 80€</span>
+              <span class="calc-service-price" id="price-mc3">desde 90€</span>
               <i class="bi bi-chevron-down chevron-icon" id="chev-mc3"></i>
             </div>
             <div class="card-levels" id="levels-mc3">
-              <div class="level-btn" onclick="selectLevel('mc3', 80, 'Rinconera – Nivel 1', '2.5h', this)"><span><span class="level-badge badge-1">1</span>Limpieza ligera <span class="level-desc">Polvo, suciedad superficial</span></span><span class="level-price">80€</span></div>
-              <div class="level-btn" onclick="selectLevel('mc3', 95, 'Rinconera – Nivel 2', '2.5h', this)"><span><span class="level-badge badge-2">2</span>Limpieza estándar <span class="level-desc">Manchas recientes, olores leves</span></span><span class="level-price">95€</span></div>
-              <div class="level-btn" onclick="selectLevel('mc3', 120, 'Rinconera – Nivel 3', '3h', this)"><span><span class="level-badge badge-3">3</span>Limpieza profunda <span class="level-desc">Manchas antiguas, olores intensos</span></span><span class="level-price">120€</span></div>
+              <div class="level-btn" onclick="selectLevel('mc3', 90, 'Rinconera – Nivel 1', '2.5h', this)"><span><span class="level-badge badge-1">1</span>Limpieza ligera <span class="level-desc">Polvo, suciedad superficial</span></span><span class="level-price">90€</span></div>
+              <div class="level-btn" onclick="selectLevel('mc3', 110, 'Rinconera – Nivel 2', '2.5h', this)"><span><span class="level-badge badge-2">2</span>Limpieza estándar <span class="level-desc">Manchas recientes, olores leves</span></span><span class="level-price">110€</span></div>
+              <div class="level-btn" onclick="selectLevel('mc3', 135, 'Rinconera – Nivel 3', '3h', this)"><span><span class="level-badge badge-3">3</span>Limpieza profunda <span class="level-desc">Manchas antiguas, olores intensos</span></span><span class="level-price">135€</span></div>
             </div>
           </div>
 
@@ -1988,13 +1915,13 @@
                 <span class="name">Sillón individual</span>
                 <span class="time"><i class="bi bi-clock me-1"></i>~45 min · Elige nivel</span>
               </div>
-              <span class="calc-service-price" id="price-mc4">desde 45€</span>
+              <span class="calc-service-price" id="price-mc4">desde 50€</span>
               <i class="bi bi-chevron-down chevron-icon" id="chev-mc4"></i>
             </div>
             <div class="card-levels" id="levels-mc4">
-              <div class="level-btn" onclick="selectLevel('mc4', 45, 'Sillón – Nivel 1', '45 min', this)"><span><span class="level-badge badge-1">1</span>Limpieza ligera <span class="level-desc">Uso habitual, suciedad superficial</span></span><span class="level-price">45€</span></div>
-              <div class="level-btn" onclick="selectLevel('mc4', 55, 'Sillón – Nivel 2', '1h', this)"><span><span class="level-badge badge-2">2</span>Limpieza estándar <span class="level-desc">Manchas visibles, desgaste moderado</span></span><span class="level-price">55€</span></div>
-              <div class="level-btn" onclick="selectLevel('mc4', 70, 'Sillón – Nivel 3', '1.5h', this)"><span><span class="level-badge badge-3">3</span>Limpieza profunda <span class="level-desc">Manchas antiguas, olores</span></span><span class="level-price">70€</span></div>
+              <div class="level-btn" onclick="selectLevel('mc4', 50, 'Sillón – Nivel 1', '45 min', this)"><span><span class="level-badge badge-1">1</span>Limpieza ligera <span class="level-desc">Uso habitual, suciedad superficial</span></span><span class="level-price">50€</span></div>
+              <div class="level-btn" onclick="selectLevel('mc4', 60, 'Sillón – Nivel 2', '1h', this)"><span><span class="level-badge badge-2">2</span>Limpieza estándar <span class="level-desc">Manchas visibles, desgaste moderado</span></span><span class="level-price">60€</span></div>
+              <div class="level-btn" onclick="selectLevel('mc4', 75, 'Sillón – Nivel 3', '1.5h', this)"><span><span class="level-badge badge-3">3</span>Limpieza profunda <span class="level-desc">Manchas antiguas, olores</span></span><span class="level-price">75€</span></div>
             </div>
           </div>
 
@@ -2006,13 +1933,13 @@
                 <span class="name" style="color:#92400e;"><i class="bi bi-tag-fill me-1" style="color:#f59e0b;"></i>Colchón 90cm (promo)</span>
                 <span class="time">Combina y ahorra 15% · Elige nivel</span>
               </div>
-              <span class="calc-service-price" id="price-mc5" style="color:#92400e;">desde 45€</span>
+              <span class="calc-service-price" id="price-mc5" style="color:#92400e;">desde 50€</span>
               <i class="bi bi-chevron-down chevron-icon" id="chev-mc5"></i>
             </div>
             <div class="card-levels" id="levels-mc5" style="background:#fffbf0;">
-              <div class="level-btn" onclick="selectLevel('mc5', 45, 'Colchón 90cm – Nivel 1', '1h', this)"><span><span class="level-badge badge-1">1</span>Ligera <span class="level-desc">Mantenimiento periódico</span></span><span class="level-price" style="color:#92400e;">45€</span></div>
-              <div class="level-btn" onclick="selectLevel('mc5', 55, 'Colchón 90cm – Nivel 2', '1h', this)"><span><span class="level-badge badge-2">2</span>Estándar <span class="level-desc">Manchas y ácaros</span></span><span class="level-price" style="color:#92400e;">55€</span></div>
-              <div class="level-btn" onclick="selectLevel('mc5', 70, 'Colchón 90cm – Nivel 3', '1.5h', this)"><span><span class="level-badge badge-3">3</span>Profunda <span class="level-desc">Manchas antiguas, olores</span></span><span class="level-price" style="color:#92400e;">70€</span></div>
+              <div class="level-btn" onclick="selectLevel('mc5', 50, 'Colchón 90cm – Nivel 1', '1h', this)"><span><span class="level-badge badge-1">1</span>Ligera <span class="level-desc">Mantenimiento periódico</span></span><span class="level-price" style="color:#92400e;">50€</span></div>
+              <div class="level-btn" onclick="selectLevel('mc5', 60, 'Colchón 90cm – Nivel 2', '1h', this)"><span><span class="level-badge badge-2">2</span>Estándar <span class="level-desc">Manchas y ácaros</span></span><span class="level-price" style="color:#92400e;">60€</span></div>
+              <div class="level-btn" onclick="selectLevel('mc5', 75, 'Colchón 90cm – Nivel 3', '1.5h', this)"><span><span class="level-badge badge-3">3</span>Profunda <span class="level-desc">Manchas antiguas, olores</span></span><span class="level-price" style="color:#92400e;">75€</span></div>
             </div>
           </div>
 
@@ -2023,13 +1950,13 @@
                 <span class="name" style="color:#92400e;"><i class="bi bi-tag-fill me-1" style="color:#f59e0b;"></i>Colchón 150cm (promo)</span>
                 <span class="time">Combina y ahorra 15% · Elige nivel</span>
               </div>
-              <span class="calc-service-price" id="price-mc6" style="color:#92400e;">desde 55€</span>
+              <span class="calc-service-price" id="price-mc6" style="color:#92400e;">desde 60€</span>
               <i class="bi bi-chevron-down chevron-icon" id="chev-mc6"></i>
             </div>
             <div class="card-levels" id="levels-mc6" style="background:#fffbf0;">
-              <div class="level-btn" onclick="selectLevel('mc6', 55, 'Colchón 150cm – Nivel 1', '1.5h', this)"><span><span class="level-badge badge-1">1</span>Ligera <span class="level-desc">Mantenimiento periódico</span></span><span class="level-price" style="color:#92400e;">55€</span></div>
-              <div class="level-btn" onclick="selectLevel('mc6', 65, 'Colchón 150cm – Nivel 2', '1.5h', this)"><span><span class="level-badge badge-2">2</span>Estándar <span class="level-desc">Manchas y ácaros</span></span><span class="level-price" style="color:#92400e;">65€</span></div>
-              <div class="level-btn" onclick="selectLevel('mc6', 80, 'Colchón 150cm – Nivel 3', '2h', this)"><span><span class="level-badge badge-3">3</span>Profunda <span class="level-desc">Manchas antiguas, olores</span></span><span class="level-price" style="color:#92400e;">80€</span></div>
+              <div class="level-btn" onclick="selectLevel('mc6', 60, 'Colchón 150cm – Nivel 1', '1.5h', this)"><span><span class="level-badge badge-1">1</span>Ligera <span class="level-desc">Mantenimiento periódico</span></span><span class="level-price" style="color:#92400e;">60€</span></div>
+              <div class="level-btn" onclick="selectLevel('mc6', 75, 'Colchón 150cm – Nivel 2', '1.5h', this)"><span><span class="level-badge badge-2">2</span>Estándar <span class="level-desc">Manchas y ácaros</span></span><span class="level-price" style="color:#92400e;">75€</span></div>
+              <div class="level-btn" onclick="selectLevel('mc6', 90, 'Colchón 150cm – Nivel 3', '2h', this)"><span><span class="level-badge badge-3">3</span>Profunda <span class="level-desc">Manchas antiguas, olores</span></span><span class="level-price" style="color:#92400e;">90€</span></div>
             </div>
           </div>
 
@@ -2037,16 +1964,16 @@
             <div class="card-header" onclick="toggleCard('mc7')" style="background:#fffbf0;">
               <input type="checkbox" id="mc7" />
               <div class="calc-service-info">
-                <span class="name" style="color:#92400e;"><i class="bi bi-tag-fill me-1" style="color:#f59e0b;"></i>Alfombra grande (promo)</span>
+                <span class="name" style="color:#92400e;"><i class="bi bi-tag-fill me-1" style="color:#f59e0b;"></i>Alfombra pequeña (promo)</span>
                 <span class="time">Combina y ahorra 15% · Elige nivel</span>
               </div>
-              <span class="calc-service-price" id="price-mc7" style="color:#92400e;">desde 75€</span>
+              <span class="calc-service-price" id="price-mc7" style="color:#92400e;">desde 45€</span>
               <i class="bi bi-chevron-down chevron-icon" id="chev-mc7"></i>
             </div>
             <div class="card-levels" id="levels-mc7" style="background:#fffbf0;">
-              <div class="level-btn" onclick="selectLevel('mc7', 75, 'Alfombra grande – Nivel 1', '2h', this)"><span><span class="level-badge badge-1">1</span>Ligera <span class="level-desc">Polvo y suciedad superficial</span></span><span class="level-price" style="color:#92400e;">75€</span></div>
-              <div class="level-btn" onclick="selectLevel('mc7', 95, 'Alfombra grande – Nivel 2', '2h', this)"><span><span class="level-badge badge-2">2</span>Estándar <span class="level-desc">Manchas recientes</span></span><span class="level-price" style="color:#92400e;">95€</span></div>
-              <div class="level-btn" onclick="selectLevel('mc7', 120, 'Alfombra grande – Nivel 3', '2.5h', this)"><span><span class="level-badge badge-3">3</span>Profunda <span class="level-desc">Manchas antiguas, olores</span></span><span class="level-price" style="color:#92400e;">120€</span></div>
+              <div class="level-btn" onclick="selectLevel('mc7', 45, 'Alfombra pequeña – Nivel 1', '1h', this)"><span><span class="level-badge badge-1">1</span>Ligera <span class="level-desc">Polvo y suciedad superficial</span></span><span class="level-price" style="color:#92400e;">45€</span></div>
+              <div class="level-btn" onclick="selectLevel('mc7', 55, 'Alfombra pequeña – Nivel 2', '1h', this)"><span><span class="level-badge badge-2">2</span>Estándar <span class="level-desc">Manchas recientes</span></span><span class="level-price" style="color:#92400e;">55€</span></div>
+              <div class="level-btn" onclick="selectLevel('mc7', 70, 'Alfombra pequeña – Nivel 3', '1.5h', this)"><span><span class="level-badge badge-3">3</span>Profunda <span class="level-desc">Manchas antiguas, olores</span></span><span class="level-price" style="color:#92400e;">70€</span></div>
             </div>
           </div>
 
@@ -2054,16 +1981,16 @@
             <div class="card-header" onclick="toggleCard('mc8')">
               <input type="checkbox" id="mc8" />
               <div class="calc-service-info">
-                <span class="name">Sillas comedor (pack 4 uds)</span>
-                <span class="time"><i class="bi bi-clock me-1"></i>~1.5h · Elige nivel</span>
+                <span class="name">Silla x1</span>
+                <span class="time"><i class="bi bi-clock me-1"></i>~20 min · Elige nivel</span>
               </div>
-              <span class="calc-service-price" id="price-mc8">desde 40€</span>
+              <span class="calc-service-price" id="price-mc8">desde 12€</span>
               <i class="bi bi-chevron-down chevron-icon" id="chev-mc8"></i>
             </div>
             <div class="card-levels" id="levels-mc8">
-              <div class="level-btn" onclick="selectLevel('mc8', 40, '4 sillas comedor – Nivel 1', '1.5h', this)"><span><span class="level-badge badge-1">1</span>Limpieza ligera <span class="level-desc">Uso habitual</span></span><span class="level-price">40€</span></div>
-              <div class="level-btn" onclick="selectLevel('mc8', 48, '4 sillas comedor – Nivel 2', '1.5h', this)"><span><span class="level-badge badge-2">2</span>Limpieza estándar <span class="level-desc">Manchas visibles</span></span><span class="level-price">48€</span></div>
-              <div class="level-btn" onclick="selectLevel('mc8', 60, '4 sillas comedor – Nivel 3', '2h', this)"><span><span class="level-badge badge-3">3</span>Limpieza profunda <span class="level-desc">Manchas antiguas</span></span><span class="level-price">60€</span></div>
+              <div class="level-btn" onclick="selectLevel('mc8', 12, 'Silla x1 – Nivel 1', '20 min', this)"><span><span class="level-badge badge-1">1</span>Limpieza ligera <span class="level-desc">Uso habitual</span></span><span class="level-price">12€</span></div>
+              <div class="level-btn" onclick="selectLevel('mc8', 15, 'Silla x1 – Nivel 2', '20 min', this)"><span><span class="level-badge badge-2">2</span>Limpieza estándar <span class="level-desc">Manchas visibles</span></span><span class="level-price">15€</span></div>
+              <div class="level-btn" onclick="selectLevel('mc8', 18, 'Silla x1 – Nivel 3', '30 min', this)"><span><span class="level-badge badge-3">3</span>Limpieza profunda <span class="level-desc">Manchas antiguas</span></span><span class="level-price">18€</span></div>
             </div>
           </div>
 
@@ -2274,31 +2201,6 @@
 </section>
 
 <!-- ============================================================
-     GARANTÍA
-============================================================ -->
-<section id="garantia">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-lg-8 reveal">
-        <div class="garantia-card">
-          <div class="garantia-icon">
-            <i class="bi bi-shield-fill-check"></i>
-          </div>
-          <h3>Garantía de Satisfacción 100%</h3>
-          <p>Si no ves una mejora visible y significativa en tu tapicería, volvemos a realizar el servicio sin coste adicional. Sin preguntas, sin burocracia. Tu satisfacción es nuestra única métrica de éxito.</p>
-          <div class="garantia-points">
-            <div class="garantia-point"><i class="bi bi-check-circle-fill"></i> Sin coste adicional</div>
-            <div class="garantia-point"><i class="bi bi-check-circle-fill"></i> Sin letra pequeña</div>
-            <div class="garantia-point"><i class="bi bi-check-circle-fill"></i> Respuesta en 24h</div>
-            <div class="garantia-point"><i class="bi bi-check-circle-fill"></i> 100% comprometidos</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
      TESTIMONIOS
 ============================================================ -->
 <section id="testimonios">
@@ -2309,7 +2211,7 @@
       <div class="section-divider" style="background:linear-gradient(90deg,var(--accent),rgba(14,165,233,0.3));"></div>
       <!-- Resumen Google -->
       <div class="d-inline-flex align-items-center gap-3 mt-3 px-4 py-3 rounded-3" style="background:#fff;box-shadow:var(--shadow);border:1px solid var(--border);">
-        <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google" style="height:22px;width:auto;" />
+        <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google" style="height:22px;width:auto;" loading="lazy" />
         <div class="d-flex align-items-center gap-1">
           <span style="font-size:1.3rem;font-weight:800;color:var(--text-dark);">5.0</span>
           <span style="color:#fbbc04;font-size:1.2rem;letter-spacing:-1px;">★★★★★</span>
@@ -2329,7 +2231,7 @@
                 <div style="font-size:0.75rem;color:var(--text-muted);">Reseña en Google Maps</div>
               </div>
             </div>
-            <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google" style="height:16px;width:auto;opacity:0.7;" />
+            <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google" style="height:16px;width:auto;opacity:0.7;" loading="lazy" />
           </div>
           <div style="color:#fbbc04;font-size:1rem;margin-bottom:8px;">★★★★★</div>
           <div style="font-size:0.75rem;color:var(--text-muted);margin-bottom:10px;">hace 2 semanas</div>
@@ -2347,7 +2249,7 @@
                 <div style="font-size:0.75rem;color:var(--text-muted);">Reseña en Google Maps</div>
               </div>
             </div>
-            <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google" style="height:16px;width:auto;opacity:0.7;" />
+            <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google" style="height:16px;width:auto;opacity:0.7;" loading="lazy" />
           </div>
           <div style="color:#fbbc04;font-size:1rem;margin-bottom:8px;">★★★★★</div>
           <div style="font-size:0.75rem;color:var(--text-muted);margin-bottom:10px;">hace 1 mes</div>
@@ -2365,7 +2267,7 @@
                 <div style="font-size:0.75rem;color:var(--text-muted);">Reseña en Google Maps</div>
               </div>
             </div>
-            <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google" style="height:16px;width:auto;opacity:0.7;" />
+            <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google" style="height:16px;width:auto;opacity:0.7;" loading="lazy" />
           </div>
           <div style="color:#fbbc04;font-size:1rem;margin-bottom:8px;">★★★★★</div>
           <div style="font-size:0.75rem;color:var(--text-muted);margin-bottom:10px;">hace 3 semanas</div>
@@ -2383,7 +2285,7 @@
                 <div style="font-size:0.75rem;color:var(--text-muted);">Reseña en Google Maps</div>
               </div>
             </div>
-            <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google" style="height:16px;width:auto;opacity:0.7;" />
+            <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google" style="height:16px;width:auto;opacity:0.7;" loading="lazy" />
           </div>
           <div style="color:#fbbc04;font-size:1rem;margin-bottom:8px;">★★★★★</div>
           <div style="font-size:0.75rem;color:var(--text-muted);margin-bottom:10px;">hace 2 meses</div>
@@ -2401,7 +2303,7 @@
                 <div style="font-size:0.75rem;color:var(--text-muted);">Reseña en Google Maps</div>
               </div>
             </div>
-            <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google" style="height:16px;width:auto;opacity:0.7;" />
+            <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google" style="height:16px;width:auto;opacity:0.7;" loading="lazy" />
           </div>
           <div style="color:#fbbc04;font-size:1rem;margin-bottom:8px;">★★★★★</div>
           <div style="font-size:0.75rem;color:var(--text-muted);margin-bottom:10px;">hace 1 mes</div>
@@ -2419,7 +2321,7 @@
                 <div style="font-size:0.75rem;color:var(--text-muted);">Reseña en Google Maps</div>
               </div>
             </div>
-            <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google" style="height:16px;width:auto;opacity:0.7;" />
+            <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google" style="height:16px;width:auto;opacity:0.7;" loading="lazy" />
           </div>
           <div style="color:#fbbc04;font-size:1rem;margin-bottom:8px;">★★★★★</div>
           <div style="font-size:0.75rem;color:var(--text-muted);margin-bottom:10px;">hace 3 semanas</div>
@@ -2556,13 +2458,13 @@
       <h2>¿Listo para un Hogar Más<br />Limpio y Saludable?</h2>
       <p>Reserva ahora y recibe respuesta en menos de 2 horas. Sin compromiso, sin pago anticipado.</p>
       <div class="cta-benefits">
-        <div class="cta-benefit"><i class="bi bi-geo-alt-fill"></i> Servicio en Sevilla</div>
+        <div class="cta-benefit"><i class="bi bi-geo-alt-fill"></i> Servicio en Barcelona</div>
         <div class="cta-benefit"><i class="bi bi-lightning-fill"></i> Respuesta inmediata</div>
         <div class="cta-benefit"><i class="bi bi-shield-fill-check"></i> Garantía 100%</div>
         <div class="cta-benefit"><i class="bi bi-calendar-check-fill"></i> Lun–Vie y Sábados</div>
       </div>
       <div class="d-flex flex-wrap justify-content-center gap-3">
-        <a href="https://wa.me/34631171537?text=Hola%2C%20quiero%20reservar%20una%20limpieza%20de%20tapicería%20en%20Sevilla" target="_blank" class="btn-hero-wa" style="font-size:1.1rem;padding:16px 36px;">
+        <a href="https://wa.me/34631171537?text=Hola%2C%20quiero%20reservar%20una%20limpieza%20de%20tapicería%20en%20Barcelona" target="_blank" class="btn-hero-wa" style="font-size:1.1rem;padding:16px 36px;">
           <i class="bi bi-whatsapp"></i> Reservar por WhatsApp
         </a>
         <a href="#calculadora" class="btn-hero-primary" style="background:rgba(255,255,255,0.15);border:2px solid rgba(255,255,255,0.4);font-size:1.1rem;padding:16px 36px;">
@@ -2619,7 +2521,7 @@
     <div class="row g-4">
       <div class="col-md-4">
         <div class="footer-brand mb-3">
-          <img src="images/logo-real.png" alt="Cami Clean" style="height:44px;width:auto;filter:brightness(0) invert(1);" />
+          <img src="images/logo-camiclean-new.png" alt="Cami Clean" style="height:44px;width:auto;margin-bottom:12px;" loading="lazy" />
         </div>
        <p>Servicio profesional de limpieza de tapicerías en Barcelona. Tecnología de inyección-extracción a 70°C para resultados garantizados.</p>
       <address style="font-style:normal;font-size:0.85rem;color:rgba(255,255,255,0.55);line-height:1.7;">
@@ -2645,7 +2547,6 @@
         <a href="#beneficios">Beneficios</a>
         <a href="#proceso">Nuestro Proceso</a>
         <a href="#galeria">Galería</a>
-        <a href="#garantia">Garantía</a>
       </div>
       <div class="col-md-3">
         <h6>Contacto</h6>
