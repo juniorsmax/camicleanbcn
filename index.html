@@ -67,7 +67,7 @@
       background: rgba(255,255,255,0.97);
       backdrop-filter: blur(10px);
       box-shadow: 0 2px 16px rgba(26,58,92,0.08);
-      padding: 12px 0;
+      padding: 4px 0;
       position: sticky;
       top: 0;
       z-index: 1000;
@@ -75,11 +75,12 @@
     }
 
     .navbar-brand img {
-      height: 160px;
+      height: 64px;
       width: auto;
+      object-fit: contain;
     }
     @media (max-width: 767px) {
-      .navbar-brand img { height: 90px; }
+      .navbar-brand img { height: 52px; }
     }
 
     .navbar-brand span {
@@ -216,6 +217,30 @@
     .hero-benefit-pill i {
       color: var(--accent);
       font-size: 1rem;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      background: rgba(14,165,233,0.18);
+      border: 1px solid rgba(14,165,233,0.4);
+      color: #fff;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 5px 14px;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s, transform 0.15s;
+    }
+
+    .hero-tag:hover {
+      background: rgba(14,165,233,0.35);
+      border-color: rgba(14,165,233,0.7);
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 767px) {
+      .hero-tag { font-size: 0.78rem; padding: 4px 11px; }
     }
 
     .btn-hero-primary {
@@ -1205,6 +1230,8 @@
       .hero-benefits { flex-direction: column; }
       .gallery-tabs { gap: 6px; }
       .gallery-tab { padding: 7px 16px; font-size: 0.82rem; }
+      /* Kärcher en móvil */
+      .karcher-img { width: 180px !important; height: 180px !important; }
       /* Calculadora 20% más pequeña en móvil */
       .hero-calc-card { padding: 20px 16px; border-radius: 14px; }
       .hero-calc-card h4 { font-size: 0.92rem; margin-bottom: 4px; }
@@ -1382,7 +1409,7 @@
 <nav class="navbar navbar-expand-lg">
   <div class="container">
     <a class="navbar-brand d-flex align-items-center gap-2" href="#">
-      <img src="images/logo-camiclean-new.png" alt="Cami Clean Logo" style="height:160px;width:auto;object-fit:contain;" fetchpriority="high" />
+      <img src="images/logo-camiclean-new.png" alt="Cami Clean Logo" style="height:64px;width:auto;object-fit:contain;" fetchpriority="high" />
     </a>
     <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
       <span class="navbar-toggler-icon"></span>
@@ -1428,22 +1455,27 @@
           Limpieza profesional de tapicerías en Barcelona con tecnología de inyección-extracción a 70°C. Resultados garantizados.
         </p>
 
-        <!-- Imagen máquina + lista de servicios -->
-        <div class="d-flex align-items-center gap-4 mb-4 flex-wrap">
-          <img src="images/karcher-profesional.jpg" alt="Máquina Kärcher profesional" fetchpriority="high"
-            style="width:240px;height:240px;object-fit:contain;flex-shrink:0;border-radius:14px;background:rgba(255,255,255,0.10);padding:8px;" />
-          <div style="flex:1;min-width:200px;">
-            <div style="display:flex;flex-wrap:wrap;gap:8px 10px;">
-              <span style="background:rgba(14,165,233,0.18);border:1px solid rgba(14,165,233,0.4);color:#fff;font-size:0.82rem;font-weight:600;padding:5px 14px;border-radius:50px;"><i class="bi bi-check-circle-fill me-1" style="color:#25d366;"></i>Sofás</span>
-              <span style="background:rgba(14,165,233,0.18);border:1px solid rgba(14,165,233,0.4);color:#fff;font-size:0.82rem;font-weight:600;padding:5px 14px;border-radius:50px;"><i class="bi bi-check-circle-fill me-1" style="color:#25d366;"></i>Colchones</span>
-              <span style="background:rgba(14,165,233,0.18);border:1px solid rgba(14,165,233,0.4);color:#fff;font-size:0.82rem;font-weight:600;padding:5px 14px;border-radius:50px;"><i class="bi bi-check-circle-fill me-1" style="color:#25d366;"></i>Alfombras</span>
-              <span style="background:rgba(14,165,233,0.18);border:1px solid rgba(14,165,233,0.4);color:#fff;font-size:0.82rem;font-weight:600;padding:5px 14px;border-radius:50px;"><i class="bi bi-check-circle-fill me-1" style="color:#25d366;"></i>Sillas</span>
-              <span style="background:rgba(14,165,233,0.18);border:1px solid rgba(14,165,233,0.4);color:#fff;font-size:0.82rem;font-weight:600;padding:5px 14px;border-radius:50px;"><i class="bi bi-check-circle-fill me-1" style="color:#25d366;"></i>Moqueta</span>
-              <span style="background:rgba(14,165,233,0.18);border:1px solid rgba(14,165,233,0.4);color:#fff;font-size:0.82rem;font-weight:600;padding:5px 14px;border-radius:50px;"><i class="bi bi-check-circle-fill me-1" style="color:#25d366;"></i>Manchas</span>
-              <span style="background:rgba(14,165,233,0.18);border:1px solid rgba(14,165,233,0.4);color:#fff;font-size:0.82rem;font-weight:600;padding:5px 14px;border-radius:50px;"><i class="bi bi-check-circle-fill me-1" style="color:#25d366;"></i>Olores</span>
-              <span style="background:rgba(14,165,233,0.18);border:1px solid rgba(14,165,233,0.4);color:#fff;font-size:0.82rem;font-weight:600;padding:5px 14px;border-radius:50px;"><i class="bi bi-check-circle-fill me-1" style="color:#25d366;"></i>Ácaros</span>
-              <span style="background:rgba(14,165,233,0.18);border:1px solid rgba(14,165,233,0.4);color:#fff;font-size:0.82rem;font-weight:600;padding:5px 14px;border-radius:50px;"><i class="bi bi-check-circle-fill me-1" style="color:#25d366;"></i>Mascotas</span>
-              <span style="background:rgba(14,165,233,0.18);border:1px solid rgba(14,165,233,0.4);color:#fff;font-size:0.82rem;font-weight:600;padding:5px 14px;border-radius:50px;"><i class="bi bi-check-circle-fill me-1" style="color:#25d366;"></i>Humedad</span>
+        <!-- Imagen máquina + lista de servicios clicables -->
+        <div class="mb-4">
+          <div class="d-flex align-items-center gap-4 flex-wrap mb-2">
+            <img src="images/karcher-profesional.jpg" alt="Máquina Kärcher profesional" fetchpriority="high" class="karcher-img"
+              style="width:300px;height:300px;object-fit:contain;flex-shrink:0;border-radius:14px;background:rgba(255,255,255,0.10);padding:8px;" />
+            <div style="flex:1;min-width:200px;">
+              <p style="color:var(--accent);font-size:0.8rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:10px;">
+                <i class="bi bi-hand-index-thumb-fill me-1"></i> Pulsa y descubre cómo lo resolvemos
+              </p>
+              <div style="display:flex;flex-wrap:wrap;gap:8px 10px;">
+                <a href="sofas.html" style="text-decoration:none;"><span class="hero-tag"><i class="bi bi-check-circle-fill me-1" style="color:#25d366;"></i>Sofás</span></a>
+                <a href="colchones.html" style="text-decoration:none;"><span class="hero-tag"><i class="bi bi-check-circle-fill me-1" style="color:#25d366;"></i>Colchones</span></a>
+                <a href="alfombras.html" style="text-decoration:none;"><span class="hero-tag"><i class="bi bi-check-circle-fill me-1" style="color:#25d366;"></i>Alfombras</span></a>
+                <a href="sillas.html" style="text-decoration:none;"><span class="hero-tag"><i class="bi bi-check-circle-fill me-1" style="color:#25d366;"></i>Sillas</span></a>
+                <a href="alfombras.html" style="text-decoration:none;"><span class="hero-tag"><i class="bi bi-check-circle-fill me-1" style="color:#25d366;"></i>Moqueta</span></a>
+                <a href="sofas.html#galeria" style="text-decoration:none;"><span class="hero-tag"><i class="bi bi-check-circle-fill me-1" style="color:#25d366;"></i>Manchas</span></a>
+                <a href="colchones.html#beneficios" style="text-decoration:none;"><span class="hero-tag"><i class="bi bi-check-circle-fill me-1" style="color:#25d366;"></i>Olores</span></a>
+                <a href="colchones.html#beneficios" style="text-decoration:none;"><span class="hero-tag"><i class="bi bi-check-circle-fill me-1" style="color:#25d366;"></i>Ácaros</span></a>
+                <a href="sofas.html#beneficios" style="text-decoration:none;"><span class="hero-tag"><i class="bi bi-check-circle-fill me-1" style="color:#25d366;"></i>Mascotas</span></a>
+                <a href="colchones.html#beneficios" style="text-decoration:none;"><span class="hero-tag"><i class="bi bi-check-circle-fill me-1" style="color:#25d366;"></i>Humedad</span></a>
+              </div>
             </div>
           </div>
         </div>
