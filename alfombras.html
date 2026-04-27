@@ -133,6 +133,149 @@
     .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
     @media (max-width: 768px) { #hero { min-height: auto; padding: 70px 0 50px; } .hero-title { font-size: 1.7rem; } .hero-calc-card { margin-top: 36px; } .calc-grid { grid-template-columns: 1fr; } }
+
+    /* COMPARISON SLIDER */
+    #resultados { padding: 80px 0; background: #fff; }
+    #resultados .section-title { color: var(--primary); }
+    .comparison-wrapper {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      cursor: col-resize;
+      user-select: none;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+    .comparison-wrapper img {
+      display: block;
+      width: 100%;
+      height: 480px;
+      object-fit: cover;
+      pointer-events: none;
+    }
+    .comparison-wrapper .img-before {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      width: 50%;
+    }
+    .comparison-wrapper .img-before img {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      min-width: 780px;
+    }
+    .comparison-wrapper .img-after img {
+      width: 100%;
+      height: 480px;
+      object-fit: cover;
+    }
+    .comparison-handle {
+      position: absolute;
+      top: 0; bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 4px;
+      background: #fff;
+      z-index: 10;
+      cursor: col-resize;
+    }
+    .comparison-handle::before,
+    .comparison-handle::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 2px;
+      background: rgba(255,255,255,0.4);
+    }
+    .comparison-btn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 52px;
+      height: 52px;
+      background: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+      font-size: 1.1rem;
+      color: var(--primary);
+      font-weight: 700;
+      z-index: 11;
+      white-space: nowrap;
+      gap: 4px;
+    }
+    .comparison-label {
+      position: absolute;
+      top: 16px;
+      padding: 5px 14px;
+      border-radius: 50px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      z-index: 12;
+    }
+    .label-antes {
+      left: 16px;
+      background: rgba(0,0,0,0.55);
+      color: #fff;
+    }
+    .label-despues {
+      right: 16px;
+      background: var(--accent);
+      color: #fff;
+    }
+    @media (max-width: 768px) {
+      .comparison-wrapper img, .comparison-wrapper .img-after img { height: 300px; }
+      .comparison-wrapper .img-before img { min-width: 100vw; }
+    }
+
+    /* CALCULATOR LEVELS */
+    .calc-service-card { flex-direction: column; align-items: stretch; gap: 0; padding: 0; overflow: hidden; }
+    .card-header { display: flex; align-items: center; gap: 13px; padding: 16px 18px; cursor: pointer; width: 100%; }
+    .card-header input[type="checkbox"] { width: 20px; height: 20px; accent-color: var(--accent); pointer-events: none; flex-shrink: 0; }
+    .card-levels { border-top: 1px solid var(--border); padding: 10px 16px 14px; display: none; background: var(--light-bg); }
+    .card-levels.open { display: block; }
+    .level-btn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 9px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-bottom: 6px;
+      border: 2px solid transparent;
+      background: #fff;
+      transition: all 0.15s;
+      font-size: 0.87rem;
+    }
+    .level-btn:last-child { margin-bottom: 0; }
+    .level-btn:hover { border-color: var(--accent); }
+    .level-btn.active { border-color: var(--accent); background: #e0f2fe; }
+    .level-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      font-size: 0.75rem;
+      font-weight: 700;
+      margin-right: 8px;
+      flex-shrink: 0;
+    }
+    .badge-1 { background: #d1fae5; color: #065f46; }
+    .badge-2 { background: #fef3c7; color: #92400e; }
+    .badge-3 { background: #fee2e2; color: #991b1b; }
+    .level-desc { color: var(--text-muted); font-size: 0.78rem; display: block; }
+    .level-price { font-family: 'Poppins', sans-serif; font-weight: 700; color: var(--primary); font-size: 1rem; flex-shrink: 0; margin-left: 8px; }
+    .chevron-icon { transition: transform 0.2s; color: var(--text-muted); flex-shrink: 0; }
+    .chevron-icon.open { transform: rotate(180deg); }
   </style>
 </head>
 <body>
@@ -232,6 +375,31 @@
   </div>
 </div>
 
+<!-- RESULTADOS INSTANTÁNEOS -->
+<section id="resultados">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <span class="section-label">Resultados reales</span>
+      <h2 class="section-title">Resultados Instantáneos</h2>
+      <div class="section-divider"></div>
+      <p class="section-subtitle">Arrastra el divisor para comparar el antes y el después</p>
+    </div>
+    <div class="comparison-wrapper reveal" id="slider1">
+      <div class="img-after">
+        <img src="images/alfombra-antes-despues.jpg" alt="Después de la limpieza" />
+      </div>
+      <div class="img-before">
+        <img src="images/colchon-manchas1.jpg" alt="Antes de la limpieza" />
+      </div>
+      <div class="comparison-handle" id="handle1">
+        <div class="comparison-btn"><i class="bi bi-chevron-left"></i><i class="bi bi-chevron-right"></i></div>
+      </div>
+      <span class="comparison-label label-antes">ANTES</span>
+      <span class="comparison-label label-despues">DESPUÉS</span>
+    </div>
+  </div>
+</section>
+
 <section id="galeria">
   <div class="container">
     <div class="text-center mb-5 reveal">
@@ -292,40 +460,127 @@
     <div class="row g-4">
       <div class="col-lg-7">
         <div class="calc-grid">
-          <div class="calc-service-card" onclick="toggleMainCalc(this, 50, 'Alfombra pequeña hasta 4m²', '1h')">
-            <input type="checkbox" id="mc1" />
-            <div class="calc-service-info"><span class="name">Alfombra pequeña (hasta 4m²)</span><span class="time"><i class="bi bi-clock me-1"></i>~1h</span></div>
-            <span class="calc-service-price">50€</span>
+          <!-- Alfombra pequeña -->
+          <div class="calc-service-card" id="card-mc1">
+            <div class="card-header" onclick="toggleCard('mc1')">
+              <input type="checkbox" id="mc1" />
+              <div class="calc-service-info">
+                <span class="name">Alfombra pequeña (hasta 4m²)</span>
+                <span class="time"><i class="bi bi-clock me-1"></i>~1h · Elige nivel</span>
+              </div>
+              <span class="calc-service-price" id="price-mc1">desde 40€</span>
+              <i class="bi bi-chevron-down chevron-icon" id="chev-mc1"></i>
+            </div>
+            <div class="card-levels" id="levels-mc1">
+              <div class="level-btn" onclick="selectLevel('mc1', 40, 'Alfombra pequeña – Nivel 1', '1h', this)"><span><span class="level-badge badge-1">1</span>Limpieza ligera <span class="level-desc">Polvo y suciedad superficial</span></span><span class="level-price">40€</span></div>
+              <div class="level-btn" onclick="selectLevel('mc1', 50, 'Alfombra pequeña – Nivel 2', '1h', this)"><span><span class="level-badge badge-2">2</span>Limpieza estándar <span class="level-desc">Manchas recientes, pelo de mascota</span></span><span class="level-price">50€</span></div>
+              <div class="level-btn" onclick="selectLevel('mc1', 65, 'Alfombra pequeña – Nivel 3', '1.5h', this)"><span><span class="level-badge badge-3">3</span>Limpieza profunda <span class="level-desc">Manchas antiguas, olores intensos</span></span><span class="level-price">65€</span></div>
+            </div>
           </div>
-          <div class="calc-service-card" onclick="toggleMainCalc(this, 70, 'Alfombra mediana 4–9m²', '1.5h')">
-            <input type="checkbox" id="mc2" />
-            <div class="calc-service-info"><span class="name">Alfombra mediana (4–9m²)</span><span class="time"><i class="bi bi-clock me-1"></i>~1.5h</span></div>
-            <span class="calc-service-price">70€</span>
+
+          <!-- Alfombra mediana -->
+          <div class="calc-service-card" id="card-mc2">
+            <div class="card-header" onclick="toggleCard('mc2')">
+              <input type="checkbox" id="mc2" />
+              <div class="calc-service-info">
+                <span class="name">Alfombra mediana (4–9m²)</span>
+                <span class="time"><i class="bi bi-clock me-1"></i>~1.5h · Elige nivel</span>
+              </div>
+              <span class="calc-service-price" id="price-mc2">desde 55€</span>
+              <i class="bi bi-chevron-down chevron-icon" id="chev-mc2"></i>
+            </div>
+            <div class="card-levels" id="levels-mc2">
+              <div class="level-btn" onclick="selectLevel('mc2', 55, 'Alfombra mediana – Nivel 1', '1.5h', this)"><span><span class="level-badge badge-1">1</span>Limpieza ligera <span class="level-desc">Polvo y suciedad superficial</span></span><span class="level-price">55€</span></div>
+              <div class="level-btn" onclick="selectLevel('mc2', 70, 'Alfombra mediana – Nivel 2', '1.5h', this)"><span><span class="level-badge badge-2">2</span>Limpieza estándar <span class="level-desc">Manchas recientes, pelo de mascota</span></span><span class="level-price">70€</span></div>
+              <div class="level-btn" onclick="selectLevel('mc2', 90, 'Alfombra mediana – Nivel 3', '2h', this)"><span><span class="level-badge badge-3">3</span>Limpieza profunda <span class="level-desc">Manchas antiguas, olores intensos</span></span><span class="level-price">90€</span></div>
+            </div>
           </div>
-          <div class="calc-service-card" onclick="toggleMainCalc(this, 95, 'Alfombra grande +9m²', '2h')">
-            <input type="checkbox" id="mc3" />
-            <div class="calc-service-info"><span class="name">Alfombra grande (+9m²)</span><span class="time"><i class="bi bi-clock me-1"></i>~2h</span></div>
-            <span class="calc-service-price">95€</span>
+
+          <!-- Alfombra grande -->
+          <div class="calc-service-card" id="card-mc3">
+            <div class="card-header" onclick="toggleCard('mc3')">
+              <input type="checkbox" id="mc3" />
+              <div class="calc-service-info">
+                <span class="name">Alfombra grande (+9m²)</span>
+                <span class="time"><i class="bi bi-clock me-1"></i>~2h · Elige nivel</span>
+              </div>
+              <span class="calc-service-price" id="price-mc3">desde 75€</span>
+              <i class="bi bi-chevron-down chevron-icon" id="chev-mc3"></i>
+            </div>
+            <div class="card-levels" id="levels-mc3">
+              <div class="level-btn" onclick="selectLevel('mc3', 75, 'Alfombra grande – Nivel 1', '2h', this)"><span><span class="level-badge badge-1">1</span>Limpieza ligera <span class="level-desc">Polvo y suciedad superficial</span></span><span class="level-price">75€</span></div>
+              <div class="level-btn" onclick="selectLevel('mc3', 95, 'Alfombra grande – Nivel 2', '2h', this)"><span><span class="level-badge badge-2">2</span>Limpieza estándar <span class="level-desc">Manchas recientes, pelo de mascota</span></span><span class="level-price">95€</span></div>
+              <div class="level-btn" onclick="selectLevel('mc3', 120, 'Alfombra grande – Nivel 3', '2.5h', this)"><span><span class="level-badge badge-3">3</span>Limpieza profunda <span class="level-desc">Manchas antiguas, olores intensos</span></span><span class="level-price">120€</span></div>
+            </div>
           </div>
-          <div class="calc-service-card" onclick="toggleMainCalc(this, 65, 'Sofá 2 plazas', '90 min')" style="border-color:#f59e0b;background:#fffbf0;">
-            <input type="checkbox" id="mc4" />
-            <div class="calc-service-info"><span class="name" style="color:#92400e;"><i class="bi bi-tag-fill me-1" style="color:#f59e0b;"></i>Sofá 2 plazas (promo)</span><span class="time">Combina y ahorra 15%</span></div>
-            <span class="calc-service-price" style="color:#92400e;">65€</span>
+
+          <!-- ARTÍCULOS CRUZADOS -->
+          <div class="calc-service-card" id="card-mc4" style="border-color:#f59e0b;background:#fffbf0;">
+            <div class="card-header" onclick="toggleCard('mc4')" style="background:#fffbf0;">
+              <input type="checkbox" id="mc4" />
+              <div class="calc-service-info">
+                <span class="name" style="color:#92400e;"><i class="bi bi-tag-fill me-1" style="color:#f59e0b;"></i>Sofá 2 plazas (promo)</span>
+                <span class="time">Combina y ahorra 15% · Elige nivel</span>
+              </div>
+              <span class="calc-service-price" id="price-mc4" style="color:#92400e;">desde 55€</span>
+              <i class="bi bi-chevron-down chevron-icon" id="chev-mc4"></i>
+            </div>
+            <div class="card-levels" id="levels-mc4" style="background:#fffbf0;">
+              <div class="level-btn" onclick="selectLevel('mc4', 55, 'Sofá 2 plazas – Nivel 1', '90 min', this)"><span><span class="level-badge badge-1">1</span>Ligera <span class="level-desc">Uso habitual</span></span><span class="level-price" style="color:#92400e;">55€</span></div>
+              <div class="level-btn" onclick="selectLevel('mc4', 65, 'Sofá 2 plazas – Nivel 2', '90 min', this)"><span><span class="level-badge badge-2">2</span>Estándar <span class="level-desc">Manchas recientes</span></span><span class="level-price" style="color:#92400e;">65€</span></div>
+              <div class="level-btn" onclick="selectLevel('mc4', 85, 'Sofá 2 plazas – Nivel 3', '2h', this)"><span><span class="level-badge badge-3">3</span>Profunda <span class="level-desc">Manchas antiguas, olores</span></span><span class="level-price" style="color:#92400e;">85€</span></div>
+            </div>
           </div>
-          <div class="calc-service-card" onclick="toggleMainCalc(this, 75, 'Sofá 3 plazas', '2h')" style="border-color:#f59e0b;background:#fffbf0;">
-            <input type="checkbox" id="mc5" />
-            <div class="calc-service-info"><span class="name" style="color:#92400e;"><i class="bi bi-tag-fill me-1" style="color:#f59e0b;"></i>Sofá 3 plazas (promo)</span><span class="time">Combina y ahorra 15%</span></div>
-            <span class="calc-service-price" style="color:#92400e;">75€</span>
+
+          <div class="calc-service-card" id="card-mc5" style="border-color:#f59e0b;background:#fffbf0;">
+            <div class="card-header" onclick="toggleCard('mc5')" style="background:#fffbf0;">
+              <input type="checkbox" id="mc5" />
+              <div class="calc-service-info">
+                <span class="name" style="color:#92400e;"><i class="bi bi-tag-fill me-1" style="color:#f59e0b;"></i>Sofá 3 plazas (promo)</span>
+                <span class="time">Combina y ahorra 15% · Elige nivel</span>
+              </div>
+              <span class="calc-service-price" id="price-mc5" style="color:#92400e;">desde 65€</span>
+              <i class="bi bi-chevron-down chevron-icon" id="chev-mc5"></i>
+            </div>
+            <div class="card-levels" id="levels-mc5" style="background:#fffbf0;">
+              <div class="level-btn" onclick="selectLevel('mc5', 65, 'Sofá 3 plazas – Nivel 1', '2h', this)"><span><span class="level-badge badge-1">1</span>Ligera <span class="level-desc">Uso habitual</span></span><span class="level-price" style="color:#92400e;">65€</span></div>
+              <div class="level-btn" onclick="selectLevel('mc5', 80, 'Sofá 3 plazas – Nivel 2', '2h', this)"><span><span class="level-badge badge-2">2</span>Estándar <span class="level-desc">Manchas recientes</span></span><span class="level-price" style="color:#92400e;">80€</span></div>
+              <div class="level-btn" onclick="selectLevel('mc5', 100, 'Sofá 3 plazas – Nivel 3', '2.5h', this)"><span><span class="level-badge badge-3">3</span>Profunda <span class="level-desc">Manchas antiguas, olores</span></span><span class="level-price" style="color:#92400e;">100€</span></div>
+            </div>
           </div>
-          <div class="calc-service-card" onclick="toggleMainCalc(this, 55, 'Colchón 90cm', '1h')" style="border-color:#f59e0b;background:#fffbf0;">
-            <input type="checkbox" id="mc6" />
-            <div class="calc-service-info"><span class="name" style="color:#92400e;"><i class="bi bi-tag-fill me-1" style="color:#f59e0b;"></i>Colchón 90cm (promo)</span><span class="time">Combina y ahorra 15%</span></div>
-            <span class="calc-service-price" style="color:#92400e;">55€</span>
+
+          <div class="calc-service-card" id="card-mc6" style="border-color:#f59e0b;background:#fffbf0;">
+            <div class="card-header" onclick="toggleCard('mc6')" style="background:#fffbf0;">
+              <input type="checkbox" id="mc6" />
+              <div class="calc-service-info">
+                <span class="name" style="color:#92400e;"><i class="bi bi-tag-fill me-1" style="color:#f59e0b;"></i>Colchón 90cm (promo)</span>
+                <span class="time">Combina y ahorra 15% · Elige nivel</span>
+              </div>
+              <span class="calc-service-price" id="price-mc6" style="color:#92400e;">desde 45€</span>
+              <i class="bi bi-chevron-down chevron-icon" id="chev-mc6"></i>
+            </div>
+            <div class="card-levels" id="levels-mc6" style="background:#fffbf0;">
+              <div class="level-btn" onclick="selectLevel('mc6', 45, 'Colchón 90cm – Nivel 1', '1h', this)"><span><span class="level-badge badge-1">1</span>Ligera <span class="level-desc">Mantenimiento periódico</span></span><span class="level-price" style="color:#92400e;">45€</span></div>
+              <div class="level-btn" onclick="selectLevel('mc6', 55, 'Colchón 90cm – Nivel 2', '1h', this)"><span><span class="level-badge badge-2">2</span>Estándar <span class="level-desc">Manchas y ácaros</span></span><span class="level-price" style="color:#92400e;">55€</span></div>
+              <div class="level-btn" onclick="selectLevel('mc6', 70, 'Colchón 90cm – Nivel 3', '1.5h', this)"><span><span class="level-badge badge-3">3</span>Profunda <span class="level-desc">Manchas antiguas, olores</span></span><span class="level-price" style="color:#92400e;">70€</span></div>
+            </div>
           </div>
-          <div class="calc-service-card" onclick="toggleMainCalc(this, 12, 'Silla comedor (x1)', '20 min')">
-            <input type="checkbox" id="mc7" />
-            <div class="calc-service-info"><span class="name">Silla de comedor (x1)</span><span class="time"><i class="bi bi-clock me-1"></i>~20 min</span></div>
-            <span class="calc-service-price">12€</span>
+
+          <div class="calc-service-card" id="card-mc7">
+            <div class="card-header" onclick="toggleCard('mc7')">
+              <input type="checkbox" id="mc7" />
+              <div class="calc-service-info">
+                <span class="name">Silla de comedor (x1)</span>
+                <span class="time"><i class="bi bi-clock me-1"></i>~20 min · Elige nivel</span>
+              </div>
+              <span class="calc-service-price" id="price-mc7">desde 10€</span>
+              <i class="bi bi-chevron-down chevron-icon" id="chev-mc7"></i>
+            </div>
+            <div class="card-levels" id="levels-mc7">
+              <div class="level-btn" onclick="selectLevel('mc7', 10, 'Silla comedor – Nivel 1', '20 min', this)"><span><span class="level-badge badge-1">1</span>Ligera <span class="level-desc">Uso habitual</span></span><span class="level-price">10€</span></div>
+              <div class="level-btn" onclick="selectLevel('mc7', 12, 'Silla comedor – Nivel 2', '20 min', this)"><span><span class="level-badge badge-2">2</span>Estándar <span class="level-desc">Manchas visibles</span></span><span class="level-price">12€</span></div>
+              <div class="level-btn" onclick="selectLevel('mc7', 15, 'Silla comedor – Nivel 3', '30 min', this)"><span><span class="level-badge badge-3">3</span>Profunda <span class="level-desc">Manchas antiguas</span></span><span class="level-price">15€</span></div>
+            </div>
           </div>
         </div>
         <div class="pack-promo">
@@ -356,6 +611,21 @@
   </div>
 </section>
 
+<!-- AVISO MANCHAS -->
+<div class="container" style="padding: 0 0 40px;">
+  <div style="background:#fef9ec;border-left:4px solid #f59e0b;border-radius:0 12px 12px 0;padding:20px 24px;max-width:900px;margin:0 auto;">
+    <div style="display:flex;align-items:flex-start;gap:14px;">
+      <i class="bi bi-exclamation-triangle-fill" style="color:#f59e0b;font-size:1.4rem;flex-shrink:0;margin-top:2px;"></i>
+      <div>
+        <p style="font-weight:700;color:#92400e;margin-bottom:6px;font-size:0.97rem;">Información importante sobre manchas persistentes</p>
+        <p style="color:#78350f;font-size:0.88rem;line-height:1.7;margin:0;">
+          Nuestro proceso de inyección-extracción a 70°C elimina la gran mayoría de manchas y contaminantes biológicos. Sin embargo, ciertas manchas de naturaleza cromógena o proteínica con elevado tiempo de fijación en la fibra textil —como manchas de vino tinto con oxidación prolongada, hemoglobina coagulada (sangre seca), fluidos orgánicos con degradación avanzada, o pigmentos grasos quemados— pueden haber generado una alteración irreversible de la estructura cromática del tejido. En estos casos, realizamos el tratamiento más exhaustivo posible con agentes tensioactivos y enzimáticos especializados, aunque no podemos garantizar la eliminación total. Siempre te informaremos honestamente antes de iniciar el servicio.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
 <section id="proceso">
   <div class="container">
     <div class="text-center mb-5 reveal">
@@ -368,6 +638,88 @@
       <div class="col-md-6 col-lg-3 reveal"><div class="proceso-step"><div class="step-number">2</div><div class="step-content"><h5>Pre-tratamiento de manchas</h5><p>Aplicamos solución específica para disolver manchas antiguas antes del lavado principal.</p></div></div></div>
       <div class="col-md-6 col-lg-3 reveal"><div class="proceso-step"><div class="step-number">3</div><div class="step-content"><h5>Lavado a presión</h5><p>Agua caliente a 70°C penetra las fibras y extrae toda la suciedad y residuos profundos.</p></div></div></div>
       <div class="col-md-6 col-lg-3 reveal"><div class="proceso-step"><div class="step-number">4</div><div class="step-content"><h5>Extracción y secado</h5><p>Extraemos el máximo de agua. La alfombra queda lista en 2–3 horas en la misma ubicación.</p></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ECO-FRIENDLY -->
+<section id="ecofriendly" style="padding:80px 0;background:linear-gradient(135deg,#f0fdf4 0%,#ecfdf5 100%);">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <span class="section-label" style="background:#d1fae5;color:#065f46;">Productos certificados</span>
+      <h2 class="section-title" style="color:#064e3b;">Productos 100% Ecoamigables</h2>
+      <div class="section-divider" style="background:linear-gradient(90deg,#10b981,#34d399);"></div>
+      <p class="section-subtitle">Seguros para tus hijos, tus mascotas y el medio ambiente. Sin compromiso en eficacia.</p>
+    </div>
+    <div class="row g-4 align-items-center">
+      <div class="col-lg-6 reveal">
+        <div class="row g-3">
+          <div class="col-6">
+            <div style="background:#fff;border-radius:16px;padding:24px 20px;box-shadow:0 4px 16px rgba(16,185,129,0.1);border:1px solid #a7f3d0;text-align:center;height:100%;">
+              <i class="bi bi-droplet-fill" style="font-size:2rem;color:#10b981;display:block;margin-bottom:12px;"></i>
+              <h6 style="color:#064e3b;font-size:0.95rem;margin-bottom:8px;">Tensioactivos biodegradables</h6>
+              <p style="font-size:0.82rem;color:#065f46;margin:0;line-height:1.6;">Se descomponen de forma natural sin dejar residuos tóxicos en el tejido ni en el entorno</p>
+            </div>
+          </div>
+          <div class="col-6">
+            <div style="background:#fff;border-radius:16px;padding:24px 20px;box-shadow:0 4px 16px rgba(16,185,129,0.1);border:1px solid #a7f3d0;text-align:center;height:100%;">
+              <i class="bi bi-heart-pulse-fill" style="font-size:2rem;color:#10b981;display:block;margin-bottom:12px;"></i>
+              <h6 style="color:#064e3b;font-size:0.95rem;margin-bottom:8px;">Inofensivos para niños y bebés</h6>
+              <p style="font-size:0.82rem;color:#065f46;margin:0;line-height:1.6;">Sin compuestos orgánicos volátiles (COV), sin alérgenos ni irritantes. Aptos desde el primer día de vida</p>
+            </div>
+          </div>
+          <div class="col-6">
+            <div style="background:#fff;border-radius:16px;padding:24px 20px;box-shadow:0 4px 16px rgba(16,185,129,0.1);border:1px solid #a7f3d0;text-align:center;height:100%;">
+              <i class="bi bi-bug" style="font-size:2rem;color:#10b981;display:block;margin-bottom:12px;"></i>
+              <h6 style="color:#064e3b;font-size:0.95rem;margin-bottom:8px;">Seguros para mascotas</h6>
+              <p style="font-size:0.82rem;color:#065f46;margin:0;line-height:1.6;">Formulación libre de fenoles, amonio cuaternario y otros agentes tóxicos para animales domésticos</p>
+            </div>
+          </div>
+          <div class="col-6">
+            <div style="background:#fff;border-radius:16px;padding:24px 20px;box-shadow:0 4px 16px rgba(16,185,129,0.1);border:1px solid #a7f3d0;text-align:center;height:100%;">
+              <i class="bi bi-shield-fill-check" style="font-size:2rem;color:#10b981;display:block;margin-bottom:12px;"></i>
+              <h6 style="color:#064e3b;font-size:0.95rem;margin-bottom:8px;">Sin residuos en el tejido</h6>
+              <p style="font-size:0.82rem;color:#065f46;margin:0;line-height:1.6;">El proceso de extracción elimina el 98% de la solución aplicada. El tejido queda limpio, no encalado</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 reveal">
+        <div style="background:#fff;border-radius:20px;padding:36px 32px;box-shadow:0 8px 32px rgba(16,185,129,0.12);border:1px solid #a7f3d0;">
+          <div style="display:flex;align-items:center;gap:16px;margin-bottom:24px;">
+            <div style="width:56px;height:56px;background:linear-gradient(135deg,#10b981,#059669);border-radius:16px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <i class="bi bi-leaf-fill" style="font-size:1.6rem;color:#fff;"></i>
+            </div>
+            <div>
+              <h5 style="color:#064e3b;margin:0 0 4px;">Enzimas de acción biológica</h5>
+              <span style="font-size:0.82rem;color:#065f46;">Tecnología limpiadora natural</span>
+            </div>
+          </div>
+          <p style="color:#065f46;font-size:0.92rem;line-height:1.75;margin-bottom:20px;">Utilizamos formulaciones enzimáticas de última generación que actúan descomponiendo molecularmente la suciedad orgánica —proteínas, grasas, almidones— sin necesidad de agentes químicos agresivos. Este proceso imita los mecanismos de degradación natural, siendo igual de eficaz que los productos convencionales pero completamente inocuo.</p>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <div style="display:flex;align-items:center;gap:10px;font-size:0.87rem;color:#065f46;">
+              <i class="bi bi-check-circle-fill" style="color:#10b981;font-size:1rem;flex-shrink:0;"></i>
+              <span>Sin parabenos, fosfatos ni blanqueantes ópticos</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:0.87rem;color:#065f46;">
+              <i class="bi bi-check-circle-fill" style="color:#10b981;font-size:1rem;flex-shrink:0;"></i>
+              <span>pH neutro — no altera las fibras ni los colorantes del tejido</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:0.87rem;color:#065f46;">
+              <i class="bi bi-check-circle-fill" style="color:#10b981;font-size:1rem;flex-shrink:0;"></i>
+              <span>Eliminación certificada del 99% de bacterias y ácaros</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:0.87rem;color:#065f46;">
+              <i class="bi bi-check-circle-fill" style="color:#10b981;font-size:1rem;flex-shrink:0;"></i>
+              <span>Packaging reciclable y concentrado — menos plástico, menos residuo</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:0.87rem;color:#065f46;">
+              <i class="bi bi-check-circle-fill" style="color:#10b981;font-size:1rem;flex-shrink:0;"></i>
+              <span>Puedes usar el sofá/colchón el mismo día sin riesgo alguno</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -540,18 +892,81 @@
   function toggleHeroCalc(el, price) { const cb=el.querySelector('input'); cb.checked=!cb.checked; if(cb.checked){el.classList.add('selected');heroSel[cb.id]=price;}else{el.classList.remove('selected');delete heroSel[cb.id];} document.getElementById('heroTotal').textContent=Object.values(heroSel).reduce((a,b)=>a+b,0)+'€'; }
   function openHeroWA(e) { e.preventDefault(); if(!Object.keys(heroSel).length){alert('Selecciona al menos un servicio.');return;} const labels=Array.from(document.querySelectorAll('#heroCalcOptions .calc-option.selected label')).map(l=>l.textContent.trim()); window.open('https://wa.me/34631171537?text='+encodeURIComponent('Hola, me interesa: '+labels.join(', ')+'. Total: '+Object.values(heroSel).reduce((a,b)=>a+b,0)+'€.'),'_blank'); }
   const mainSel = {};
-  function toggleMainCalc(el, price, name, time) { const cb=el.querySelector('input'); cb.checked=!cb.checked; if(cb.checked){el.classList.add('selected');mainSel[cb.id]={price,name,time};}else{el.classList.remove('selected');delete mainSel[cb.id];} updateMainCalc(); }
-  function updateMainCalc() {
-    const items=Object.values(mainSel); let total=items.reduce((a,b)=>a+b.price,0);
-    const hasAlf=mainSel['mc1']||mainSel['mc2']||mainSel['mc3'];
-    const hasExtra=mainSel['mc4']||mainSel['mc5']||mainSel['mc6'];
-    let discount=0; if(hasAlf&&hasExtra){discount=Math.round(total*0.15);total-=discount;}
-    const c=document.getElementById('mainCalcItems');
-    if(!items.length){c.innerHTML='<p style="opacity:0.6;font-size:0.88rem;text-align:center;padding:18px 0;">Selecciona servicios para ver el resumen</p>';}
-    else{let h=items.map(i=>`<div class="calc-summary-item"><span>${i.name}</span><span>${i.price}€</span></div>`).join('');if(discount>0)h+=`<div class="calc-summary-item" style="color:#4ade80;"><span>Pack Descuento (–15%)</span><span>–${discount}€</span></div>`;c.innerHTML=h;}
-    document.getElementById('mainTotal').textContent=total+'€';
+
+  function toggleCard(cardId) {
+    const card = document.getElementById('card-' + cardId);
+    const levelsDiv = document.getElementById('levels-' + cardId);
+    const chevron = document.getElementById('chev-' + cardId);
+    const cb = document.getElementById(cardId);
+    const isOpen = levelsDiv.classList.contains('open');
+    if (isOpen) {
+      levelsDiv.classList.remove('open');
+      chevron.classList.remove('open');
+      card.classList.remove('selected');
+      cb.checked = false;
+      delete mainSel[cardId];
+      updateMainCalc();
+    } else {
+      levelsDiv.classList.add('open');
+      chevron.classList.add('open');
+      card.classList.add('selected');
+    }
   }
-  function openMainWA(e) { e.preventDefault(); const items=Object.values(mainSel); if(!items.length){alert('Selecciona al menos un servicio.');return;} window.open('https://wa.me/34631171537?text='+encodeURIComponent('Hola, quiero reservar: '+items.map(i=>i.name).join(', ')+'. Total: '+document.getElementById('mainTotal').textContent),'_blank'); }
+
+  function selectLevel(cardId, price, name, time, btn) {
+    document.querySelectorAll('#levels-' + cardId + ' .level-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById(cardId).checked = true;
+    mainSel[cardId] = { price, name, time };
+    document.getElementById('price-' + cardId).textContent = price + '€';
+    updateMainCalc();
+  }
+
+  function updateMainCalc() {
+    const items = Object.values(mainSel);
+    let total = items.reduce((a, b) => a + b.price, 0);
+    const hasMain = Object.keys(mainSel).some(k => ['mc1','mc2','mc3'].includes(k));
+    const hasPromo = Object.keys(mainSel).some(k => ['mc4','mc5','mc6','mc7'].includes(k));
+    let discount = 0;
+    if (hasMain && hasPromo) { discount = Math.round(total * 0.15); total -= discount; }
+    const c = document.getElementById('mainCalcItems');
+    if (!items.length) { c.innerHTML = '<p style="opacity:0.6;font-size:0.88rem;text-align:center;padding:18px 0;">Selecciona servicios para ver el resumen</p>'; }
+    else {
+      let h = items.map(i => `<div class="calc-summary-item"><span>${i.name}</span><span>${i.price}€</span></div>`).join('');
+      if (discount > 0) h += `<div class="calc-summary-item" style="color:#4ade80;"><span>Pack Descuento (–15%)</span><span>–${discount}€</span></div>`;
+      c.innerHTML = h;
+    }
+    document.getElementById('mainTotal').textContent = total + '€';
+  }
+
+  function openMainWA(e) {
+    e.preventDefault();
+    const items = Object.values(mainSel);
+    if (!items.length) { alert('Selecciona al menos un servicio.'); return; }
+    window.open('https://wa.me/34631171537?text=' + encodeURIComponent('Hola, quiero reservar: ' + items.map(i => i.name).join(', ') + '. Total: ' + document.getElementById('mainTotal').textContent), '_blank');
+  }
+
+  /* COMPARISON SLIDER */
+  function initSlider(wrapperId, handleId) {
+    const wrapper = document.getElementById(wrapperId);
+    const handle = document.getElementById(handleId);
+    const before = wrapper.querySelector('.img-before');
+    if (!wrapper || !handle) return;
+    let dragging = false;
+    function setPos(x) {
+      const rect = wrapper.getBoundingClientRect();
+      let pct = Math.max(5, Math.min(95, (x - rect.left) / rect.width * 100));
+      before.style.width = pct + '%';
+      handle.style.left = pct + '%';
+    }
+    handle.addEventListener('mousedown', e => { dragging = true; e.preventDefault(); });
+    document.addEventListener('mouseup', () => dragging = false);
+    document.addEventListener('mousemove', e => { if (dragging) setPos(e.clientX); });
+    handle.addEventListener('touchstart', e => { dragging = true; e.preventDefault(); }, { passive: false });
+    document.addEventListener('touchend', () => dragging = false);
+    document.addEventListener('touchmove', e => { if (dragging) setPos(e.touches[0].clientX); }, { passive: true });
+  }
+  initSlider('slider1', 'handle1');
   const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}}),{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
   document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
   window.addEventListener('scroll',()=>{document.querySelector('.navbar').style.boxShadow=window.scrollY>50?'0 4px 24px rgba(26,58,92,0.15)':'0 2px 16px rgba(26,58,92,0.08)';});
