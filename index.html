@@ -18,6 +18,10 @@
   <!-- Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
 
+  <!-- Preload recursos críticos para carga rápida -->
+  <link rel="preload" as="image" href="images/logo-camiclean-new.png" />
+  <link rel="preload" as="image" href="images/karcher-profesional.jpg" />
+
   <style>
     /* =============================================
        VARIABLES Y BASE
@@ -71,7 +75,7 @@
     }
 
     .navbar-brand img {
-      height: 80px;
+      height: 100px;
       width: auto;
     }
 
@@ -1364,7 +1368,7 @@
 <nav class="navbar navbar-expand-lg">
   <div class="container">
     <a class="navbar-brand d-flex align-items-center gap-2" href="#">
-      <img src="images/logo-camiclean-new.png" alt="Cami Clean Logo" style="height:80px;width:auto;object-fit:contain;" />
+      <img src="images/logo-camiclean-new.png" alt="Cami Clean Logo" style="height:100px;width:auto;object-fit:contain;" fetchpriority="high" />
     </a>
     <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
       <span class="navbar-toggler-icon"></span>
@@ -1411,21 +1415,21 @@
         </p>
 
         <!-- Imagen máquina + lista de servicios -->
-        <div class="d-flex align-items-start gap-4 mb-4">
-          <img src="images/karcher-profesional.jpg" alt="Máquina Kärcher profesional" loading="lazy"
-            style="width:140px;height:140px;object-fit:contain;flex-shrink:0;border-radius:12px;background:rgba(255,255,255,0.08);padding:6px;" />
-          <div style="flex:1;">
+        <div class="d-flex align-items-center gap-4 mb-4 flex-wrap">
+          <img src="images/karcher-profesional.jpg" alt="Máquina Kärcher profesional" fetchpriority="high"
+            style="width:200px;height:200px;object-fit:contain;flex-shrink:0;border-radius:14px;background:rgba(255,255,255,0.10);padding:8px;" />
+          <div style="flex:1;min-width:200px;">
             <div style="display:flex;flex-wrap:wrap;gap:8px 10px;">
-              <span style="background:rgba(14,165,233,0.18);border:1px solid rgba(14,165,233,0.4);color:#fff;font-size:0.78rem;font-weight:600;padding:4px 12px;border-radius:50px;"><i class="bi bi-check-circle-fill me-1" style="color:#25d366;"></i>Sofás</span>
-              <span style="background:rgba(14,165,233,0.18);border:1px solid rgba(14,165,233,0.4);color:#fff;font-size:0.78rem;font-weight:600;padding:4px 12px;border-radius:50px;"><i class="bi bi-check-circle-fill me-1" style="color:#25d366;"></i>Colchones</span>
-              <span style="background:rgba(14,165,233,0.18);border:1px solid rgba(14,165,233,0.4);color:#fff;font-size:0.78rem;font-weight:600;padding:4px 12px;border-radius:50px;"><i class="bi bi-check-circle-fill me-1" style="color:#25d366;"></i>Alfombras</span>
-              <span style="background:rgba(14,165,233,0.18);border:1px solid rgba(14,165,233,0.4);color:#fff;font-size:0.78rem;font-weight:600;padding:4px 12px;border-radius:50px;"><i class="bi bi-check-circle-fill me-1" style="color:#25d366;"></i>Sillas</span>
-              <span style="background:rgba(14,165,233,0.18);border:1px solid rgba(14,165,233,0.4);color:#fff;font-size:0.78rem;font-weight:600;padding:4px 12px;border-radius:50px;"><i class="bi bi-check-circle-fill me-1" style="color:#25d366;"></i>Moqueta</span>
-              <span style="background:rgba(245,158,11,0.18);border:1px solid rgba(245,158,11,0.4);color:#fbbf24;font-size:0.78rem;font-weight:600;padding:4px 12px;border-radius:50px;"><i class="bi bi-exclamation-circle-fill me-1"></i>Manchas</span>
-              <span style="background:rgba(245,158,11,0.18);border:1px solid rgba(245,158,11,0.4);color:#fbbf24;font-size:0.78rem;font-weight:600;padding:4px 12px;border-radius:50px;"><i class="bi bi-exclamation-circle-fill me-1"></i>Olores</span>
-              <span style="background:rgba(245,158,11,0.18);border:1px solid rgba(245,158,11,0.4);color:#fbbf24;font-size:0.78rem;font-weight:600;padding:4px 12px;border-radius:50px;"><i class="bi bi-exclamation-circle-fill me-1"></i>Ácaros</span>
-              <span style="background:rgba(245,158,11,0.18);border:1px solid rgba(245,158,11,0.4);color:#fbbf24;font-size:0.78rem;font-weight:600;padding:4px 12px;border-radius:50px;"><i class="bi bi-exclamation-circle-fill me-1"></i>Mascotas</span>
-              <span style="background:rgba(245,158,11,0.18);border:1px solid rgba(245,158,11,0.4);color:#fbbf24;font-size:0.78rem;font-weight:600;padding:4px 12px;border-radius:50px;"><i class="bi bi-exclamation-circle-fill me-1"></i>Humedad</span>
+              <span style="background:rgba(14,165,233,0.18);border:1px solid rgba(14,165,233,0.4);color:#fff;font-size:0.82rem;font-weight:600;padding:5px 14px;border-radius:50px;"><i class="bi bi-check-circle-fill me-1" style="color:#25d366;"></i>Sofás</span>
+              <span style="background:rgba(14,165,233,0.18);border:1px solid rgba(14,165,233,0.4);color:#fff;font-size:0.82rem;font-weight:600;padding:5px 14px;border-radius:50px;"><i class="bi bi-check-circle-fill me-1" style="color:#25d366;"></i>Colchones</span>
+              <span style="background:rgba(14,165,233,0.18);border:1px solid rgba(14,165,233,0.4);color:#fff;font-size:0.82rem;font-weight:600;padding:5px 14px;border-radius:50px;"><i class="bi bi-check-circle-fill me-1" style="color:#25d366;"></i>Alfombras</span>
+              <span style="background:rgba(14,165,233,0.18);border:1px solid rgba(14,165,233,0.4);color:#fff;font-size:0.82rem;font-weight:600;padding:5px 14px;border-radius:50px;"><i class="bi bi-check-circle-fill me-1" style="color:#25d366;"></i>Sillas</span>
+              <span style="background:rgba(14,165,233,0.18);border:1px solid rgba(14,165,233,0.4);color:#fff;font-size:0.82rem;font-weight:600;padding:5px 14px;border-radius:50px;"><i class="bi bi-check-circle-fill me-1" style="color:#25d366;"></i>Moqueta</span>
+              <span style="background:rgba(14,165,233,0.18);border:1px solid rgba(14,165,233,0.4);color:#fff;font-size:0.82rem;font-weight:600;padding:5px 14px;border-radius:50px;"><i class="bi bi-check-circle-fill me-1" style="color:#25d366;"></i>Manchas</span>
+              <span style="background:rgba(14,165,233,0.18);border:1px solid rgba(14,165,233,0.4);color:#fff;font-size:0.82rem;font-weight:600;padding:5px 14px;border-radius:50px;"><i class="bi bi-check-circle-fill me-1" style="color:#25d366;"></i>Olores</span>
+              <span style="background:rgba(14,165,233,0.18);border:1px solid rgba(14,165,233,0.4);color:#fff;font-size:0.82rem;font-weight:600;padding:5px 14px;border-radius:50px;"><i class="bi bi-check-circle-fill me-1" style="color:#25d366;"></i>Ácaros</span>
+              <span style="background:rgba(14,165,233,0.18);border:1px solid rgba(14,165,233,0.4);color:#fff;font-size:0.82rem;font-weight:600;padding:5px 14px;border-radius:50px;"><i class="bi bi-check-circle-fill me-1" style="color:#25d366;"></i>Mascotas</span>
+              <span style="background:rgba(14,165,233,0.18);border:1px solid rgba(14,165,233,0.4);color:#fff;font-size:0.82rem;font-weight:600;padding:5px 14px;border-radius:50px;"><i class="bi bi-check-circle-fill me-1" style="color:#25d366;"></i>Humedad</span>
             </div>
           </div>
         </div>
@@ -1437,7 +1441,7 @@
           <div class="hero-benefit-pill"><i class="bi bi-geo-alt-fill"></i> Barcelona</div>
         </div>
         <div class="d-flex flex-wrap gap-3">
-          <a href="#calculadora" class="btn-hero-primary">
+          <a href="#calculadora" class="btn-hero-primary" style="background:#0ea5e9;box-shadow:0 4px 20px rgba(14,165,233,0.45);">
             <i class="bi bi-calculator-fill"></i> Calcular Mi Precio
           </a>
           <a href="https://wa.me/34631171537?text=Hola%2C%20quiero%20reservar%20una%20limpieza%20de%20tapicería" target="_blank" class="btn-hero-wa">
@@ -2543,7 +2547,7 @@
     <div class="row g-4">
       <div class="col-md-4">
         <div class="footer-brand mb-3">
-          <img src="images/logo-camiclean-new.png" alt="Cami Clean" style="height:65px;width:auto;margin-bottom:12px;" loading="lazy" />
+          <img src="images/logo-camiclean-new.png" alt="Cami Clean" style="height:80px;width:auto;margin-bottom:12px;" loading="lazy" />
         </div>
        <p>Servicio profesional de limpieza de tapicerías en Barcelona. Tecnología de inyección-extracción a 70°C para resultados garantizados.</p>
       <address style="font-style:normal;font-size:0.85rem;color:rgba(255,255,255,0.55);line-height:1.7;">
