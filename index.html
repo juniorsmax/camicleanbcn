@@ -75,8 +75,11 @@
     }
 
     .navbar-brand img {
-      height: 100px;
+      height: 160px;
       width: auto;
+    }
+    @media (max-width: 767px) {
+      .navbar-brand img { height: 90px; }
     }
 
     .navbar-brand span {
@@ -1202,6 +1205,17 @@
       .hero-benefits { flex-direction: column; }
       .gallery-tabs { gap: 6px; }
       .gallery-tab { padding: 7px 16px; font-size: 0.82rem; }
+      /* Calculadora 20% más pequeña en móvil */
+      .hero-calc-card { padding: 20px 16px; border-radius: 14px; }
+      .hero-calc-card h4 { font-size: 0.92rem; margin-bottom: 4px; }
+      .hero-calc-card p { font-size: 0.75rem; margin-bottom: 12px; }
+      .calc-option { padding: 8px 12px; margin-bottom: 7px; font-size: 0.82rem; }
+      .calc-option label { font-size: 0.82rem; }
+      .price-tag { font-size: 0.82rem; }
+      .calc-total-box { padding: 10px 14px; }
+      .total-label { font-size: 0.75rem; }
+      .total-amount { font-size: 1.4rem; }
+      .btn-calc-wa { font-size: 0.9rem; padding: 11px 20px; }
     }
 
     /* Scroll reveal animation */
@@ -1368,7 +1382,7 @@
 <nav class="navbar navbar-expand-lg">
   <div class="container">
     <a class="navbar-brand d-flex align-items-center gap-2" href="#">
-      <img src="images/logo-camiclean-new.png" alt="Cami Clean Logo" style="height:100px;width:auto;object-fit:contain;" fetchpriority="high" />
+      <img src="images/logo-camiclean-new.png" alt="Cami Clean Logo" style="height:160px;width:auto;object-fit:contain;" fetchpriority="high" />
     </a>
     <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
       <span class="navbar-toggler-icon"></span>
@@ -1417,7 +1431,7 @@
         <!-- Imagen máquina + lista de servicios -->
         <div class="d-flex align-items-center gap-4 mb-4 flex-wrap">
           <img src="images/karcher-profesional.jpg" alt="Máquina Kärcher profesional" fetchpriority="high"
-            style="width:200px;height:200px;object-fit:contain;flex-shrink:0;border-radius:14px;background:rgba(255,255,255,0.10);padding:8px;" />
+            style="width:240px;height:240px;object-fit:contain;flex-shrink:0;border-radius:14px;background:rgba(255,255,255,0.10);padding:8px;" />
           <div style="flex:1;min-width:200px;">
             <div style="display:flex;flex-wrap:wrap;gap:8px 10px;">
               <span style="background:rgba(14,165,233,0.18);border:1px solid rgba(14,165,233,0.4);color:#fff;font-size:0.82rem;font-weight:600;padding:5px 14px;border-radius:50px;"><i class="bi bi-check-circle-fill me-1" style="color:#25d366;"></i>Sofás</span>
