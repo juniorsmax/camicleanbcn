@@ -25,6 +25,12 @@
     .navbar { background: rgba(255,255,255,0.97); backdrop-filter: blur(10px); box-shadow: 0 2px 16px rgba(26,58,92,0.08); padding: 0; position: sticky; top: 0; z-index: 1000; }
     .nav-link { font-weight: 500; color: var(--text-dark) !important; padding: 6px 14px !important; border-radius: 8px; transition: background 0.2s; }
     .nav-link:hover, .nav-link.active-page { background: var(--light-bg); color: var(--primary) !important; font-weight: 600; }
+    
+    @media (max-width: 767px) {
+      .navbar-brand img { height: 30px; }
+      .navbar-brand { margin-right: auto; }
+    }
+
     .btn-nav-cta { background: #25d366; color: #fff !important; border-radius: 50px !important; padding: 8px 22px !important; font-weight: 600; }
     #hero { position: relative; min-height: 80vh; display: flex; align-items: center; overflow: hidden; background: var(--dark-bg); }
     #hero .hero-bg { position: absolute; inset: 0; background-image: url('images/colchon-limpio1.jpg'); background-size: cover; background-position: center; opacity: 0.28; z-index: 0; }
