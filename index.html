@@ -71,7 +71,7 @@
     }
 
     .navbar-brand img {
-      height: 48px;
+      height: 80px;
       width: auto;
     }
 
@@ -102,16 +102,17 @@
     }
 
     .btn-nav-cta {
-      background: var(--primary);
+      background: #25d366;
       color: #fff !important;
       border-radius: 50px !important;
       padding: 8px 22px !important;
       font-weight: 600;
       transition: background 0.2s, transform 0.2s;
+      box-shadow: 0 3px 12px rgba(37,211,102,0.35);
     }
 
     .btn-nav-cta:hover {
-      background: var(--primary-light);
+      background: #1ebe5d;
       transform: translateY(-1px);
     }
 
@@ -211,14 +212,14 @@
     }
 
     .btn-hero-primary {
-      background: var(--accent);
+      background: #25d366;
       color: #fff;
       font-weight: 700;
       font-size: 1.05rem;
       padding: 14px 32px;
       border-radius: 50px;
       border: none;
-      box-shadow: 0 4px 20px rgba(14,165,233,0.4);
+      box-shadow: 0 4px 20px rgba(37,211,102,0.45);
       transition: all 0.25s;
       text-decoration: none;
       display: inline-flex;
@@ -227,9 +228,9 @@
     }
 
     .btn-hero-primary:hover {
-      background: var(--accent-dark);
+      background: #1ebe5d;
       transform: translateY(-2px);
-      box-shadow: 0 8px 28px rgba(14,165,233,0.5);
+      box-shadow: 0 8px 28px rgba(37,211,102,0.55);
       color: #fff;
     }
 
@@ -1363,7 +1364,7 @@
 <nav class="navbar navbar-expand-lg">
   <div class="container">
     <a class="navbar-brand d-flex align-items-center gap-2" href="#">
-      <img src="images/logo-camiclean-new.png" alt="Cami Clean Logo" style="height:52px;width:auto;object-fit:contain;" loading="lazy" />
+      <img src="images/logo-camiclean-new.png" alt="Cami Clean Logo" style="height:80px;width:auto;object-fit:contain;" />
     </a>
     <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
       <span class="navbar-toggler-icon"></span>
@@ -1408,6 +1409,27 @@
         <p class="hero-subtitle">
           Limpieza profesional de tapicerías en Barcelona con tecnología de inyección-extracción a 70°C. Resultados garantizados.
         </p>
+
+        <!-- Imagen máquina + lista de servicios -->
+        <div class="d-flex align-items-start gap-4 mb-4">
+          <img src="images/karcher-profesional.jpg" alt="Máquina Kärcher profesional" loading="lazy"
+            style="width:140px;height:140px;object-fit:contain;flex-shrink:0;border-radius:12px;background:rgba(255,255,255,0.08);padding:6px;" />
+          <div style="flex:1;">
+            <div style="display:flex;flex-wrap:wrap;gap:8px 10px;">
+              <span style="background:rgba(14,165,233,0.18);border:1px solid rgba(14,165,233,0.4);color:#fff;font-size:0.78rem;font-weight:600;padding:4px 12px;border-radius:50px;"><i class="bi bi-check-circle-fill me-1" style="color:#25d366;"></i>Sofás</span>
+              <span style="background:rgba(14,165,233,0.18);border:1px solid rgba(14,165,233,0.4);color:#fff;font-size:0.78rem;font-weight:600;padding:4px 12px;border-radius:50px;"><i class="bi bi-check-circle-fill me-1" style="color:#25d366;"></i>Colchones</span>
+              <span style="background:rgba(14,165,233,0.18);border:1px solid rgba(14,165,233,0.4);color:#fff;font-size:0.78rem;font-weight:600;padding:4px 12px;border-radius:50px;"><i class="bi bi-check-circle-fill me-1" style="color:#25d366;"></i>Alfombras</span>
+              <span style="background:rgba(14,165,233,0.18);border:1px solid rgba(14,165,233,0.4);color:#fff;font-size:0.78rem;font-weight:600;padding:4px 12px;border-radius:50px;"><i class="bi bi-check-circle-fill me-1" style="color:#25d366;"></i>Sillas</span>
+              <span style="background:rgba(14,165,233,0.18);border:1px solid rgba(14,165,233,0.4);color:#fff;font-size:0.78rem;font-weight:600;padding:4px 12px;border-radius:50px;"><i class="bi bi-check-circle-fill me-1" style="color:#25d366;"></i>Moqueta</span>
+              <span style="background:rgba(245,158,11,0.18);border:1px solid rgba(245,158,11,0.4);color:#fbbf24;font-size:0.78rem;font-weight:600;padding:4px 12px;border-radius:50px;"><i class="bi bi-exclamation-circle-fill me-1"></i>Manchas</span>
+              <span style="background:rgba(245,158,11,0.18);border:1px solid rgba(245,158,11,0.4);color:#fbbf24;font-size:0.78rem;font-weight:600;padding:4px 12px;border-radius:50px;"><i class="bi bi-exclamation-circle-fill me-1"></i>Olores</span>
+              <span style="background:rgba(245,158,11,0.18);border:1px solid rgba(245,158,11,0.4);color:#fbbf24;font-size:0.78rem;font-weight:600;padding:4px 12px;border-radius:50px;"><i class="bi bi-exclamation-circle-fill me-1"></i>Ácaros</span>
+              <span style="background:rgba(245,158,11,0.18);border:1px solid rgba(245,158,11,0.4);color:#fbbf24;font-size:0.78rem;font-weight:600;padding:4px 12px;border-radius:50px;"><i class="bi bi-exclamation-circle-fill me-1"></i>Mascotas</span>
+              <span style="background:rgba(245,158,11,0.18);border:1px solid rgba(245,158,11,0.4);color:#fbbf24;font-size:0.78rem;font-weight:600;padding:4px 12px;border-radius:50px;"><i class="bi bi-exclamation-circle-fill me-1"></i>Humedad</span>
+            </div>
+          </div>
+        </div>
+
         <div class="hero-benefits">
           <div class="hero-benefit-pill"><i class="bi bi-droplet-fill"></i> Secado en 12-24h</div>
           <div class="hero-benefit-pill"><i class="bi bi-shield-check-fill"></i> Seguro para niños y mascotas</div>
@@ -2521,7 +2543,7 @@
     <div class="row g-4">
       <div class="col-md-4">
         <div class="footer-brand mb-3">
-          <img src="images/logo-camiclean-new.png" alt="Cami Clean" style="height:44px;width:auto;margin-bottom:12px;" loading="lazy" />
+          <img src="images/logo-camiclean-new.png" alt="Cami Clean" style="height:65px;width:auto;margin-bottom:12px;" loading="lazy" />
         </div>
        <p>Servicio profesional de limpieza de tapicerías en Barcelona. Tecnología de inyección-extracción a 70°C para resultados garantizados.</p>
       <address style="font-style:normal;font-size:0.85rem;color:rgba(255,255,255,0.55);line-height:1.7;">
