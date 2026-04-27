@@ -335,8 +335,8 @@
   <div class="container pt-0 pb-5">
     <div class="row align-items-center g-5">
       <div class="col-lg-6">
-        <h1 class="hero-title">Limpieza Profesional de <span class="highlight">Colchones</span> en Barcelona</h1>
-        <p class="hero-subtitle">Eliminamos ácaros, manchas y bacterias con tecnología a 70°C. Ideal para alérgicos. Resultados certificados o devolvemos el dinero.</p>
+        <h1 class="hero-title" data-i18n="hero-col-h1">Limpieza Profesional de <span class="highlight">Colchones</span> en Barcelona</h1>
+        <p class="hero-subtitle" data-i18n="hero-col-sub">Eliminamos ácaros, manchas y bacterias con tecnología a 70°C. Ideal para alérgicos. Resultados certificados o devolvemos el dinero.</p>
         <div class="hero-badge mb-3"><i class="bi bi-award-fill"></i> Especialistas en colchones · Barcelona</div>
         <div class="d-flex flex-wrap gap-2 mb-4">
           <span class="hero-benefit-pill"><i class="bi bi-check-circle-fill"></i> 99% ácaros eliminados</span>
@@ -1183,10 +1183,10 @@ function setLang(lang) {
   });
 }
 
+// Aplicar idioma al cargar (script ya está al final del body)
 (function() {
   const saved = localStorage.getItem('ccLang') || 'es';
-  // Aplicar al cargar
-  document.addEventListener('DOMContentLoaded', function() { setLang(saved); });
+  setLang(saved);
 })();
 </script>
 

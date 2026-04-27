@@ -1468,10 +1468,7 @@
 
       <!-- Left: Copy -->
       <div class="col-lg-6">
-        <h1 class="hero-title">
-          Sofás y Colchones sin Manchas,<br />
-          Ácaros ni Olores <span class="highlight">en 24h</span>
-        </h1>
+        <h1 class="hero-title" data-i18n="hero-h1">Sofás y Colchones sin Manchas,<br />Ácaros ni Olores <span class="highlight">en 24h</span></h1>
         <p class="hero-subtitle">
           <span data-i18n="hero-sub">Limpieza profesional de tapicerías en Barcelona con tecnología de inyección-extracción a 70°C. Resultados garantizados.</span>
         </p>
@@ -2988,10 +2985,10 @@ function setLang(lang) {
   });
 }
 
+// Aplicar idioma al cargar (script ya está al final del body)
 (function() {
   const saved = localStorage.getItem('ccLang') || 'es';
-  // Aplicar al cargar
-  document.addEventListener('DOMContentLoaded', function() { setLang(saved); });
+  setLang(saved);
 })();
 </script>
 

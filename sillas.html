@@ -1090,10 +1090,10 @@ function setLang(lang) {
   });
 }
 
+// Aplicar idioma al cargar (script ya está al final del body)
 (function() {
   const saved = localStorage.getItem('ccLang') || 'es';
-  // Aplicar al cargar
-  document.addEventListener('DOMContentLoaded', function() { setLang(saved); });
+  setLang(saved);
 })();
 </script>
 
