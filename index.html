@@ -1410,6 +1410,35 @@
       background: var(--accent);
       color: #fff;
     }
+    /* Slider dentro del hero: colores blancos sobre fondo oscuro */
+    .hero-resultados .section-label {
+      background: rgba(255,255,255,0.15);
+      color: #fff;
+    }
+    .hero-resultados .section-title {
+      color: #fff;
+      font-size: 1.4rem;
+    }
+    .hero-resultados .section-divider {
+      background: var(--accent);
+      margin: 10px auto;
+    }
+    .hero-resultados .section-subtitle {
+      color: rgba(255,255,255,0.8);
+      font-size: 0.85rem;
+    }
+
+    /* Escritorio: ocultar bloque dentro del hero, mostrar sección independiente */
+    @media (min-width: 992px) {
+      .hero-resultados { display: none; }
+      .resultados-desktop { display: block; }
+    }
+    /* Móvil: mostrar bloque dentro del hero, ocultar sección independiente */
+    @media (max-width: 991px) {
+      .hero-resultados { display: block; }
+      .resultados-desktop { display: none; }
+    }
+
     @media (max-width: 768px) {
       .comparison-wrapper img, .comparison-wrapper .img-after img { height: 260px; }
       .comparison-wrapper .img-before img { min-width: 100vw; }
@@ -1556,25 +1585,27 @@
           <span data-i18n="hero-badge">Tecnología Profesional de Inyección-Extracción</span>
         </div>
 
-        <!-- Resultados reales + slider antes/después -->
-        <div class="text-center mb-3 mt-3">
-          <span class="section-label">Resultados reales</span>
-          <h2 class="section-title" style="font-size:1.4rem;">Resultados Instantáneos</h2>
-          <div class="section-divider"></div>
-          <p class="section-subtitle" style="font-size:0.85rem;">Arrastra el divisor para comparar el antes y el después</p>
-        </div>
-        <div class="comparison-wrapper mb-4" id="slider1">
-          <div class="img-after">
-            <img src="images/sofa-despues.png" alt="Después de la limpieza" loading="lazy" />
+        <!-- Resultados reales + slider antes/después (solo móvil) -->
+        <div class="hero-resultados">
+          <div class="text-center mb-3 mt-3">
+            <span class="section-label">Resultados reales</span>
+            <h2 class="section-title">Resultados Instantáneos</h2>
+            <div class="section-divider"></div>
+            <p class="section-subtitle">Arrastra el divisor para comparar el antes y el después</p>
           </div>
-          <div class="img-before">
-            <img src="images/sofa-antes.png" alt="Antes de la limpieza" loading="lazy" />
+          <div class="comparison-wrapper mb-4" id="slider1">
+            <div class="img-after">
+              <img src="images/sofa-despues.png" alt="Después de la limpieza" loading="lazy" />
+            </div>
+            <div class="img-before">
+              <img src="images/sofa-antes.png" alt="Antes de la limpieza" loading="lazy" />
+            </div>
+            <div class="comparison-handle" id="handle1">
+              <div class="comparison-btn"><i class="bi bi-chevron-left"></i><i class="bi bi-chevron-right"></i></div>
+            </div>
+            <span class="comparison-label label-antes">ANTES</span>
+            <span class="comparison-label label-despues">DESPUÉS</span>
           </div>
-          <div class="comparison-handle" id="handle1">
-            <div class="comparison-btn"><i class="bi bi-chevron-left"></i><i class="bi bi-chevron-right"></i></div>
-          </div>
-          <span class="comparison-label label-antes">ANTES</span>
-          <span class="comparison-label label-despues">DESPUÉS</span>
         </div>
 
         <div class="lgbtq-badge mb-3">
@@ -1683,6 +1714,31 @@
     </div>
   </div>
 </div>
+
+<!-- RESULTADOS INSTANTÁNEOS — solo escritorio -->
+<section id="resultados" class="resultados-desktop">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <span class="section-label">Resultados reales</span>
+      <h2 class="section-title">Resultados Instantáneos</h2>
+      <div class="section-divider"></div>
+      <p class="section-subtitle">Arrastra el divisor para comparar el antes y el después</p>
+    </div>
+    <div class="comparison-wrapper reveal" id="slider1-desktop">
+      <div class="img-after">
+        <img src="images/sofa-despues.png" alt="Después de la limpieza" loading="lazy" />
+      </div>
+      <div class="img-before">
+        <img src="images/sofa-antes.png" alt="Antes de la limpieza" loading="lazy" />
+      </div>
+      <div class="comparison-handle" id="handle1-desktop">
+        <div class="comparison-btn"><i class="bi bi-chevron-left"></i><i class="bi bi-chevron-right"></i></div>
+      </div>
+      <span class="comparison-label label-antes">ANTES</span>
+      <span class="comparison-label label-despues">DESPUÉS</span>
+    </div>
+  </div>
+</section>
 
 <!-- ============================================================
      PROBLEMAS QUE RESOLVEMOS
@@ -2865,6 +2921,7 @@
     document.addEventListener('touchmove', e => { if (dragging) setPos(e.touches[0].clientX); }, { passive: true });
   }
   initSlider('slider1', 'handle1');
+  initSlider('slider1-desktop', 'handle1-desktop');
 
   /* =============================================
      GALLERY FILTER
