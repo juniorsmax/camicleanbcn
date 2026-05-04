@@ -622,6 +622,7 @@
       border-radius: 16px;
       overflow: hidden;
       box-shadow: var(--shadow-lg);
+      transition: transform 0.35s, box-shadow 0.35s;
     }
 
     .gallery-item img {
@@ -647,6 +648,58 @@
     .gallery-caption i {
       color: var(--accent);
     }
+
+    /* Tarjetas destacadas ligera/media/profunda */
+    .gallery-item-featured {
+      position: relative;
+    }
+
+    .gallery-item-featured:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+    }
+
+    /* Shine sweep al hover */
+    .gallery-item-featured::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        115deg,
+        transparent 30%,
+        rgba(255,255,255,0.22) 50%,
+        transparent 70%
+      );
+      background-size: 200% 100%;
+      background-position: -100% 0;
+      transition: background-position 0.55s ease;
+      pointer-events: none;
+      border-radius: 16px;
+    }
+
+    .gallery-item-featured:hover::after {
+      background-position: 150% 0;
+    }
+
+    /* Badge de nivel en esquina superior derecha */
+    .level-badge-overlay {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      z-index: 2;
+    }
+
+    .badge-ligera  { background: #22c55e; }
+    .badge-media   { background: #f97316; }
+    .badge-profunda{ background: #ef4444; }
 
     /* =============================================
        PROCESO PROFESIONAL
@@ -1747,20 +1800,23 @@
     <!-- Sofás -->
     <div id="gallery-sofas" class="row g-4">
       <div class="col-md-4 reveal">
-        <div class="gallery-item">
-          <img src="images/antes-despues-ligera.png" alt="Limpieza ligera de sofá - Antes y Después" loading="lazy" />
+        <div class="gallery-item gallery-item-featured">
+          <span class="level-badge-overlay badge-ligera">Ligera</span>
+          <img src="images/limpieza-ligera.jpg" alt="Limpieza ligera de sofá - Antes y Después" loading="lazy" />
           <div class="gallery-caption"><i class="bi bi-arrow-left-right me-2"></i>Limpieza Ligera · Sofá Tela</div>
         </div>
       </div>
       <div class="col-md-4 reveal">
-        <div class="gallery-item">
-          <img src="images/antes-despues-media.png" alt="Limpieza media de sofá - Antes y Después" loading="lazy" />
+        <div class="gallery-item gallery-item-featured">
+          <span class="level-badge-overlay badge-media">Media</span>
+          <img src="images/limpieza-media.jpg" alt="Limpieza media de sofá - Antes y Después" loading="lazy" />
           <div class="gallery-caption"><i class="bi bi-arrow-left-right me-2"></i>Limpieza Media · Sofá Gris</div>
         </div>
       </div>
       <div class="col-md-4 reveal">
-        <div class="gallery-item">
-          <img src="images/antes-despues-profunda.png" alt="Limpieza profunda de sofá - Antes y Después" loading="lazy" />
+        <div class="gallery-item gallery-item-featured">
+          <span class="level-badge-overlay badge-profunda">Profunda</span>
+          <img src="images/limpieza-profunda.jpg" alt="Limpieza profunda de sofá - Antes y Después" loading="lazy" />
           <div class="gallery-caption"><i class="bi bi-arrow-left-right me-2"></i>Limpieza Profunda · Sofá Beige</div>
         </div>
       </div>
