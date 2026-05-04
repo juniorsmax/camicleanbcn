@@ -1410,6 +1410,17 @@
       font-size: 0.85rem;
     }
 
+    /* Mini-slider dentro de tarjeta de galería */
+    .gallery-slider {
+      max-width: 100%;
+      border-radius: 0;
+      box-shadow: none;
+    }
+    .gallery-slider img,
+    .gallery-slider .img-after img {
+      height: 320px;
+    }
+
     /* Escritorio: ocultar bloque dentro del hero, mostrar sección independiente */
     @media (min-width: 992px) {
       .hero-resultados { display: none; }
@@ -1847,15 +1858,21 @@
         </div>
       </div>
       <div class="col-md-4 reveal">
-        <div class="gallery-item gallery-item-featured">
-          <img src="images/sofa-oscuro-antes.png" alt="Sofá oscuro antes de la limpieza" loading="lazy" />
-          <div class="gallery-caption"><i class="bi bi-exclamation-triangle-fill me-2"></i>Antes · Sofá Oscuro</div>
-        </div>
-      </div>
-      <div class="col-md-4 reveal">
-        <div class="gallery-item gallery-item-featured">
-          <img src="images/sofa-oscuro-despues.png" alt="Sofá oscuro después de la limpieza" loading="lazy" />
-          <div class="gallery-caption"><i class="bi bi-check-circle-fill me-2"></i>Después · Sofá Oscuro</div>
+        <div class="gallery-item gallery-item-featured" style="overflow:hidden;">
+          <div class="comparison-wrapper gallery-slider" id="slider-oscuro">
+            <div class="img-after">
+              <img src="images/sofa-oscuro-despues.png" alt="Sofá oscuro después" loading="lazy" />
+            </div>
+            <div class="img-before">
+              <img src="images/sofa-oscuro-antes.png" alt="Sofá oscuro antes" loading="lazy" />
+            </div>
+            <div class="comparison-handle" id="handle-oscuro">
+              <div class="comparison-btn"><i class="bi bi-chevron-left"></i><i class="bi bi-chevron-right"></i></div>
+            </div>
+            <span class="comparison-label label-antes">ANTES</span>
+            <span class="comparison-label label-despues">DESPUÉS</span>
+          </div>
+          <div class="gallery-caption"><i class="bi bi-arrow-left-right me-2"></i>Antes &amp; Después · Sofá Oscuro</div>
         </div>
       </div>
       <div class="col-md-4 reveal">
@@ -2907,6 +2924,7 @@
   }
   initSlider('slider1', 'handle1');
   initSlider('slider1-desktop', 'handle1-desktop');
+  initSlider('slider-oscuro', 'handle-oscuro');
 
   /* =============================================
      GALLERY FILTER
