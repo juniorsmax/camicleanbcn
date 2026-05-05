@@ -88,6 +88,14 @@
     /* REVEAL */
     .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
     .reveal.visible { opacity: 1; transform: none; }
+
+    /* SELECTOR DE IDIOMA */
+    .lang-switcher { display:flex; align-items:center; gap:5px; margin-left:10px; }
+    .lang-btn { background: none; border: 2px solid transparent; border-radius: 4px; cursor: pointer; padding: 0; font-size: 1.45rem; line-height:1; transition: border-color 0.2s, transform 0.15s; display:inline-flex; align-items:center; justify-content:center; width:34px; height:24px; filter: saturate(1.5) contrast(1.1); }
+    .lang-btn:hover { border-color: var(--accent); transform: scale(1.15); filter: saturate(1.8) contrast(1.15); }
+    .lang-btn.active { border-color: var(--primary); }
+    .lang-btn img { width:30px; height:20px; object-fit:fill; border-radius:2px; display:block; }
+    @media (max-width:767px) { .lang-btn { font-size:1.2rem; width:28px; height:20px; } .lang-btn img { width:24px; height:16px; } }
   </style>
 </head>
 <body>
@@ -95,22 +103,28 @@
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg">
   <div class="container">
-    <a class="navbar-brand" href="index.html">
+    <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
       <img src="images/logo-camiclean-new.png" alt="Cami Clean Logo" style="height:90px;width:auto;object-fit:contain;" fetchpriority="high" />
     </a>
+    <div class="lang-switcher" id="langSwitcher">
+      <button class="lang-btn" onclick="setLang('es')" title="Español" id="btn-es">🇪🇸</button>
+      <button class="lang-btn" onclick="setLang('ca')" title="Català" id="btn-ca"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 27 18'%3E%3Crect width='27' height='18' fill='%23FCDD09'/%3E%3Crect y='2' width='27' height='2' fill='%23C40A30'/%3E%3Crect y='6' width='27' height='2' fill='%23C40A30'/%3E%3Crect y='10' width='27' height='2' fill='%23C40A30'/%3E%3Crect y='14' width='27' height='2' fill='%23C40A30'/%3E%3C/svg%3E" alt="Català" /></button>
+      <button class="lang-btn" onclick="setLang('en')" title="English" id="btn-en">🇬🇧</button>
+    </div>
     <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="mainNav">
       <ul class="navbar-nav ms-auto align-items-center gap-1">
-        <li class="nav-item"><a class="nav-link" href="sofas.html">Sofás</a></li>
-        <li class="nav-item"><a class="nav-link" href="colchones.html">Colchones</a></li>
-        <li class="nav-item"><a class="nav-link" href="alfombras.html">Alfombras</a></li>
-        <li class="nav-item"><a class="nav-link" href="sillas.html">Sillas</a></li>
-        <li class="nav-item"><a class="nav-link active-page" href="proceso.html">Proceso</a></li>
+        <li class="nav-item"><a class="nav-link" href="sofas.html" data-i18n="nav-sofas">Sofás</a></li>
+        <li class="nav-item"><a class="nav-link" href="colchones.html" data-i18n="nav-colchones">Colchones</a></li>
+        <li class="nav-item"><a class="nav-link" href="alfombras.html" data-i18n="nav-alfombras">Alfombras</a></li>
+        <li class="nav-item"><a class="nav-link" href="sillas.html" data-i18n="nav-sillas">Sillas</a></li>
+        <li class="nav-item"><a class="nav-link active-page" href="proceso.html" data-i18n="nav-proceso">Proceso</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html" data-i18n="nav-inicio">Inicio</a></li>
         <li class="nav-item ms-2">
           <a class="nav-link btn-nav-cta" href="https://wa.me/34631171537?text=Hola%2C%20me%20interesa%20el%20servicio%20de%20limpieza" target="_blank">
-            <i class="bi bi-whatsapp me-1"></i> WhatsApp
+            <i class="bi bi-whatsapp me-1"></i> <span data-i18n="nav-cta-s">Reservar</span>
           </a>
         </li>
       </ul>
@@ -125,12 +139,12 @@
   <div class="container">
     <div class="row align-items-center">
       <div class="col-lg-8">
-        <div class="hero-badge mb-3"><i class="bi bi-shield-fill-check me-1"></i> Certificado · Barcelona</div>
-        <h1 class="hero-title">Proceso de <span class="highlight">Limpieza Profunda</span><br/>y Eliminación de Bacterias</h1>
-        <p class="hero-subtitle">Tecnología de inyección-extracción a 70°C que elimina el 99% de bacterias, ácaros y hongos. Un proceso en 6 pasos diseñado para garantizar resultados visibles y una higiene real.</p>
+        <div class="hero-badge mb-3"><i class="bi bi-shield-fill-check me-1"></i> <span data-i18n="proc-badge">Certificado · Barcelona</span></div>
+        <h1 class="hero-title" data-i18n="proc-h1">Proceso de <span class="highlight">Limpieza Profunda</span><br/>y Eliminación de Bacterias</h1>
+        <p class="hero-subtitle" data-i18n="proc-sub">Tecnología de inyección-extracción a 70°C que elimina el 99% de bacterias, ácaros y hongos. Un proceso en 6 pasos diseñado para garantizar resultados visibles y una higiene real.</p>
         <div class="d-flex flex-wrap gap-3">
-          <a href="#proceso" class="btn-hero-primary"><i class="bi bi-arrow-down-circle-fill"></i> Ver el proceso</a>
-          <a href="https://wa.me/34631171537?text=Hola%2C%20quiero%20información%20sobre%20el%20proceso%20de%20limpieza" target="_blank" class="btn-hero-wa"><i class="bi bi-whatsapp"></i> Consultar gratis</a>
+          <a href="#proceso" class="btn-hero-primary"><i class="bi bi-arrow-down-circle-fill"></i> <span data-i18n="proc-cta1">Ver el proceso</span></a>
+          <a href="https://wa.me/34631171537?text=Hola%2C%20quiero%20información%20sobre%20el%20proceso%20de%20limpieza" target="_blank" class="btn-hero-wa"><i class="bi bi-whatsapp"></i> <span data-i18n="proc-cta2">Consultar gratis</span></a>
         </div>
       </div>
     </div>
@@ -141,18 +155,18 @@
 <section id="proceso">
   <div class="container">
     <div class="text-center mb-5 reveal">
-      <span class="section-label">Cómo trabajamos</span>
-      <h2 class="section-title">Proceso Profesional en 6 Pasos</h2>
+      <span class="section-label" data-i18n="proc-sec-label">Cómo trabajamos</span>
+      <h2 class="section-title" data-i18n="proc-sec-title">Proceso Profesional en 6 Pasos</h2>
       <div class="section-divider"></div>
-      <p class="section-subtitle">Cada trabajo sigue un protocolo riguroso para garantizar los mejores resultados y la máxima seguridad.</p>
+      <p class="section-subtitle" data-i18n="proc-sec-sub">Cada trabajo sigue un protocolo riguroso para garantizar los mejores resultados y la máxima seguridad.</p>
     </div>
     <div class="row g-4">
       <div class="col-md-6 col-lg-4 reveal">
         <div class="proceso-step">
           <div class="step-number">1</div>
           <div class="step-content">
-            <h5>Inspección Inicial del Tejido</h5>
-            <p>Analizamos el tipo de tejido, nivel de suciedad y manchas específicas para determinar el tratamiento óptimo.</p>
+            <h5 data-i18n="step1-h">Inspección Inicial del Tejido</h5>
+            <p data-i18n="step1-p">Analizamos el tipo de tejido, nivel de suciedad y manchas específicas para determinar el tratamiento óptimo.</p>
           </div>
         </div>
       </div>
@@ -160,8 +174,8 @@
         <div class="proceso-step">
           <div class="step-number">2</div>
           <div class="step-content">
-            <h5>Aspirado Industrial de Alta Potencia</h5>
-            <p>Eliminamos polvo, pelos, ácaros y partículas sólidas con aspiración profesional antes del tratamiento húmedo.</p>
+            <h5 data-i18n="step2-h">Aspirado Industrial de Alta Potencia</h5>
+            <p data-i18n="step2-p">Eliminamos polvo, pelos, ácaros y partículas sólidas con aspiración profesional antes del tratamiento húmedo.</p>
           </div>
         </div>
       </div>
@@ -169,8 +183,8 @@
         <div class="proceso-step">
           <div class="step-number">3</div>
           <div class="step-content">
-            <h5>Pre-tratamiento Especializado</h5>
-            <p>Aplicamos productos específicos según el tipo de mancha: proteínas, grasas, taninos o pigmentos.</p>
+            <h5 data-i18n="step3-h">Pre-tratamiento Especializado</h5>
+            <p data-i18n="step3-p">Aplicamos productos específicos según el tipo de mancha: proteínas, grasas, taninos o pigmentos.</p>
             <span class="step-highlight">pH neutro · Ecológico</span>
           </div>
         </div>
@@ -179,8 +193,8 @@
         <div class="proceso-step">
           <div class="step-number">4</div>
           <div class="step-content">
-            <h5>Inyección-Extracción a 70°C</h5>
-            <p>La tecnología clave: inyectamos agua caliente a presión controlada y extraemos simultáneamente la suciedad disuelta.</p>
+            <h5 data-i18n="step4-h">Inyección-Extracción a 70°C</h5>
+            <p data-i18n="step4-p">La tecnología clave: inyectamos agua caliente a presión controlada y extraemos simultáneamente la suciedad disuelta.</p>
             <span class="step-highlight">Diferenciador clave · 70°C</span>
           </div>
         </div>
@@ -189,8 +203,8 @@
         <div class="proceso-step">
           <div class="step-number">5</div>
           <div class="step-content">
-            <h5>Neutralización y Desodorización</h5>
-            <p>Aplicamos neutralizadores de pH y desodorizantes de larga duración para eliminar olores desde la raíz.</p>
+            <h5 data-i18n="step5-h">Neutralización y Desodorización</h5>
+            <p data-i18n="step5-p">Aplicamos neutralizadores de pH y desodorizantes de larga duración para eliminar olores desde la raíz.</p>
           </div>
         </div>
       </div>
@@ -198,9 +212,9 @@
         <div class="proceso-step">
           <div class="step-number">6</div>
           <div class="step-content">
-            <h5>Secado Asistido Acelerado</h5>
-            <p>Utilizamos ventilación y técnicas de secado acelerado para reducir el tiempo de 3-4 días a solo 12-24 horas.</p>
-            <span class="step-highlight">Listo en 12-24h</span>
+            <h5 data-i18n="step6-h">Secado Asistido Acelerado</h5>
+            <p data-i18n="step6-p">Utilizamos ventilación y técnicas de secado acelerado para reducir el tiempo de 3–4 días a solo 12–24 horas.</p>
+            <span class="step-highlight" data-i18n="step6-badge">Listo en 12–24h</span>
           </div>
         </div>
       </div>
@@ -212,56 +226,56 @@
 <section id="bacterias" style="padding:80px 0;background:#fff;">
   <div class="container">
     <div class="text-center mb-5 reveal">
-      <span class="section-label">Higiene profunda</span>
-      <h2 class="section-title">Eliminación de Bacterias y Microorganismos</h2>
+      <span class="section-label" data-i18n="bact-sec-label">Higiene profunda</span>
+      <h2 class="section-title" data-i18n="bact-sec-title">Eliminación de Bacterias y Microorganismos</h2>
       <div class="section-divider"></div>
-      <p class="section-subtitle">Nuestro proceso no solo limpia a la vista — elimina los agentes patógenos que no se ven pero afectan tu salud.</p>
+      <p class="section-subtitle" data-i18n="bact-sec-sub">Nuestro proceso no solo limpia a la vista — elimina los agentes patógenos que no se ven pero afectan tu salud.</p>
     </div>
     <div class="row g-4">
       <div class="col-sm-6 col-lg-3 reveal">
         <div class="bacteria-card">
           <div class="bacteria-icon"><i class="bi bi-virus2"></i></div>
-          <h5>Bacterias y Hongos</h5>
-          <p>El vapor a 70°C elimina Staphylococcus, E. coli, Salmonella y hongos como el Aspergillus que se acumulan en tapicerías húmedas.</p>
-          <span class="stat-badge">99% eliminados</span>
+          <h5 data-i18n="bact1-h">Bacterias y Hongos</h5>
+          <p data-i18n="bact1-p">El vapor a 70°C elimina Staphylococcus, E. coli, Salmonella y hongos como el Aspergillus que se acumulan en tapicerías húmedas.</p>
+          <span class="stat-badge" data-i18n="bact1-badge">99% eliminados</span>
         </div>
       </div>
       <div class="col-sm-6 col-lg-3 reveal">
         <div class="bacteria-card">
           <div class="bacteria-icon"><i class="bi bi-bug-fill"></i></div>
-          <h5>Ácaros del Polvo</h5>
-          <p>Un colchón puede albergar hasta 2 millones de ácaros. Son la principal causa de alergias respiratorias y dermatitis en el hogar.</p>
-          <span class="stat-badge">Eliminados al 99%</span>
+          <h5 data-i18n="bact2-h">Ácaros del Polvo</h5>
+          <p data-i18n="bact2-p">Un colchón puede albergar hasta 2 millones de ácaros. Son la principal causa de alergias respiratorias y dermatitis en el hogar.</p>
+          <span class="stat-badge" data-i18n="bact2-badge">Eliminados al 99%</span>
         </div>
       </div>
       <div class="col-sm-6 col-lg-3 reveal">
         <div class="bacteria-card">
           <div class="bacteria-icon"><i class="bi bi-droplet-fill"></i></div>
-          <h5>Fluidos Orgánicos</h5>
-          <p>Orina, sudor, saliva y otros fluidos orgánicos son focos de proliferación bacteriana. Los neutralizamos a nivel molecular.</p>
-          <span class="stat-badge">Neutralización total</span>
+          <h5 data-i18n="bact3-h">Fluidos Orgánicos</h5>
+          <p data-i18n="bact3-p">Orina, sudor, saliva y otros fluidos orgánicos son focos de proliferación bacteriana. Los neutralizamos a nivel molecular.</p>
+          <span class="stat-badge" data-i18n="bact3-badge">Neutralización total</span>
         </div>
       </div>
       <div class="col-sm-6 col-lg-3 reveal">
         <div class="bacteria-card">
           <div class="bacteria-icon"><i class="bi bi-shield-fill-check"></i></div>
-          <h5>Protección Duradera</h5>
-          <p>Aplicamos un agente bacteriostático que inhibe la recolonización bacteriana durante semanas tras la limpieza.</p>
-          <span class="stat-badge">Protección 4-6 semanas</span>
+          <h5 data-i18n="bact4-h">Protección Duradera</h5>
+          <p data-i18n="bact4-p">Aplicamos un agente bacteriostático que inhibe la recolonización bacteriana durante semanas tras la limpieza.</p>
+          <span class="stat-badge" data-i18n="bact4-badge">Protección 4–6 semanas</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- GALERÍA (pendiente de imágenes) -->
+<!-- GALERÍA -->
 <section id="galeria">
   <div class="container">
     <div class="text-center mb-5 reveal">
-      <span class="section-label">Proceso real</span>
-      <h2 class="section-title">Imágenes del Proceso</h2>
+      <span class="section-label" data-i18n="gal-label">Proceso real</span>
+      <h2 class="section-title" data-i18n="gal-title">Imágenes del Proceso</h2>
       <div class="section-divider"></div>
-      <p class="section-subtitle">Fotografías reales de nuestros trabajos en Barcelona. Próximamente más imágenes.</p>
+      <p class="section-subtitle" data-i18n="gal-sub">Fotografías reales de nuestros trabajos en Barcelona. Próximamente más imágenes.</p>
     </div>
     <div class="row g-4">
       <div class="col-md-6 col-lg-4 reveal">
@@ -289,11 +303,11 @@
 <!-- CTA FINAL -->
 <section style="padding:80px 0;background:var(--dark-bg);">
   <div class="container text-center">
-    <h2 style="color:#fff;margin-bottom:16px;">¿Quieres un proceso así en tu hogar?</h2>
-    <p style="color:rgba(255,255,255,0.75);max-width:540px;margin:0 auto 32px;font-size:1.05rem;">Reserva ahora y recibe tu presupuesto sin compromiso en menos de 1 hora.</p>
+    <h2 style="color:#fff;margin-bottom:16px;" data-i18n="cta-h">¿Quieres un proceso así en tu hogar?</h2>
+    <p style="color:rgba(255,255,255,0.75);max-width:540px;margin:0 auto 32px;font-size:1.05rem;" data-i18n="cta-p">Reserva ahora y recibe tu presupuesto sin compromiso en menos de 1 hora.</p>
     <div class="d-flex flex-wrap justify-content-center gap-3">
-      <a href="https://wa.me/34631171537?text=Hola%2C%20quiero%20reservar%20una%20limpieza" target="_blank" class="btn-hero-wa"><i class="bi bi-whatsapp"></i> Reservar por WhatsApp</a>
-      <a href="index.html#calculadora" class="btn-hero-primary"><i class="bi bi-calculator-fill"></i> Calcular precio</a>
+      <a href="https://wa.me/34631171537?text=Hola%2C%20quiero%20reservar%20una%20limpieza" target="_blank" class="btn-hero-wa"><i class="bi bi-whatsapp"></i> <span data-i18n="cta-wa">Reservar por WhatsApp</span></a>
+      <a href="index.html#calculadora" class="btn-hero-primary"><i class="bi bi-calculator-fill"></i> <span data-i18n="cta-calc">Calcular precio</span></a>
     </div>
   </div>
 </section>
@@ -330,12 +344,172 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-  // Reveal on scroll
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
   }, { threshold: 0.12 });
   reveals.forEach(r => observer.observe(r));
 </script>
+
+<script>
+// ===== SISTEMA DE TRADUCCIÓN =====
+const T = {
+  es: {
+    'nav-sofas':'Sofás','nav-colchones':'Colchones','nav-alfombras':'Alfombras',
+    'nav-sillas':'Sillas','nav-proceso':'Proceso','nav-inicio':'Inicio',
+    'nav-cta-s':'Reservar',
+    'proc-badge':'Certificado · Barcelona',
+    'proc-h1':'Proceso de <span class="highlight">Limpieza Profunda</span><br/>y Eliminación de Bacterias',
+    'proc-sub':'Tecnología de inyección-extracción a 70°C que elimina el 99% de bacterias, ácaros y hongos. Un proceso en 6 pasos diseñado para garantizar resultados visibles y una higiene real.',
+    'proc-cta1':'Ver el proceso','proc-cta2':'Consultar gratis',
+    'proc-sec-label':'Cómo trabajamos','proc-sec-title':'Proceso Profesional en 6 Pasos',
+    'proc-sec-sub':'Cada trabajo sigue un protocolo riguroso para garantizar los mejores resultados y la máxima seguridad.',
+    'step1-h':'Inspección Inicial del Tejido',
+    'step1-p':'Analizamos el tipo de tejido, nivel de suciedad y manchas específicas para determinar el tratamiento óptimo.',
+    'step2-h':'Aspirado Industrial de Alta Potencia',
+    'step2-p':'Eliminamos polvo, pelos, ácaros y partículas sólidas con aspiración profesional antes del tratamiento húmedo.',
+    'step3-h':'Pre-tratamiento Especializado',
+    'step3-p':'Aplicamos productos específicos según el tipo de mancha: proteínas, grasas, taninos o pigmentos.',
+    'step4-h':'Inyección-Extracción a 70°C',
+    'step4-p':'La tecnología clave: inyectamos agua caliente a presión controlada y extraemos simultáneamente la suciedad disuelta.',
+    'step5-h':'Neutralización y Desodorización',
+    'step5-p':'Aplicamos neutralizadores de pH y desodorizantes de larga duración para eliminar olores desde la raíz.',
+    'step6-h':'Secado Asistido Acelerado',
+    'step6-p':'Utilizamos ventilación y técnicas de secado acelerado para reducir el tiempo de 3–4 días a solo 12–24 horas.',
+    'step6-badge':'Listo en 12–24h',
+    'bact-sec-label':'Higiene profunda',
+    'bact-sec-title':'Eliminación de Bacterias y Microorganismos',
+    'bact-sec-sub':'Nuestro proceso no solo limpia a la vista — elimina los agentes patógenos que no se ven pero afectan tu salud.',
+    'bact1-h':'Bacterias y Hongos',
+    'bact1-p':'El vapor a 70°C elimina Staphylococcus, E. coli, Salmonella y hongos como el Aspergillus que se acumulan en tapicerías húmedas.',
+    'bact1-badge':'99% eliminados',
+    'bact2-h':'Ácaros del Polvo',
+    'bact2-p':'Un colchón puede albergar hasta 2 millones de ácaros. Son la principal causa de alergias respiratorias y dermatitis en el hogar.',
+    'bact2-badge':'Eliminados al 99%',
+    'bact3-h':'Fluidos Orgánicos',
+    'bact3-p':'Orina, sudor, saliva y otros fluidos orgánicos son focos de proliferación bacteriana. Los neutralizamos a nivel molecular.',
+    'bact3-badge':'Neutralización total',
+    'bact4-h':'Protección Duradera',
+    'bact4-p':'Aplicamos un agente bacteriostático que inhibe la recolonización bacteriana durante semanas tras la limpieza.',
+    'bact4-badge':'Protección 4–6 semanas',
+    'gal-label':'Proceso real','gal-title':'Imágenes del Proceso',
+    'gal-sub':'Fotografías reales de nuestros trabajos en Barcelona. Próximamente más imágenes.',
+    'cta-h':'¿Quieres un proceso así en tu hogar?',
+    'cta-p':'Reserva ahora y recibe tu presupuesto sin compromiso en menos de 1 hora.',
+    'cta-wa':'Reservar por WhatsApp','cta-calc':'Calcular precio',
+  },
+  ca: {
+    'nav-sofas':'Sofàs','nav-colchones':'Matalassos','nav-alfombras':'Catifes',
+    'nav-sillas':'Cadires','nav-proceso':'Procés','nav-inicio':'Inici',
+    'nav-cta-s':'Reservar',
+    'proc-badge':'Certificat · Barcelona',
+    'proc-h1':'Procés de <span class="highlight">Neteja Profunda</span><br/>i Eliminació de Bacteris',
+    'proc-sub':'Tecnologia d\'injecció-extracció a 70°C que elimina el 99% de bacteris, àcars i fongs. Un procés en 6 passos dissenyat per garantir resultats visibles i una higiene real.',
+    'proc-cta1':'Veure el procés','proc-cta2':'Consulta gratuïta',
+    'proc-sec-label':'Com treballem','proc-sec-title':'Procés Professional en 6 Passos',
+    'proc-sec-sub':'Cada treball segueix un protocol rigorós per garantir els millors resultats i la màxima seguretat.',
+    'step1-h':'Inspecció Inicial del Teixit',
+    'step1-p':'Analitzem el tipus de teixit, nivell de brutícia i taques específiques per determinar el tractament òptim.',
+    'step2-h':'Aspirat Industrial d\'Alta Potència',
+    'step2-p':'Eliminem pols, pèls, àcars i partícules sòlides amb aspiració professional abans del tractament humit.',
+    'step3-h':'Pre-tractament Especialitzat',
+    'step3-p':'Apliquem productes específics segons el tipus de taca: proteïnes, greixos, tanins o pigments.',
+    'step4-h':'Injecció-Extracció a 70°C',
+    'step4-p':'La tecnologia clau: injectem aigua calenta a pressió controlada i extraiem simultàniament la brutícia dissolta.',
+    'step5-h':'Neutralització i Desodorització',
+    'step5-p':'Apliquem neutralitzadors de pH i desodorants de llarga durada per eliminar olors des de l\'arrel.',
+    'step6-h':'Assecat Assistit Accelerat',
+    'step6-p':'Fem servir ventilació i tècniques d\'assecat accelerat per reduir el temps de 3–4 dies a 12–24 hores.',
+    'step6-badge':'Llest en 12–24h',
+    'bact-sec-label':'Higiene profunda',
+    'bact-sec-title':'Eliminació de Bacteris i Microorganismes',
+    'bact-sec-sub':'El nostre procés no sols neteja a la vista — elimina els agents patògens que no es veuen però afecten la teva salut.',
+    'bact1-h':'Bacteris i Fongs',
+    'bact1-p':'El vapor a 70°C elimina Staphylococcus, E. coli, Salmonella i fongs com l\'Aspergillus que s\'acumulen en tapisseries humides.',
+    'bact1-badge':'99% eliminats',
+    'bact2-h':'Àcars de la Pols',
+    'bact2-p':'Un matalàs pot allotjar fins a 2 milions d\'àcars. Són la principal causa d\'al·lèrgies respiratòries i dermatitis a la llar.',
+    'bact2-badge':'Eliminats al 99%',
+    'bact3-h':'Fluids Orgànics',
+    'bact3-p':'Orina, suor, saliva i altres fluids orgànics són focus de proliferació bacteriana. Els neutralitzem a nivell molecular.',
+    'bact3-badge':'Neutralització total',
+    'bact4-h':'Protecció Duradora',
+    'bact4-p':'Apliquem un agent bacteriostàtic que inhibeix la recolonització bacteriana durant setmanes després de la neteja.',
+    'bact4-badge':'Protecció 4–6 setmanes',
+    'gal-label':'Procés real','gal-title':'Imatges del Procés',
+    'gal-sub':'Fotografies reals dels nostres treballs a Barcelona. Properament més imatges.',
+    'cta-h':'Vols un procés així a casa teva?',
+    'cta-p':'Reserva ara i rep el teu pressupost sense compromís en menys d\'1 hora.',
+    'cta-wa':'Reservar per WhatsApp','cta-calc':'Calcular preu',
+  },
+  en: {
+    'nav-sofas':'Sofas','nav-colchones':'Mattresses','nav-alfombras':'Carpets',
+    'nav-sillas':'Chairs','nav-proceso':'Process','nav-inicio':'Home',
+    'nav-cta-s':'Book',
+    'proc-badge':'Certified · Barcelona',
+    'proc-h1':'<span class="highlight">Deep Cleaning</span> Process<br/>& Bacteria Elimination',
+    'proc-sub':'Injection-extraction technology at 70°C that eliminates 99% of bacteria, mites and fungi. A 6-step process designed to guarantee visible results and real hygiene.',
+    'proc-cta1':'See the process','proc-cta2':'Free consultation',
+    'proc-sec-label':'How we work','proc-sec-title':'Professional Process in 6 Steps',
+    'proc-sec-sub':'Every job follows a rigorous protocol to guarantee the best results and maximum safety.',
+    'step1-h':'Initial Fabric Inspection',
+    'step1-p':'We analyze the fabric type, dirt level and specific stains to determine the optimal treatment.',
+    'step2-h':'High-Power Industrial Vacuuming',
+    'step2-p':'We remove dust, hair, mites and solid particles with professional suction before the wet treatment.',
+    'step3-h':'Specialized Pre-treatment',
+    'step3-p':'We apply specific products according to the stain type: proteins, fats, tannins or pigments.',
+    'step4-h':'Injection-Extraction at 70°C',
+    'step4-p':'The key technology: we inject hot water at controlled pressure and simultaneously extract the dissolved dirt.',
+    'step5-h':'Neutralization & Deodorization',
+    'step5-p':'We apply pH neutralizers and long-lasting deodorizers to eliminate odors at the root.',
+    'step6-h':'Accelerated Assisted Drying',
+    'step6-p':'We use ventilation and accelerated drying techniques to reduce the time from 3–4 days to just 12–24 hours.',
+    'step6-badge':'Ready in 12–24h',
+    'bact-sec-label':'Deep hygiene',
+    'bact-sec-title':'Bacteria & Microorganism Elimination',
+    'bact-sec-sub':'Our process doesn\'t just clean visibly — it eliminates pathogens that can\'t be seen but affect your health.',
+    'bact1-h':'Bacteria & Fungi',
+    'bact1-p':'Steam at 70°C eliminates Staphylococcus, E. coli, Salmonella and fungi like Aspergillus that accumulate in damp upholstery.',
+    'bact1-badge':'99% eliminated',
+    'bact2-h':'Dust Mites',
+    'bact2-p':'A mattress can harbor up to 2 million mites. They are the main cause of respiratory allergies and dermatitis at home.',
+    'bact2-badge':'99% eliminated',
+    'bact3-h':'Organic Fluids',
+    'bact3-p':'Urine, sweat, saliva and other organic fluids are hotbeds of bacterial proliferation. We neutralize them at a molecular level.',
+    'bact3-badge':'Total neutralization',
+    'bact4-h':'Long-lasting Protection',
+    'bact4-p':'We apply a bacteriostatic agent that inhibits bacterial recolonization for weeks after cleaning.',
+    'bact4-badge':'Protection 4–6 weeks',
+    'gal-label':'Real process','gal-title':'Process Images',
+    'gal-sub':'Real photos of our work in Barcelona. More images coming soon.',
+    'cta-h':'Want a process like this in your home?',
+    'cta-p':'Book now and receive your quote with no commitment in less than 1 hour.',
+    'cta-wa':'Book via WhatsApp','cta-calc':'Calculate price',
+  }
+};
+
+function setLang(lang) {
+  localStorage.setItem('ccLang', lang);
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  const btn = document.getElementById('btn-' + lang);
+  if (btn) btn.classList.add('active');
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (T[lang] && T[lang][key]) {
+      if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+        el.placeholder = T[lang][key];
+      } else {
+        el.innerHTML = T[lang][key];
+      }
+    }
+  });
+}
+
+(function() {
+  const saved = localStorage.getItem('ccLang') || 'es';
+  setLang(saved);
+})();
+</script>
+
 </body>
 </html>
