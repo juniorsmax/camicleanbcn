@@ -953,8 +953,8 @@
   function initSlider(wrapperId, handleId) {
     const wrapper = document.getElementById(wrapperId);
     const handle = document.getElementById(handleId);
-    const before = wrapper.querySelector('.img-before');
     if (!wrapper || !handle) return;
+    const before = wrapper.querySelector('.img-before');
     let dragging = false;
     function setPos(x) {
       const rect = wrapper.getBoundingClientRect();
@@ -969,7 +969,6 @@
     document.addEventListener('touchend', () => dragging = false);
     document.addEventListener('touchmove', e => { if (dragging) setPos(e.touches[0].clientX); }, { passive: true });
   }
-  initSlider('slider1', 'handle1');
   const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}}),{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
   document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
   window.addEventListener('scroll',()=>{document.querySelector('.navbar').style.boxShadow=window.scrollY>50?'0 4px 24px rgba(26,58,92,0.15)':'0 2px 16px rgba(26,58,92,0.08)';});
