@@ -16,9 +16,12 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" /></noscript>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" /></noscript>
 
   <!-- Preload logo para carga rápida -->
   <link rel="preload" as="image" href="images/logo-camiclean-new.png" />
@@ -587,18 +590,25 @@
       <div class="section-divider"></div>
       <p class="section-subtitle">Resultado real de limpieza profesional de sillas en Barcelona</p>
     </div>
-    <div class="comparison-wrapper reveal" id="slider1">
-      <div class="img-after">
-        <img src="images/sillas-comedor.jpg" alt="Sillas después de la limpieza" loading="lazy" />
+    <div class="row justify-content-center">
+      <div class="col-lg-9">
+        <div class="gallery-item gallery-item-featured reveal" style="overflow:hidden;">
+          <div class="comparison-wrapper" id="slider-sillas-galeria">
+            <div class="img-after">
+              <img src="images/sillas-comedor.jpg" alt="Sillas de comedor limpias" loading="lazy" decoding="async" />
+            </div>
+            <div class="img-before">
+              <img src="images/silla-sucia.jpg" alt="Sillas de comedor sucias" loading="lazy" decoding="async" />
+            </div>
+            <div class="comparison-handle" id="handle-sillas-galeria">
+              <div class="comparison-btn"><i class="bi bi-chevron-left"></i><i class="bi bi-chevron-right"></i></div>
+            </div>
+            <span class="comparison-label label-antes">ANTES</span>
+            <span class="comparison-label label-despues">DESPUÉS</span>
+          </div>
+          <div class="gallery-caption"><i class="bi bi-arrow-left-right me-2"></i>Antes &amp; Después · Set de Comedor</div>
+        </div>
       </div>
-      <div class="img-before">
-        <img src="images/silla-sucia.jpg" alt="Sillas antes de la limpieza" loading="lazy" />
-      </div>
-      <div class="comparison-handle" id="handle1">
-        <div class="comparison-btn"><i class="bi bi-chevron-left"></i><i class="bi bi-chevron-right"></i></div>
-      </div>
-      <span class="comparison-label label-antes">ANTES</span>
-      <span class="comparison-label label-despues">DESPUÉS</span>
     </div>
   </div>
 </section>
@@ -614,14 +624,14 @@
     <div class="row g-4">
       <div class="col-md-6 col-lg-4 reveal">
         <div class="gallery-item gallery-item-featured" style="overflow:hidden;">
-          <div class="comparison-wrapper gallery-item-featured" id="slider-sillas-galeria">
+          <div class="comparison-wrapper" id="slider1">
             <div class="img-after">
-              <img src="images/sillas-comedor.jpg" alt="Sillas de comedor limpias" loading="lazy" />
+              <img src="images/sillas-comedor.jpg" alt="Sillas después de la limpieza" loading="lazy" decoding="async" />
             </div>
             <div class="img-before">
-              <img src="images/silla-sucia.jpg" alt="Sillas de comedor sucias" loading="lazy" />
+              <img src="images/silla-sucia.jpg" alt="Sillas antes de la limpieza" loading="lazy" decoding="async" />
             </div>
-            <div class="comparison-handle" id="handle-sillas-galeria">
+            <div class="comparison-handle" id="handle1">
               <div class="comparison-btn"><i class="bi bi-chevron-left"></i><i class="bi bi-chevron-right"></i></div>
             </div>
             <span class="comparison-label label-antes">ANTES</span>
@@ -632,13 +642,13 @@
       </div>
       <div class="col-md-6 col-lg-4 reveal">
         <div class="gallery-item gallery-item-featured">
-          <img src="images/tecnico-limpiando-sofa1.jpg" alt="Técnico limpiando tapicería" loading="lazy" />
+          <img src="images/tecnico-limpiando-sofa1.jpg" alt="Técnico limpiando tapicería" loading="lazy" decoding="async" />
           <div class="gallery-caption"><i class="bi bi-tools me-2"></i>Proceso profesional</div>
         </div>
       </div>
       <div class="col-md-6 col-lg-4 reveal">
         <div class="gallery-item gallery-item-featured">
-          <img src="images/equipos-profesionales.jpg" alt="Equipos profesionales" loading="lazy" />
+          <img src="images/equipos-profesionales.jpg" alt="Equipos profesionales" loading="lazy" decoding="async" />
           <div class="gallery-caption"><i class="bi bi-tools me-2"></i>Equipos de última generación</div>
         </div>
       </div>
@@ -750,7 +760,7 @@
       <h2 class="section-title">Opiniones sobre limpieza de sillas</h2>
       <div class="section-divider" style="background:linear-gradient(90deg,var(--accent),rgba(14,165,233,0.3));"></div>
       <div class="d-inline-flex align-items-center gap-3 mt-3 px-4 py-3 rounded-3" style="background:#fff;box-shadow:var(--shadow);border:1px solid var(--border);">
-        <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google" style="height:20px;width:auto;" loading="lazy" />
+        <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google" style="height:20px;width:auto;" loading="lazy" decoding="async" />
         <span style="font-size:1.2rem;font-weight:800;color:var(--text-dark);">5.0</span>
         <span style="color:#fbbc04;font-size:1.1rem;">★★★★★</span>
         <span style="color:var(--text-muted);font-size:0.85rem;">47 reseñas</span>
@@ -761,7 +771,7 @@
         <div class="testimonio-card">
           <div class="d-flex align-items-center justify-content-between mb-3">
             <div class="d-flex align-items-center gap-2"><div class="author-avatar" style="background:#fbbc04;color:#333;">CS</div><div><div class="author-name">Carlos Sánchez</div><div class="author-location">Les Corts, Barcelona</div></div></div>
-            <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google" style="height:14px;opacity:0.7;" loading="lazy" />
+            <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google" style="height:14px;opacity:0.7;" loading="lazy" decoding="async" />
           </div>
           <div style="color:#fbbc04;font-size:0.95rem;margin-bottom:6px;">★★★★★</div>
           <div style="font-size:0.73rem;color:rgba(255,255,255,0.4);margin-bottom:10px;">hace 2 meses</div>
@@ -772,7 +782,7 @@
         <div class="testimonio-card">
           <div class="d-flex align-items-center justify-content-between mb-3">
             <div class="d-flex align-items-center gap-2"><div class="author-avatar" style="background:#ea4335;">MG</div><div><div class="author-name">María García</div><div class="author-location">Gràcia, Barcelona</div></div></div>
-            <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google" style="height:14px;opacity:0.7;" loading="lazy" />
+            <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google" style="height:14px;opacity:0.7;" loading="lazy" decoding="async" />
           </div>
           <div style="color:#fbbc04;font-size:0.95rem;margin-bottom:6px;">★★★★★</div>
           <div style="font-size:0.73rem;color:rgba(255,255,255,0.4);margin-bottom:10px;">hace 2 semanas</div>
@@ -783,7 +793,7 @@
         <div class="testimonio-card">
           <div class="d-flex align-items-center justify-content-between mb-3">
             <div class="d-flex align-items-center gap-2"><div class="author-avatar" style="background:#0097a7;">RV</div><div><div class="author-name">Roberto Vidal</div><div class="author-location">Horta, Barcelona</div></div></div>
-            <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google" style="height:14px;opacity:0.7;" loading="lazy" />
+            <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google" style="height:14px;opacity:0.7;" loading="lazy" decoding="async" />
           </div>
           <div style="color:#fbbc04;font-size:0.95rem;margin-bottom:6px;">★★★★★</div>
           <div style="font-size:0.73rem;color:rgba(255,255,255,0.4);margin-bottom:10px;">hace 1 mes</div>
@@ -883,7 +893,7 @@
   <div class="container">
     <div class="row g-4">
       <div class="col-md-4">
-        <img src="images/logo-camiclean-new.png" alt="Cami Clean" style="height:100px;width:auto;margin-bottom:12px;" loading="lazy" />
+        <img src="images/logo-camiclean-new.png" alt="Cami Clean" style="height:100px;width:auto;margin-bottom:12px;" loading="lazy" decoding="async" />
         <p>Limpieza profesional de sillas y tapicerías en Barcelona. A domicilio, resultados garantizados.</p>
         <address style="font-style:normal;font-size:0.83rem;color:rgba(255,255,255,0.5);line-height:1.7;">
           <i class="bi bi-geo-alt-fill me-1" style="color:var(--accent);"></i> Carrer de les Muses, 41 · 08905 Barcelona<br/>
@@ -918,7 +928,7 @@
 
 <a href="https://wa.me/34631171537?text=Hola%2C%20me%20interesa%20limpiar%20mis%20sillas" target="_blank" class="whatsapp-float"><i class="bi bi-whatsapp"></i></a>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
 <script>
   const heroSel={};
   function toggleHeroCalc(el,price){const cb=el.querySelector('input');cb.checked=!cb.checked;if(cb.checked){el.classList.add('selected');heroSel[cb.id]=price;}else{el.classList.remove('selected');delete heroSel[cb.id];}document.getElementById('heroTotal').textContent=Object.values(heroSel).reduce((a,b)=>a+b,0)+'€';}
