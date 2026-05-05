@@ -1544,7 +1544,7 @@
     <div class="row align-items-center gy-5">
 
       <!-- Left: Copy -->
-      <div class="col-lg-6">
+      <div class="col-lg-8">
         <h1 class="hero-title" data-i18n="hero-h1">Sofás y Colchones sin Manchas,<br />Ácaros ni Olores <span class="highlight">en 24h</span></h1>
         <p class="hero-subtitle">
           <span data-i18n="hero-sub">Limpieza profesional de tapicerías en Barcelona con tecnología de inyección-extracción a 70°C. Resultados garantizados.</span>
@@ -1623,55 +1623,205 @@
           </a>
         </div>
       </div>
+    </div>
+  </div>
+</section>
 
-      <!-- Right: Quick Calculator -->
-      <div class="col-lg-5 offset-lg-1">
-        <div class="hero-calc-card">
-          <h4><i class="bi bi-calculator-fill text-accent me-2"></i>Calcula tu precio ahora</h4>
-          <p>Selecciona los servicios y obtén el precio al instante</p>
+<!-- ============================================================
+     CALCULADORA COMPLETA
+============================================================ -->
+<section id="calculadora">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <span class="section-label">Sin sorpresas</span>
+      <h2 class="section-title">Calcula Tu Presupuesto al Instante</h2>
+      <div class="section-divider"></div>
+      <p class="section-subtitle">Selecciona los servicios que necesitas y obtén el precio total de forma inmediata. 0 de 15 competidores en Barcelona ofrecen esto.</p>
+    </div>
 
-          <div id="heroCalcOptions">
-            <div class="calc-option" onclick="toggleHeroCalc(this, 55)">
-              <input type="checkbox" id="hc1" value="55" />
-              <label for="hc1">Sofá 2 Plazas</label>
-              <span class="price-tag">55€</span>
+    <div class="row g-5 align-items-start">
+      <!-- Services Grid -->
+      <div class="col-lg-7 reveal">
+        <div class="calc-grid" id="mainCalcGrid">
+
+          <!-- Sofá 2 plazas -->
+          <div class="calc-service-card" id="card-mc1">
+            <div class="card-header" onclick="toggleCard('mc1')">
+              <input type="checkbox" id="mc1" />
+              <div class="calc-service-info">
+                <span class="name">Sofá 2 plazas</span>
+                <span class="time"><i class="bi bi-clock me-1"></i>~90 min · Elige nivel</span>
+              </div>
+              <span class="calc-service-price" id="price-mc1">desde 55€</span>
+              <i class="bi bi-chevron-down chevron-icon" id="chev-mc1"></i>
             </div>
-            <div class="calc-option" onclick="toggleHeroCalc(this, 70)">
-              <input type="checkbox" id="hc2" value="70" />
-              <label for="hc2">Sofá 3 Plazas</label>
-              <span class="price-tag">70€</span>
-            </div>
-            <div class="calc-option" onclick="toggleHeroCalc(this, 90)">
-              <input type="checkbox" id="hc3" value="90" />
-              <label for="hc3">Chaise Longue / Rinconera</label>
-              <span class="price-tag">90€</span>
-            </div>
-            <div class="calc-option" onclick="toggleHeroCalc(this, 50)">
-              <input type="checkbox" id="hc4" value="50" />
-              <label for="hc4">Sillón individual</label>
-              <span class="price-tag">50€</span>
-            </div>
-            <div class="calc-option" onclick="toggleHeroCalc(this, 60)">
-              <input type="checkbox" id="hc5" value="60" />
-              <label for="hc5">Colchón 150cm</label>
-              <span class="price-tag">60€</span>
+            <div class="card-levels" id="levels-mc1">
+              <div class="level-btn" onclick="selectLevel('mc1', 55, 'Sofá 2 plazas – Nivel 1', '90 min', this)">
+                <span><span class="level-badge badge-1">1</span>Limpieza ligera <span class="level-desc">Polvo, suciedad superficial y uso habitual</span></span>
+                <span class="level-price">55€</span>
+              </div>
+              <div class="level-btn" onclick="selectLevel('mc1', 70, 'Sofá 2 plazas – Nivel 2', '90 min', this)">
+                <span><span class="level-badge badge-2">2</span>Limpieza estándar <span class="level-desc">Manchas recientes, pelos de mascota, olores leves</span></span>
+                <span class="level-price">70€</span>
+              </div>
+              <div class="level-btn" onclick="selectLevel('mc1', 90, 'Sofá 2 plazas – Nivel 3', '2h', this)">
+                <span><span class="level-badge badge-3">3</span>Limpieza profunda <span class="level-desc">Manchas antiguas, olores intensos, suciedad acumulada</span></span>
+                <span class="level-price">90€</span>
+              </div>
             </div>
           </div>
 
-          <div class="calc-total-box">
-            <div>
-              <div class="total-label">Total estimado</div>
-              <div style="font-size:0.75rem;opacity:0.65;">Confirmación tras envío de fotos</div>
+          <!-- Sofá 3 plazas -->
+          <div class="calc-service-card" id="card-mc2">
+            <div class="card-header" onclick="toggleCard('mc2')">
+              <input type="checkbox" id="mc2" />
+              <div class="calc-service-info">
+                <span class="name">Sofá 3 plazas</span>
+                <span class="time"><i class="bi bi-clock me-1"></i>~2h · Elige nivel</span>
+              </div>
+              <span class="calc-service-price" id="price-mc2">desde 70€</span>
+              <i class="bi bi-chevron-down chevron-icon" id="chev-mc2"></i>
             </div>
-            <div class="total-amount" id="heroTotal">0€</div>
+            <div class="card-levels" id="levels-mc2">
+              <div class="level-btn" onclick="selectLevel('mc2', 70, 'Sofá 3 plazas – Nivel 1', '2h', this)"><span><span class="level-badge badge-1">1</span>Limpieza ligera <span class="level-desc">Polvo, suciedad superficial</span></span><span class="level-price">70€</span></div>
+              <div class="level-btn" onclick="selectLevel('mc2', 85, 'Sofá 3 plazas – Nivel 2', '2h', this)"><span><span class="level-badge badge-2">2</span>Limpieza estándar <span class="level-desc">Manchas recientes, pelos de mascota</span></span><span class="level-price">85€</span></div>
+              <div class="level-btn" onclick="selectLevel('mc2', 110, 'Sofá 3 plazas – Nivel 3', '2.5h', this)"><span><span class="level-badge badge-3">3</span>Limpieza profunda <span class="level-desc">Manchas antiguas, olores intensos</span></span><span class="level-price">110€</span></div>
+            </div>
           </div>
 
-          <a href="#" id="heroWaBtn" class="btn-calc-wa" onclick="openHeroWA(event)">
-            <i class="bi bi-whatsapp"></i> Reservar por WhatsApp
-          </a>
+          <!-- Sofá rinconera -->
+          <div class="calc-service-card" id="card-mc3">
+            <div class="card-header" onclick="toggleCard('mc3')">
+              <input type="checkbox" id="mc3" />
+              <div class="calc-service-info">
+                <span class="name">Sofá rinconera / chaise longue</span>
+                <span class="time"><i class="bi bi-clock me-1"></i>~2.5h · Elige nivel</span>
+              </div>
+              <span class="calc-service-price" id="price-mc3">desde 90€</span>
+              <i class="bi bi-chevron-down chevron-icon" id="chev-mc3"></i>
+            </div>
+            <div class="card-levels" id="levels-mc3">
+              <div class="level-btn" onclick="selectLevel('mc3', 90, 'Rinconera – Nivel 1', '2.5h', this)"><span><span class="level-badge badge-1">1</span>Limpieza ligera <span class="level-desc">Polvo, suciedad superficial</span></span><span class="level-price">90€</span></div>
+              <div class="level-btn" onclick="selectLevel('mc3', 110, 'Rinconera – Nivel 2', '2.5h', this)"><span><span class="level-badge badge-2">2</span>Limpieza estándar <span class="level-desc">Manchas recientes, olores leves</span></span><span class="level-price">110€</span></div>
+              <div class="level-btn" onclick="selectLevel('mc3', 135, 'Rinconera – Nivel 3', '3h', this)"><span><span class="level-badge badge-3">3</span>Limpieza profunda <span class="level-desc">Manchas antiguas, olores intensos</span></span><span class="level-price">135€</span></div>
+            </div>
+          </div>
+
+          <!-- Sillón individual -->
+          <div class="calc-service-card" id="card-mc4">
+            <div class="card-header" onclick="toggleCard('mc4')">
+              <input type="checkbox" id="mc4" />
+              <div class="calc-service-info">
+                <span class="name">Sillón individual</span>
+                <span class="time"><i class="bi bi-clock me-1"></i>~45 min · Elige nivel</span>
+              </div>
+              <span class="calc-service-price" id="price-mc4">desde 50€</span>
+              <i class="bi bi-chevron-down chevron-icon" id="chev-mc4"></i>
+            </div>
+            <div class="card-levels" id="levels-mc4">
+              <div class="level-btn" onclick="selectLevel('mc4', 50, 'Sillón – Nivel 1', '45 min', this)"><span><span class="level-badge badge-1">1</span>Limpieza ligera <span class="level-desc">Uso habitual, suciedad superficial</span></span><span class="level-price">50€</span></div>
+              <div class="level-btn" onclick="selectLevel('mc4', 60, 'Sillón – Nivel 2', '1h', this)"><span><span class="level-badge badge-2">2</span>Limpieza estándar <span class="level-desc">Manchas visibles, desgaste moderado</span></span><span class="level-price">60€</span></div>
+              <div class="level-btn" onclick="selectLevel('mc4', 75, 'Sillón – Nivel 3', '1.5h', this)"><span><span class="level-badge badge-3">3</span>Limpieza profunda <span class="level-desc">Manchas antiguas, olores</span></span><span class="level-price">75€</span></div>
+            </div>
+          </div>
+
+          <!-- ARTÍCULOS CRUZADOS -->
+          <div class="calc-service-card" id="card-mc5" style="border-color:#f59e0b;background:#fffbf0;">
+            <div class="card-header" onclick="toggleCard('mc5')" style="background:#fffbf0;">
+              <input type="checkbox" id="mc5" />
+              <div class="calc-service-info">
+                <span class="name" style="color:#92400e;"><i class="bi bi-tag-fill me-1" style="color:#f59e0b;"></i>Colchón 90cm (promo)</span>
+                <span class="time">Combina y ahorra 15% · Elige nivel</span>
+              </div>
+              <span class="calc-service-price" id="price-mc5" style="color:#92400e;">desde 50€</span>
+              <i class="bi bi-chevron-down chevron-icon" id="chev-mc5"></i>
+            </div>
+            <div class="card-levels" id="levels-mc5" style="background:#fffbf0;">
+              <div class="level-btn" onclick="selectLevel('mc5', 50, 'Colchón 90cm – Nivel 1', '1h', this)"><span><span class="level-badge badge-1">1</span>Ligera <span class="level-desc">Mantenimiento periódico</span></span><span class="level-price" style="color:#92400e;">50€</span></div>
+              <div class="level-btn" onclick="selectLevel('mc5', 60, 'Colchón 90cm – Nivel 2', '1h', this)"><span><span class="level-badge badge-2">2</span>Estándar <span class="level-desc">Manchas y ácaros</span></span><span class="level-price" style="color:#92400e;">60€</span></div>
+              <div class="level-btn" onclick="selectLevel('mc5', 75, 'Colchón 90cm – Nivel 3', '1.5h', this)"><span><span class="level-badge badge-3">3</span>Profunda <span class="level-desc">Manchas antiguas, olores</span></span><span class="level-price" style="color:#92400e;">75€</span></div>
+            </div>
+          </div>
+
+          <div class="calc-service-card" id="card-mc6" style="border-color:#f59e0b;background:#fffbf0;">
+            <div class="card-header" onclick="toggleCard('mc6')" style="background:#fffbf0;">
+              <input type="checkbox" id="mc6" />
+              <div class="calc-service-info">
+                <span class="name" style="color:#92400e;"><i class="bi bi-tag-fill me-1" style="color:#f59e0b;"></i>Colchón 150cm (promo)</span>
+                <span class="time">Combina y ahorra 15% · Elige nivel</span>
+              </div>
+              <span class="calc-service-price" id="price-mc6" style="color:#92400e;">desde 60€</span>
+              <i class="bi bi-chevron-down chevron-icon" id="chev-mc6"></i>
+            </div>
+            <div class="card-levels" id="levels-mc6" style="background:#fffbf0;">
+              <div class="level-btn" onclick="selectLevel('mc6', 60, 'Colchón 150cm – Nivel 1', '1.5h', this)"><span><span class="level-badge badge-1">1</span>Ligera <span class="level-desc">Mantenimiento periódico</span></span><span class="level-price" style="color:#92400e;">60€</span></div>
+              <div class="level-btn" onclick="selectLevel('mc6', 75, 'Colchón 150cm – Nivel 2', '1.5h', this)"><span><span class="level-badge badge-2">2</span>Estándar <span class="level-desc">Manchas y ácaros</span></span><span class="level-price" style="color:#92400e;">75€</span></div>
+              <div class="level-btn" onclick="selectLevel('mc6', 90, 'Colchón 150cm – Nivel 3', '2h', this)"><span><span class="level-badge badge-3">3</span>Profunda <span class="level-desc">Manchas antiguas, olores</span></span><span class="level-price" style="color:#92400e;">90€</span></div>
+            </div>
+          </div>
+
+          <div class="calc-service-card" id="card-mc7" style="border-color:#f59e0b;background:#fffbf0;">
+            <div class="card-header" onclick="toggleCard('mc7')" style="background:#fffbf0;">
+              <input type="checkbox" id="mc7" />
+              <div class="calc-service-info">
+                <span class="name" style="color:#92400e;"><i class="bi bi-tag-fill me-1" style="color:#f59e0b;"></i>Alfombra pequeña (promo)</span>
+                <span class="time">Combina y ahorra 15% · Elige nivel</span>
+              </div>
+              <span class="calc-service-price" id="price-mc7" style="color:#92400e;">desde 45€</span>
+              <i class="bi bi-chevron-down chevron-icon" id="chev-mc7"></i>
+            </div>
+            <div class="card-levels" id="levels-mc7" style="background:#fffbf0;">
+              <div class="level-btn" onclick="selectLevel('mc7', 45, 'Alfombra pequeña – Nivel 1', '1h', this)"><span><span class="level-badge badge-1">1</span>Ligera <span class="level-desc">Polvo y suciedad superficial</span></span><span class="level-price" style="color:#92400e;">45€</span></div>
+              <div class="level-btn" onclick="selectLevel('mc7', 55, 'Alfombra pequeña – Nivel 2', '1h', this)"><span><span class="level-badge badge-2">2</span>Estándar <span class="level-desc">Manchas recientes</span></span><span class="level-price" style="color:#92400e;">55€</span></div>
+              <div class="level-btn" onclick="selectLevel('mc7', 70, 'Alfombra pequeña – Nivel 3', '1.5h', this)"><span><span class="level-badge badge-3">3</span>Profunda <span class="level-desc">Manchas antiguas, olores</span></span><span class="level-price" style="color:#92400e;">70€</span></div>
+            </div>
+          </div>
+
+          <div class="calc-service-card" id="card-mc8">
+            <div class="card-header" onclick="toggleCard('mc8')">
+              <input type="checkbox" id="mc8" />
+              <div class="calc-service-info">
+                <span class="name">Silla x1</span>
+                <span class="time"><i class="bi bi-clock me-1"></i>~20 min · Elige nivel</span>
+              </div>
+              <span class="calc-service-price" id="price-mc8">desde 12€</span>
+              <i class="bi bi-chevron-down chevron-icon" id="chev-mc8"></i>
+            </div>
+            <div class="card-levels" id="levels-mc8">
+              <div class="level-btn" onclick="selectLevel('mc8', 12, 'Silla x1 – Nivel 1', '20 min', this)"><span><span class="level-badge badge-1">1</span>Limpieza ligera <span class="level-desc">Uso habitual</span></span><span class="level-price">12€</span></div>
+              <div class="level-btn" onclick="selectLevel('mc8', 15, 'Silla x1 – Nivel 2', '20 min', this)"><span><span class="level-badge badge-2">2</span>Limpieza estándar <span class="level-desc">Manchas visibles</span></span><span class="level-price">15€</span></div>
+              <div class="level-btn" onclick="selectLevel('mc8', 18, 'Silla x1 – Nivel 3', '30 min', this)"><span><span class="level-badge badge-3">3</span>Limpieza profunda <span class="level-desc">Manchas antiguas</span></span><span class="level-price">18€</span></div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="pack-promo">
+          <i class="bi bi-tag-fill"></i>
+          <div>
+            <strong>Pack Promocional: Sofá + Alfombra</strong>
+            <span>Combina sofá y alfombra y obtén un 15% de descuento en el total</span>
+          </div>
         </div>
       </div>
 
+      <!-- Summary -->
+      <div class="col-lg-5 reveal">
+        <div class="calc-summary">
+          <h4><i class="bi bi-receipt me-2"></i>Tu Presupuesto</h4>
+          <div id="mainCalcItems">
+            <p style="opacity:0.6;font-size:0.9rem;text-align:center;padding:20px 0;">Selecciona servicios para ver el resumen</p>
+          </div>
+          <div class="calc-summary-total">
+            <span class="label">Total estimado</span>
+            <span class="amount" id="mainTotal">0€</span>
+          </div>
+          <p class="calc-note">* Precio orientativo. Confirmación final tras revisión de fotos por WhatsApp. Pack Sofá + Alfombra incluye 15% descuento.</p>
+          <a href="#" id="mainWaBtn" class="btn-wa-full" onclick="openMainWA(event)">
+            <i class="bi bi-whatsapp"></i> Reservar Ahora por WhatsApp
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -2043,205 +2193,6 @@
       <a href="proceso.html" class="btn-hero-primary" style="background:var(--accent);box-shadow:0 4px 20px rgba(14,165,233,0.45);display:inline-flex;align-items:center;gap:8px;">
         <i class="bi bi-arrow-right-circle-fill"></i> Ver proceso completo y eliminación de bacterias
       </a>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     CALCULADORA COMPLETA
-============================================================ -->
-<section id="calculadora">
-  <div class="container">
-    <div class="text-center mb-5 reveal">
-      <span class="section-label">Sin sorpresas</span>
-      <h2 class="section-title">Calcula Tu Presupuesto al Instante</h2>
-      <div class="section-divider"></div>
-      <p class="section-subtitle">Selecciona los servicios que necesitas y obtén el precio total de forma inmediata. 0 de 15 competidores en Barcelona ofrecen esto.</p>
-    </div>
-
-    <div class="row g-5 align-items-start">
-      <!-- Services Grid -->
-      <div class="col-lg-7 reveal">
-        <div class="calc-grid" id="mainCalcGrid">
-
-          <!-- Sofá 2 plazas -->
-          <div class="calc-service-card" id="card-mc1">
-            <div class="card-header" onclick="toggleCard('mc1')">
-              <input type="checkbox" id="mc1" />
-              <div class="calc-service-info">
-                <span class="name">Sofá 2 plazas</span>
-                <span class="time"><i class="bi bi-clock me-1"></i>~90 min · Elige nivel</span>
-              </div>
-              <span class="calc-service-price" id="price-mc1">desde 55€</span>
-              <i class="bi bi-chevron-down chevron-icon" id="chev-mc1"></i>
-            </div>
-            <div class="card-levels" id="levels-mc1">
-              <div class="level-btn" onclick="selectLevel('mc1', 55, 'Sofá 2 plazas – Nivel 1', '90 min', this)">
-                <span><span class="level-badge badge-1">1</span>Limpieza ligera <span class="level-desc">Polvo, suciedad superficial y uso habitual</span></span>
-                <span class="level-price">55€</span>
-              </div>
-              <div class="level-btn" onclick="selectLevel('mc1', 70, 'Sofá 2 plazas – Nivel 2', '90 min', this)">
-                <span><span class="level-badge badge-2">2</span>Limpieza estándar <span class="level-desc">Manchas recientes, pelos de mascota, olores leves</span></span>
-                <span class="level-price">70€</span>
-              </div>
-              <div class="level-btn" onclick="selectLevel('mc1', 90, 'Sofá 2 plazas – Nivel 3', '2h', this)">
-                <span><span class="level-badge badge-3">3</span>Limpieza profunda <span class="level-desc">Manchas antiguas, olores intensos, suciedad acumulada</span></span>
-                <span class="level-price">90€</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Sofá 3 plazas -->
-          <div class="calc-service-card" id="card-mc2">
-            <div class="card-header" onclick="toggleCard('mc2')">
-              <input type="checkbox" id="mc2" />
-              <div class="calc-service-info">
-                <span class="name">Sofá 3 plazas</span>
-                <span class="time"><i class="bi bi-clock me-1"></i>~2h · Elige nivel</span>
-              </div>
-              <span class="calc-service-price" id="price-mc2">desde 70€</span>
-              <i class="bi bi-chevron-down chevron-icon" id="chev-mc2"></i>
-            </div>
-            <div class="card-levels" id="levels-mc2">
-              <div class="level-btn" onclick="selectLevel('mc2', 70, 'Sofá 3 plazas – Nivel 1', '2h', this)"><span><span class="level-badge badge-1">1</span>Limpieza ligera <span class="level-desc">Polvo, suciedad superficial</span></span><span class="level-price">70€</span></div>
-              <div class="level-btn" onclick="selectLevel('mc2', 85, 'Sofá 3 plazas – Nivel 2', '2h', this)"><span><span class="level-badge badge-2">2</span>Limpieza estándar <span class="level-desc">Manchas recientes, pelos de mascota</span></span><span class="level-price">85€</span></div>
-              <div class="level-btn" onclick="selectLevel('mc2', 110, 'Sofá 3 plazas – Nivel 3', '2.5h', this)"><span><span class="level-badge badge-3">3</span>Limpieza profunda <span class="level-desc">Manchas antiguas, olores intensos</span></span><span class="level-price">110€</span></div>
-            </div>
-          </div>
-
-          <!-- Sofá rinconera -->
-          <div class="calc-service-card" id="card-mc3">
-            <div class="card-header" onclick="toggleCard('mc3')">
-              <input type="checkbox" id="mc3" />
-              <div class="calc-service-info">
-                <span class="name">Sofá rinconera / chaise longue</span>
-                <span class="time"><i class="bi bi-clock me-1"></i>~2.5h · Elige nivel</span>
-              </div>
-              <span class="calc-service-price" id="price-mc3">desde 90€</span>
-              <i class="bi bi-chevron-down chevron-icon" id="chev-mc3"></i>
-            </div>
-            <div class="card-levels" id="levels-mc3">
-              <div class="level-btn" onclick="selectLevel('mc3', 90, 'Rinconera – Nivel 1', '2.5h', this)"><span><span class="level-badge badge-1">1</span>Limpieza ligera <span class="level-desc">Polvo, suciedad superficial</span></span><span class="level-price">90€</span></div>
-              <div class="level-btn" onclick="selectLevel('mc3', 110, 'Rinconera – Nivel 2', '2.5h', this)"><span><span class="level-badge badge-2">2</span>Limpieza estándar <span class="level-desc">Manchas recientes, olores leves</span></span><span class="level-price">110€</span></div>
-              <div class="level-btn" onclick="selectLevel('mc3', 135, 'Rinconera – Nivel 3', '3h', this)"><span><span class="level-badge badge-3">3</span>Limpieza profunda <span class="level-desc">Manchas antiguas, olores intensos</span></span><span class="level-price">135€</span></div>
-            </div>
-          </div>
-
-          <!-- Sillón individual -->
-          <div class="calc-service-card" id="card-mc4">
-            <div class="card-header" onclick="toggleCard('mc4')">
-              <input type="checkbox" id="mc4" />
-              <div class="calc-service-info">
-                <span class="name">Sillón individual</span>
-                <span class="time"><i class="bi bi-clock me-1"></i>~45 min · Elige nivel</span>
-              </div>
-              <span class="calc-service-price" id="price-mc4">desde 50€</span>
-              <i class="bi bi-chevron-down chevron-icon" id="chev-mc4"></i>
-            </div>
-            <div class="card-levels" id="levels-mc4">
-              <div class="level-btn" onclick="selectLevel('mc4', 50, 'Sillón – Nivel 1', '45 min', this)"><span><span class="level-badge badge-1">1</span>Limpieza ligera <span class="level-desc">Uso habitual, suciedad superficial</span></span><span class="level-price">50€</span></div>
-              <div class="level-btn" onclick="selectLevel('mc4', 60, 'Sillón – Nivel 2', '1h', this)"><span><span class="level-badge badge-2">2</span>Limpieza estándar <span class="level-desc">Manchas visibles, desgaste moderado</span></span><span class="level-price">60€</span></div>
-              <div class="level-btn" onclick="selectLevel('mc4', 75, 'Sillón – Nivel 3', '1.5h', this)"><span><span class="level-badge badge-3">3</span>Limpieza profunda <span class="level-desc">Manchas antiguas, olores</span></span><span class="level-price">75€</span></div>
-            </div>
-          </div>
-
-          <!-- ARTÍCULOS CRUZADOS -->
-          <div class="calc-service-card" id="card-mc5" style="border-color:#f59e0b;background:#fffbf0;">
-            <div class="card-header" onclick="toggleCard('mc5')" style="background:#fffbf0;">
-              <input type="checkbox" id="mc5" />
-              <div class="calc-service-info">
-                <span class="name" style="color:#92400e;"><i class="bi bi-tag-fill me-1" style="color:#f59e0b;"></i>Colchón 90cm (promo)</span>
-                <span class="time">Combina y ahorra 15% · Elige nivel</span>
-              </div>
-              <span class="calc-service-price" id="price-mc5" style="color:#92400e;">desde 50€</span>
-              <i class="bi bi-chevron-down chevron-icon" id="chev-mc5"></i>
-            </div>
-            <div class="card-levels" id="levels-mc5" style="background:#fffbf0;">
-              <div class="level-btn" onclick="selectLevel('mc5', 50, 'Colchón 90cm – Nivel 1', '1h', this)"><span><span class="level-badge badge-1">1</span>Ligera <span class="level-desc">Mantenimiento periódico</span></span><span class="level-price" style="color:#92400e;">50€</span></div>
-              <div class="level-btn" onclick="selectLevel('mc5', 60, 'Colchón 90cm – Nivel 2', '1h', this)"><span><span class="level-badge badge-2">2</span>Estándar <span class="level-desc">Manchas y ácaros</span></span><span class="level-price" style="color:#92400e;">60€</span></div>
-              <div class="level-btn" onclick="selectLevel('mc5', 75, 'Colchón 90cm – Nivel 3', '1.5h', this)"><span><span class="level-badge badge-3">3</span>Profunda <span class="level-desc">Manchas antiguas, olores</span></span><span class="level-price" style="color:#92400e;">75€</span></div>
-            </div>
-          </div>
-
-          <div class="calc-service-card" id="card-mc6" style="border-color:#f59e0b;background:#fffbf0;">
-            <div class="card-header" onclick="toggleCard('mc6')" style="background:#fffbf0;">
-              <input type="checkbox" id="mc6" />
-              <div class="calc-service-info">
-                <span class="name" style="color:#92400e;"><i class="bi bi-tag-fill me-1" style="color:#f59e0b;"></i>Colchón 150cm (promo)</span>
-                <span class="time">Combina y ahorra 15% · Elige nivel</span>
-              </div>
-              <span class="calc-service-price" id="price-mc6" style="color:#92400e;">desde 60€</span>
-              <i class="bi bi-chevron-down chevron-icon" id="chev-mc6"></i>
-            </div>
-            <div class="card-levels" id="levels-mc6" style="background:#fffbf0;">
-              <div class="level-btn" onclick="selectLevel('mc6', 60, 'Colchón 150cm – Nivel 1', '1.5h', this)"><span><span class="level-badge badge-1">1</span>Ligera <span class="level-desc">Mantenimiento periódico</span></span><span class="level-price" style="color:#92400e;">60€</span></div>
-              <div class="level-btn" onclick="selectLevel('mc6', 75, 'Colchón 150cm – Nivel 2', '1.5h', this)"><span><span class="level-badge badge-2">2</span>Estándar <span class="level-desc">Manchas y ácaros</span></span><span class="level-price" style="color:#92400e;">75€</span></div>
-              <div class="level-btn" onclick="selectLevel('mc6', 90, 'Colchón 150cm – Nivel 3', '2h', this)"><span><span class="level-badge badge-3">3</span>Profunda <span class="level-desc">Manchas antiguas, olores</span></span><span class="level-price" style="color:#92400e;">90€</span></div>
-            </div>
-          </div>
-
-          <div class="calc-service-card" id="card-mc7" style="border-color:#f59e0b;background:#fffbf0;">
-            <div class="card-header" onclick="toggleCard('mc7')" style="background:#fffbf0;">
-              <input type="checkbox" id="mc7" />
-              <div class="calc-service-info">
-                <span class="name" style="color:#92400e;"><i class="bi bi-tag-fill me-1" style="color:#f59e0b;"></i>Alfombra pequeña (promo)</span>
-                <span class="time">Combina y ahorra 15% · Elige nivel</span>
-              </div>
-              <span class="calc-service-price" id="price-mc7" style="color:#92400e;">desde 45€</span>
-              <i class="bi bi-chevron-down chevron-icon" id="chev-mc7"></i>
-            </div>
-            <div class="card-levels" id="levels-mc7" style="background:#fffbf0;">
-              <div class="level-btn" onclick="selectLevel('mc7', 45, 'Alfombra pequeña – Nivel 1', '1h', this)"><span><span class="level-badge badge-1">1</span>Ligera <span class="level-desc">Polvo y suciedad superficial</span></span><span class="level-price" style="color:#92400e;">45€</span></div>
-              <div class="level-btn" onclick="selectLevel('mc7', 55, 'Alfombra pequeña – Nivel 2', '1h', this)"><span><span class="level-badge badge-2">2</span>Estándar <span class="level-desc">Manchas recientes</span></span><span class="level-price" style="color:#92400e;">55€</span></div>
-              <div class="level-btn" onclick="selectLevel('mc7', 70, 'Alfombra pequeña – Nivel 3', '1.5h', this)"><span><span class="level-badge badge-3">3</span>Profunda <span class="level-desc">Manchas antiguas, olores</span></span><span class="level-price" style="color:#92400e;">70€</span></div>
-            </div>
-          </div>
-
-          <div class="calc-service-card" id="card-mc8">
-            <div class="card-header" onclick="toggleCard('mc8')">
-              <input type="checkbox" id="mc8" />
-              <div class="calc-service-info">
-                <span class="name">Silla x1</span>
-                <span class="time"><i class="bi bi-clock me-1"></i>~20 min · Elige nivel</span>
-              </div>
-              <span class="calc-service-price" id="price-mc8">desde 12€</span>
-              <i class="bi bi-chevron-down chevron-icon" id="chev-mc8"></i>
-            </div>
-            <div class="card-levels" id="levels-mc8">
-              <div class="level-btn" onclick="selectLevel('mc8', 12, 'Silla x1 – Nivel 1', '20 min', this)"><span><span class="level-badge badge-1">1</span>Limpieza ligera <span class="level-desc">Uso habitual</span></span><span class="level-price">12€</span></div>
-              <div class="level-btn" onclick="selectLevel('mc8', 15, 'Silla x1 – Nivel 2', '20 min', this)"><span><span class="level-badge badge-2">2</span>Limpieza estándar <span class="level-desc">Manchas visibles</span></span><span class="level-price">15€</span></div>
-              <div class="level-btn" onclick="selectLevel('mc8', 18, 'Silla x1 – Nivel 3', '30 min', this)"><span><span class="level-badge badge-3">3</span>Limpieza profunda <span class="level-desc">Manchas antiguas</span></span><span class="level-price">18€</span></div>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="pack-promo">
-          <i class="bi bi-tag-fill"></i>
-          <div>
-            <strong>Pack Promocional: Sofá + Alfombra</strong>
-            <span>Combina sofá y alfombra y obtén un 15% de descuento en el total</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Summary -->
-      <div class="col-lg-5 reveal">
-        <div class="calc-summary">
-          <h4><i class="bi bi-receipt me-2"></i>Tu Presupuesto</h4>
-          <div id="mainCalcItems">
-            <p style="opacity:0.6;font-size:0.9rem;text-align:center;padding:20px 0;">Selecciona servicios para ver el resumen</p>
-          </div>
-          <div class="calc-summary-total">
-            <span class="label">Total estimado</span>
-            <span class="amount" id="mainTotal">0€</span>
-          </div>
-          <p class="calc-note">* Precio orientativo. Confirmación final tras revisión de fotos por WhatsApp. Pack Sofá + Alfombra incluye 15% descuento.</p>
-          <a href="#" id="mainWaBtn" class="btn-wa-full" onclick="openMainWA(event)">
-            <i class="bi bi-whatsapp"></i> Reservar Ahora por WhatsApp
-          </a>
-        </div>
-      </div>
     </div>
   </div>
 </section>

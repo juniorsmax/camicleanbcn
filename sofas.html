@@ -397,7 +397,7 @@
   <div class="hero-overlay"></div>
   <div class="container pt-0 pb-5">
     <div class="row align-items-center g-5">
-      <div class="col-lg-6">
+      <div class="col-lg-8">
         <h1 class="hero-title" data-i18n="hero-sofas-h1">Limpieza Profesional de <span class="highlight">Sofás</span> en Barcelona</h1>
         <p class="hero-subtitle" data-i18n="hero-sofas-sub">Eliminamos manchas, ácaros y olores con tecnología de inyección-extracción a 70°C. Resultados garantizados o te devolvemos el dinero.</p>
         <div class="hero-badge mb-3"><i class="bi bi-award-fill"></i> Especialistas en sofás · Barcelona</div>
@@ -414,134 +414,6 @@
         <div class="d-flex flex-wrap gap-3">
           <a href="#calculadora" class="btn-hero-primary"><i class="bi bi-calculator"></i> Calcular precio</a>
           <a href="https://wa.me/34631171537?text=Hola%2C%20quiero%20limpiar%20mi%20sof%C3%A1" target="_blank" class="btn-hero-wa"><i class="bi bi-whatsapp"></i> WhatsApp</a>
-        </div>
-      </div>
-      <div class="col-lg-5 offset-lg-1">
-        <div class="hero-calc-card">
-          <h4><i class="bi bi-calculator me-2" style="color:var(--accent);"></i>Precio aproximado</h4>
-          <p>Selecciona tu sofá para ver el coste</p>
-          <div id="heroCalcOptions">
-            <div class="calc-option" onclick="toggleHeroCalc(this, 55)">
-              <input type="checkbox" id="hc1" value="55" />
-              <label for="hc1">Sofá 2 plazas</label>
-              <span class="price-tag">55€</span>
-            </div>
-            <div class="calc-option" onclick="toggleHeroCalc(this, 70)">
-              <input type="checkbox" id="hc2" value="70" />
-              <label for="hc2">Sofá 3 plazas</label>
-              <span class="price-tag">70€</span>
-            </div>
-            <div class="calc-option" onclick="toggleHeroCalc(this, 90)">
-              <input type="checkbox" id="hc3" value="90" />
-              <label for="hc3">Sofá rinconera</label>
-              <span class="price-tag">90€</span>
-            </div>
-            <div class="calc-option" onclick="toggleHeroCalc(this, 50)">
-              <input type="checkbox" id="hc4" value="50" />
-              <label for="hc4">Sillón individual</label>
-              <span class="price-tag">50€</span>
-            </div>
-            <!-- PROMO CRUZADA -->
-            <div class="calc-option" onclick="toggleHeroCalc(this, 50)" style="border-color:#f59e0b;background:#fffbf0;">
-              <input type="checkbox" id="hc5" value="50" />
-              <label for="hc5" style="color:#92400e;"><i class="bi bi-tag-fill me-1" style="color:#f59e0b;"></i>+ Colchón (promo)</label>
-              <span class="price-tag" style="color:#92400e;">50€</span>
-            </div>
-          </div>
-          <div class="calc-total-box">
-            <span class="total-label">Total estimado</span>
-            <span class="total-amount" id="heroTotal">0€</span>
-          </div>
-          <a href="#" id="heroWaBtn" class="btn-calc-wa" onclick="openHeroWA(event)">
-            <i class="bi bi-whatsapp"></i> Reservar por WhatsApp
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- TRUST BAR -->
-<div id="trust-bar">
-  <div class="container">
-    <div class="row g-3 justify-content-center text-center">
-      <div class="col-6 col-md-3"><div class="trust-item justify-content-center"><i class="bi bi-star-fill"></i><span>+500 sofás limpiados</span></div></div>
-      <div class="col-6 col-md-3"><div class="trust-item justify-content-center"><i class="bi bi-shield-fill-check"></i><span>Garantía de satisfacción</span></div></div>
-      <div class="col-6 col-md-3"><div class="trust-item justify-content-center"><i class="bi bi-clock"></i><span>Cita en 24h</span></div></div>
-      <div class="col-6 col-md-3"><div class="trust-item justify-content-center"><i class="bi bi-geo-alt-fill"></i><span>Servicio a domicilio</span></div></div>
-    </div>
-  </div>
-</div>
-
-<!-- RESULTADOS INSTANTÁNEOS -->
-<section id="resultados">
-  <div class="container">
-    <div class="text-center mb-5 reveal">
-      <span class="section-label">Resultados reales</span>
-      <h2 class="section-title">Resultados Instantáneos</h2>
-      <div class="section-divider"></div>
-      <p class="section-subtitle">Arrastra el divisor para comparar el antes y el después</p>
-    </div>
-    <div class="comparison-wrapper reveal" id="slider1">
-      <div class="img-after">
-        <img src="images/sofa-despues.png" alt="Después de la limpieza" loading="lazy" />
-      </div>
-      <div class="img-before">
-        <img src="images/sofa-antes.png" alt="Antes de la limpieza" loading="lazy" />
-      </div>
-      <div class="comparison-handle" id="handle1">
-        <div class="comparison-btn"><i class="bi bi-chevron-left"></i><i class="bi bi-chevron-right"></i></div>
-      </div>
-      <span class="comparison-label label-antes">ANTES</span>
-      <span class="comparison-label label-despues">DESPUÉS</span>
-    </div>
-  </div>
-</section>
-
-<!-- GALERÍA -->
-<section id="galeria">
-  <div class="container">
-    <div class="text-center mb-5 reveal">
-      <span class="section-label">Antes y después</span>
-      <h2 class="section-title" style="color:#fff;">Resultados en Sofás</h2>
-      <div class="section-divider"></div>
-      <p class="section-subtitle">Fotografías reales de trabajos realizados en Barcelona</p>
-    </div>
-    <div class="row g-4">
-      <div class="col-md-6 col-lg-4 reveal">
-        <div class="gallery-item gallery-item-featured">
-          <img src="images/sofa-despues.png" alt="Sofá rinconera limpio" loading="lazy" />
-          <div class="gallery-caption"><i class="bi bi-check-circle-fill me-2"></i>Rinconera — Resultado final</div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4 reveal">
-        <div class="gallery-item gallery-item-featured">
-          <img src="images/sofa-rinconera-limpio2.jpg" alt="Sofá limpio resultado" loading="lazy" />
-          <div class="gallery-caption"><i class="bi bi-check-circle-fill me-2"></i>Sofá 3 plazas — Sin manchas</div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4 reveal">
-        <div class="gallery-item gallery-item-featured">
-          <img src="images/sofa-detalle-limpio.jpg" alt="Detalle sofá limpio" loading="lazy" />
-          <div class="gallery-caption"><i class="bi bi-check-circle-fill me-2"></i>Detalle de tejido restaurado</div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4 reveal">
-        <div class="gallery-item gallery-item-featured">
-          <img src="images/tecnico-limpiando-sofa1.jpg" alt="Técnico limpiando sofá" loading="lazy" />
-          <div class="gallery-caption"><i class="bi bi-tools me-2"></i>Proceso de inyección-extracción</div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4 reveal">
-        <div class="gallery-item gallery-item-featured">
-          <img src="images/tecnico-limpiando-sofa2.jpg" alt="Limpieza profesional sofá" loading="lazy" />
-          <div class="gallery-caption"><i class="bi bi-tools me-2"></i>Equipo profesional a domicilio</div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4 reveal">
-        <div class="gallery-item gallery-item-featured">
-          <img src="images/sofa-rinconera-despues2.png" alt="Rinconera después de la limpieza" loading="lazy" />
-          <div class="gallery-caption"><i class="bi bi-check-circle-fill me-2"></i>Rinconera — Después</div>
         </div>
       </div>
     </div>
@@ -734,6 +606,93 @@
           <a href="#" id="mainWaBtn" class="btn-wa-full" onclick="openMainWA(event)">
             <i class="bi bi-whatsapp"></i> Reservar por WhatsApp
           </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div id="trust-bar">
+  <div class="container">
+    <div class="row g-3 justify-content-center text-center">
+      <div class="col-6 col-md-3"><div class="trust-item justify-content-center"><i class="bi bi-star-fill"></i><span>+500 sofás limpiados</span></div></div>
+      <div class="col-6 col-md-3"><div class="trust-item justify-content-center"><i class="bi bi-shield-fill-check"></i><span>Garantía de satisfacción</span></div></div>
+      <div class="col-6 col-md-3"><div class="trust-item justify-content-center"><i class="bi bi-clock"></i><span>Cita en 24h</span></div></div>
+      <div class="col-6 col-md-3"><div class="trust-item justify-content-center"><i class="bi bi-geo-alt-fill"></i><span>Servicio a domicilio</span></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- RESULTADOS INSTANTÁNEOS -->
+<section id="resultados">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <span class="section-label">Resultados reales</span>
+      <h2 class="section-title">Resultados Instantáneos</h2>
+      <div class="section-divider"></div>
+      <p class="section-subtitle">Arrastra el divisor para comparar el antes y el después</p>
+    </div>
+    <div class="comparison-wrapper reveal" id="slider1">
+      <div class="img-after">
+        <img src="images/sofa-despues.png" alt="Después de la limpieza" loading="lazy" />
+      </div>
+      <div class="img-before">
+        <img src="images/sofa-antes.png" alt="Antes de la limpieza" loading="lazy" />
+      </div>
+      <div class="comparison-handle" id="handle1">
+        <div class="comparison-btn"><i class="bi bi-chevron-left"></i><i class="bi bi-chevron-right"></i></div>
+      </div>
+      <span class="comparison-label label-antes">ANTES</span>
+      <span class="comparison-label label-despues">DESPUÉS</span>
+    </div>
+  </div>
+</section>
+
+<!-- GALERÍA -->
+<section id="galeria">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <span class="section-label">Antes y después</span>
+      <h2 class="section-title" style="color:#fff;">Resultados en Sofás</h2>
+      <div class="section-divider"></div>
+      <p class="section-subtitle">Fotografías reales de trabajos realizados en Barcelona</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="gallery-item gallery-item-featured">
+          <img src="images/sofa-despues.png" alt="Sofá rinconera limpio" loading="lazy" />
+          <div class="gallery-caption"><i class="bi bi-check-circle-fill me-2"></i>Rinconera — Resultado final</div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="gallery-item gallery-item-featured">
+          <img src="images/sofa-rinconera-limpio2.jpg" alt="Sofá limpio resultado" loading="lazy" />
+          <div class="gallery-caption"><i class="bi bi-check-circle-fill me-2"></i>Sofá 3 plazas — Sin manchas</div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="gallery-item gallery-item-featured">
+          <img src="images/sofa-detalle-limpio.jpg" alt="Detalle sofá limpio" loading="lazy" />
+          <div class="gallery-caption"><i class="bi bi-check-circle-fill me-2"></i>Detalle de tejido restaurado</div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="gallery-item gallery-item-featured">
+          <img src="images/tecnico-limpiando-sofa1.jpg" alt="Técnico limpiando sofá" loading="lazy" />
+          <div class="gallery-caption"><i class="bi bi-tools me-2"></i>Proceso de inyección-extracción</div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="gallery-item gallery-item-featured">
+          <img src="images/tecnico-limpiando-sofa2.jpg" alt="Limpieza profesional sofá" loading="lazy" />
+          <div class="gallery-caption"><i class="bi bi-tools me-2"></i>Equipo profesional a domicilio</div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="gallery-item gallery-item-featured">
+          <img src="images/sofa-rinconera-despues2.png" alt="Rinconera después de la limpieza" loading="lazy" />
+          <div class="gallery-caption"><i class="bi bi-check-circle-fill me-2"></i>Rinconera — Después</div>
         </div>
       </div>
     </div>
