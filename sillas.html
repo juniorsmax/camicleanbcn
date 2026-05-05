@@ -294,6 +294,15 @@
       .lang-btn { font-size:1.2rem; width:28px; height:20px; }
       .lang-btn img { width:24px; height:16px; }
     }
+
+    /* RESULTADOS HERO RESPONSIVO */
+    .hero-resultados { margin: 16px 0; }
+    .hero-resultados .section-label { background: rgba(255,255,255,0.15); color: #fff; }
+    .hero-resultados .section-title { color: #fff; font-size: 1.4rem; }
+    .hero-resultados .section-divider { background: var(--accent); margin: 10px auto; }
+    .hero-resultados .section-subtitle { color: rgba(255,255,255,0.8); font-size: 0.85rem; }
+    @media (min-width: 992px) { .hero-resultados { display: none; } .resultados-desktop { display: block; } }
+    @media (max-width: 991px) { .hero-resultados { display: block; } .resultados-desktop { display: none; } }
   </style>
 </head>
 <body>
@@ -338,6 +347,20 @@
         <h1 class="hero-title">Limpieza Profesional de <span class="highlight">Sillas</span> en Barcelona</h1>
         <p class="hero-subtitle">Sillas de comedor, sillas de oficina y cualquier tapizado. Eliminamos manchas de comida, grasa y bacterias. Resultado garantizado desde 12€ por silla.</p>
         <div class="hero-badge mb-3"><i class="bi bi-award-fill"></i> Especialistas en sillas · Barcelona</div>
+
+        <!-- Resultados reales (solo móvil) -->
+        <div class="hero-resultados">
+          <div class="text-center mb-3 mt-3">
+            <span class="section-label">Resultados reales</span>
+            <h2 class="section-title">Resultados Instantáneos</h2>
+            <div class="section-divider"></div>
+            <p class="section-subtitle">Resultado real de limpieza profesional de sillas en Barcelona</p>
+          </div>
+          <div style="border-radius:16px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.3);margin-bottom:16px;">
+            <img src="images/sillas-comedor.jpg" alt="Sillas después de la limpieza" loading="lazy" style="width:100%;height:260px;object-fit:cover;display:block;" />
+          </div>
+        </div>
+
         <div class="lgbtq-badge mb-3">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" style="flex-shrink:0;"><defs><linearGradient id="rg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#FF0018"/><stop offset="20%" stop-color="#FFA52C"/><stop offset="40%" stop-color="#FFFF41"/><stop offset="60%" stop-color="#008018"/><stop offset="80%" stop-color="#0000F9"/><stop offset="100%" stop-color="#86007D"/></linearGradient></defs><path d="M12 21.593c-5.63-5.539-11-10.297-11-14.402 0-3.791 3.068-5.191 5.281-5.191 1.312 0 4.151.501 5.719 4.457 1.59-3.968 4.464-4.447 5.726-4.447 2.54 0 5.274 1.621 5.274 5.181 0 4.069-5.136 8.625-11 14.402z" fill="url(#rg)"/></svg>
           Amigable con LGBTQ+
@@ -403,8 +426,8 @@
   </div>
 </div>
 
-<!-- RESULTADOS INSTANTÁNEOS -->
-<section id="resultados">
+<!-- RESULTADOS INSTANTÁNEOS — solo escritorio -->
+<section id="resultados" class="resultados-desktop">
   <div class="container">
     <div class="text-center mb-5 reveal">
       <span class="section-label">Resultados reales</span>
