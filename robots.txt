@@ -1,0 +1,66 @@
+# robots.txt – CamiClean BCN
+# www.camicleanbcn.com
+
+# ── Motores de búsqueda permitidos ──────────────────────────────
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+# ── Bots maliciosos / scrapers bloqueados ────────────────────────
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: ia_archiver
+Disallow: /
+
+User-agent: Majestic
+Disallow: /
+
+User-agent: DataForSeoBot
+Disallow: /
+
+User-agent: PetalBot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+# ── Regla por defecto (otros bots desconocidos) ──────────────────
+User-agent: *
+Disallow: /images/
+Crawl-delay: 10
+
+# ── Sitemap ──────────────────────────────────────────────────────
+Sitemap: https://www.camicleanbcn.com/sitemap.xml

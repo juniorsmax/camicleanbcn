@@ -1,0 +1,58 @@
+# .htaccess – CamiClean BCN (Hostinger)
+# www.camicleanbcn.com
+
+Options -Indexes
+
+# ── HTTPS forzado ────────────────────────────────────────────────
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# ── www canónico ─────────────────────────────────────────────────
+RewriteCond %{HTTP_HOST} !^www\. [NC]
+RewriteRule ^ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# ── URLs limpias (sin .html) ─────────────────────────────────────
+RewriteRule ^limpieza-sofas-barcelona/?$       sofas.html      [L]
+RewriteRule ^limpieza-colchones-barcelona/?$   colchones.html  [L]
+RewriteRule ^limpieza-alfombras-barcelona/?$   alfombras.html  [L]
+RewriteRule ^limpieza-sillas-barcelona/?$      sillas.html     [L]
+RewriteRule ^proceso-limpieza-bacterias/?$     proceso.html    [L]
+
+# ── Bloquear bots scrapers por User-Agent ────────────────────────
+RewriteCond %{HTTP_USER_AGENT} (AhrefsBot|SemrushBot|MJ12bot|DotBot|ia_archiver|DataForSeoBot|PetalBot|Bytespider|CCBot|GPTBot|ClaudeBot|anthropic-ai) [NC]
+RewriteRule .* - [F,L]
+
+# ── Cabeceras de seguridad ───────────────────────────────────────
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set X-XSS-Protection "1; mode=block"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  Header set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+</IfModule>
+
+# ── Caché de recursos estáticos ──────────────────────────────────
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpg  "access plus 1 month"
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType image/png  "access plus 1 month"
+  ExpiresByType image/webp "access plus 1 month"
+  ExpiresByType text/css   "access plus 1 week"
+  ExpiresByType application/javascript "access plus 1 week"
+</IfModule>
+
+# ── Comprimir archivos ───────────────────────────────────────────
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript
+</IfModule>
+
+# ── Proteger archivos sensibles ──────────────────────────────────
+<FilesMatch "(robots\.txt|sitemap\.xml)$">
+  Allow from all
+</FilesMatch>
+<FilesMatch "\.(htaccess|htpasswd|ini|log|sh)$">
+  Order Allow,Deny
+  Deny from all
+</FilesMatch>
