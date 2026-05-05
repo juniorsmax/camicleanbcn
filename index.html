@@ -2015,9 +2015,21 @@
         </div>
       </div>
       <div class="col-md-4 reveal">
-        <div class="gallery-item gallery-item-featured">
-          <img src="images/limpieza-media.jpg" alt="Limpieza media de sofá - Antes y Después" loading="lazy" />
-          <div class="gallery-caption"><i class="bi bi-arrow-left-right me-2"></i>Limpieza Media · Sofá Gris</div>
+        <div class="gallery-item gallery-item-featured" style="overflow:hidden;">
+          <div class="comparison-wrapper gallery-slider" id="slider-gris">
+            <div class="img-after">
+              <img src="images/sofa-gris-despues.jpg" alt="Sofá gris después de la limpieza" loading="lazy" />
+            </div>
+            <div class="img-before">
+              <img src="images/sofa-gris-antes.jpg" alt="Sofá gris antes de la limpieza" loading="lazy" />
+            </div>
+            <div class="comparison-handle" id="handle-gris">
+              <div class="comparison-btn"><i class="bi bi-chevron-left"></i><i class="bi bi-chevron-right"></i></div>
+            </div>
+            <span class="comparison-label label-antes">ANTES</span>
+            <span class="comparison-label label-despues">DESPUÉS</span>
+          </div>
+          <div class="gallery-caption"><i class="bi bi-arrow-left-right me-2"></i>Antes &amp; Después · Sofá Gris</div>
         </div>
       </div>
       <div class="col-md-4 reveal">
@@ -2810,6 +2822,7 @@
   initSlider('slider1-desktop', 'handle1-desktop');
   initSlider('slider-oscuro', 'handle-oscuro');
   initSlider('slider-sofacama', 'handle-sofacama');
+  initSlider('slider-gris', 'handle-gris');
 
   /* =============================================
      GALLERY FILTER
