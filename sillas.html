@@ -580,8 +580,18 @@
       <div class="section-divider"></div>
       <p class="section-subtitle">Resultado real de limpieza profesional de sillas en Barcelona</p>
     </div>
-    <div style="max-width:780px;margin:0 auto;border-radius:20px;overflow:hidden;box-shadow:var(--shadow-lg);">
-      <img src="images/sillas-comedor.jpg" alt="Sillas después de la limpieza" loading="lazy" style="width:100%;height:480px;object-fit:cover;display:block;" />
+    <div class="comparison-wrapper reveal" id="slider1">
+      <div class="img-after">
+        <img src="images/sillas-comedor.jpg" alt="Sillas después de la limpieza" loading="lazy" />
+      </div>
+      <div class="img-before">
+        <img src="images/silla-sucia.jpg" alt="Sillas antes de la limpieza" loading="lazy" />
+      </div>
+      <div class="comparison-handle" id="handle1">
+        <div class="comparison-btn"><i class="bi bi-chevron-left"></i><i class="bi bi-chevron-right"></i></div>
+      </div>
+      <span class="comparison-label label-antes">ANTES</span>
+      <span class="comparison-label label-despues">DESPUÉS</span>
     </div>
   </div>
 </section>
@@ -596,9 +606,21 @@
     </div>
     <div class="row g-4">
       <div class="col-md-6 col-lg-4 reveal">
-        <div class="gallery-item gallery-item-featured">
-          <img src="images/sillas-comedor.jpg" alt="Sillas de comedor limpias" loading="lazy" />
-          <div class="gallery-caption"><i class="bi bi-check-circle-fill me-2"></i>Set de comedor — Resultado</div>
+        <div class="gallery-item gallery-item-featured" style="overflow:hidden;">
+          <div class="comparison-wrapper gallery-item-featured" id="slider-sillas-galeria">
+            <div class="img-after">
+              <img src="images/sillas-comedor.jpg" alt="Sillas de comedor limpias" loading="lazy" />
+            </div>
+            <div class="img-before">
+              <img src="images/silla-sucia.jpg" alt="Sillas de comedor sucias" loading="lazy" />
+            </div>
+            <div class="comparison-handle" id="handle-sillas-galeria">
+              <div class="comparison-btn"><i class="bi bi-chevron-left"></i><i class="bi bi-chevron-right"></i></div>
+            </div>
+            <span class="comparison-label label-antes">ANTES</span>
+            <span class="comparison-label label-despues">DESPUÉS</span>
+          </div>
+          <div class="gallery-caption"><i class="bi bi-arrow-left-right me-2"></i>Antes &amp; Después · Set de Comedor</div>
         </div>
       </div>
       <div class="col-md-6 col-lg-4 reveal">
@@ -969,6 +991,8 @@
     document.addEventListener('touchend', () => dragging = false);
     document.addEventListener('touchmove', e => { if (dragging) setPos(e.touches[0].clientX); }, { passive: true });
   }
+  initSlider('slider1', 'handle1');
+  initSlider('slider-sillas-galeria', 'handle-sillas-galeria');
   const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}}),{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
   document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
   window.addEventListener('scroll',()=>{document.querySelector('.navbar').style.boxShadow=window.scrollY>50?'0 4px 24px rgba(26,58,92,0.15)':'0 2px 16px rgba(26,58,92,0.08)';});
