@@ -62,5 +62,12 @@ User-agent: *
 Disallow: /images/
 Crawl-delay: 10
 
+# ── Páginas de políticas (no indexar) ───────────────────────────
+User-agent: *
+Disallow: /politica-privacidad
+Disallow: /aviso-legal
+Disallow: /politica-cookies
+Disallow: /terminos-condiciones
+
 # ── Sitemap ──────────────────────────────────────────────────────
 Sitemap: https://www.camicleanbcn.com/sitemap.xml
